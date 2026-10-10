@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#0E0F0C"/>
+  <circle cx="560" cy="290" r="150" fill="#3BE37A"/><path d="M430 200 L460 90 L520 160Z M600 160 L660 90 L690 200Z" fill="#3BE37A"/><circle cx="510" cy="280" r="18" fill="#0E0F0C"/><circle cx="610" cy="280" r="18" fill="#0E0F0C"/>
+  <text x="48" y="552" font-family="system-ui, sans-serif" font-size="44" font-weight="800" fill="#3BE37A">Cathead</text>
+  <text x="48" y="80" font-family="ui-monospace, monospace" font-size="20" fill="#3BE37A" opacity="0.7">PLACEHOLDER: SWAP ME</text>
+</svg>

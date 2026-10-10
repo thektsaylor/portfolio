@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#F6F7F2"/>
+  <rect x="420" y="330" width="60" height="140" fill="#0E0F0C"/><rect x="500" y="260" width="60" height="210" fill="#0E0F0C"/><rect x="580" y="180" width="60" height="290" fill="#3BE37A"/><rect x="660" y="110" width="60" height="360" fill="#0E0F0C"/><path d="M400 300 L540 220 L610 160 L740 80" stroke="#3BE37A" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <text x="48" y="552" font-family="system-ui, sans-serif" font-size="44" font-weight="800" fill="#0E0F0C">SEO data</text>
+  <text x="48" y="80" font-family="ui-monospace, monospace" font-size="20" fill="#0E0F0C" opacity="0.7">PLACEHOLDER: SWAP ME</text>
+</svg>
