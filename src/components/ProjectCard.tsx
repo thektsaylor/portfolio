@@ -48,7 +48,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
                 alt={shot.alt}
                 fill
                 sizes="(min-width: 640px) 12vw, 25vw"
-                className="object-cover transition duration-500 hover:scale-105"
+                className="object-cover object-top transition duration-500 hover:scale-105"
               />
             </a>
           ))}

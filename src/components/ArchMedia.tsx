@@ -52,8 +52,12 @@ export function ArchMedia({ children, className = "" }: { children: React.ReactN
 
   return (
     <div ref={ref} data-arch={phase} className={className}>
-      <div className="arch-zoom absolute inset-0">
-        <div className="arch-drift absolute inset-0">{children}</div>
+      {/* The wipe clips this inner layer, not the observed frame: a fully clipped
+          target never reports as intersecting, so it would never reveal. */}
+      <div className="arch-clip absolute inset-0">
+        <div className="arch-zoom absolute inset-0">
+          <div className="arch-drift absolute inset-0">{children}</div>
+        </div>
       </div>
     </div>
   );

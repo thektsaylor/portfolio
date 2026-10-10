@@ -15,7 +15,6 @@ export const site = {
   email: "",
   links: {
     linkedin: "https://www.linkedin.com/in/thektsaylor",
-    instagram: "https://www.instagram.com/YOUR-HANDLE",
     catheadInstagram: "https://www.instagram.com/cathead.biscuits",
     github: "https://github.com/thektsaylor",
   },
