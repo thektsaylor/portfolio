@@ -14,7 +14,7 @@ export const site = {
   // Leave email empty to hide it from the site.
   email: "",
   links: {
-    linkedin: "https://www.linkedin.com/in/YOUR-HANDLE",
+    linkedin: "https://www.linkedin.com/in/thektsaylor",
     instagram: "https://www.instagram.com/YOUR-HANDLE",
     catheadInstagram: "https://www.instagram.com/cathead.biscuits",
     github: "https://github.com/thektsaylor",
