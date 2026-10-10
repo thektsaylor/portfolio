@@ -1,4 +1,5 @@
 import { nowItems, site, skills } from "@/content/site";
+import { Collage } from "./Collage";
 import { SectionHead } from "./SectionHead";
 
 export function About() {
@@ -6,7 +7,8 @@ export function About() {
     <section id="about" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-20 sm:px-8 sm:py-28">
       <SectionHead index="02" title="About" />
       <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
-        <div className="space-y-8 text-sm">
+        <div className="space-y-10 text-sm">
+          <Collage />
           <div>
             <p className="mb-3 text-xs tracking-[0.2em] text-muted uppercase">Right now</p>
             <ul className="space-y-2">

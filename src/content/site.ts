@@ -45,27 +45,24 @@ export const experience = [
   },
   {
     years: "2020 – 2025",
-    role: "Graphic Designer",
-    org: "Freelance · Remote",
-    summary: "Design work for clients in Adobe Creative Suite and Canva.",
+    role: "Freelance Design & Technical Support",
+    org: "Self-employed · Remote",
+    summary:
+      "Designed logos, graphics, and branded materials for small business clients, plus virtual assistant support with social media, scheduling, research, and Zapier automations.",
   },
   {
-    years: "2020 – 2025",
-    role: "Virtual Assistant",
-    org: "Freelance · Remote",
-    summary: "Administrative support and workflow automation with Zapier.",
-  },
-  {
-    years: "2017 – 2019",
-    role: "Creative Director",
-    org: "CatHead Biscuits",
-    summary: "Built the brand from the logo up: menus, truck graphics, photography, and Instagram.",
+    years: "2016 – 2019",
+    role: "Owner & Creative Director",
+    org: "CatHead Biscuits · Fayetteville, AR",
+    summary:
+      "Built a food truck brand from the logo up: menus, truck graphics, photography, and an Instagram grown from scratch. Ran marketing, budgeting, vendors, staffing, and event client consultations.",
   },
   {
     years: "2012 – 2019",
-    role: "Director of Catering",
-    org: "Arsaga's Cafe · Fayetteville, AR",
-    summary: "",
+    role: "Catering Director",
+    org: "Arsaga's at the Depot · Fayetteville, AR",
+    summary:
+      "Led client-facing catering from first inquiry through event day: custom menus, proposals and contracts, booking calendars, and coordinating staff and vendors.",
   },
 ];
 
@@ -78,9 +75,24 @@ export const education = [
       "Emphasis in AI & Machine Learning, minors in Psychology and Marketing. 4.0 GPA. Coursework in statistical modeling, data visualization, predictive analytics, and UX.",
   },
   {
+    years: "Certificate",
+    role: "Google UX Design Professional Certificate",
+    org: "Google",
+    summary: "",
+  },
+  {
     years: "2012 – 2014",
     role: "Associate of Arts and Sciences, STEM",
     org: "NorthWest Arkansas Community College",
     summary: "",
   },
+];
+
+// Polaroid collage in the About section. Three or four photos look best.
+// Swap these for personal shots (hobbies, pets, places, your desk) any time.
+export const collage = [
+  { src: "/projects/cathead-truck.webp", alt: "The CatHead Biscuits food truck", caption: "the truck" },
+  { src: "/projects/fiberglass-demo-poster.webp", alt: "Fiberglass app splash screen", caption: "fiberglass" },
+  { src: "/projects/cathead-stamp.webp", alt: "Hand-stamped CatHead logo", caption: "hand-stamped" },
+  { src: "/projects/cathead-menus.webp", alt: "A stack of CatHead menus", caption: "menus" },
 ];

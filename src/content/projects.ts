@@ -13,6 +13,9 @@ export type Project = {
   gallery?: { src: string; alt: string }[];
   // Give real photos the warm film finish. Leave off for screenshots and mockups.
   film?: boolean;
+  // A screen recording to play inside a phone mockup instead of the still image.
+  // Give an .mp4 (Safari, Chrome) and a .webm fallback (Chromium, some Firefox builds).
+  video?: { mp4: string; webm: string; poster: string };
 };
 
 // Order here is the order on the page. Put your strongest work first.
@@ -20,9 +23,9 @@ export const projects: Project[] = [
   {
     title: "CatHead Biscuits",
     category: "Branding",
-    year: "2017 – 2019",
+    year: "2016 – 2019",
     summary:
-      "As Creative Director, I built the brand for a biscuit food truck from the logo up: the sleepy-eyed cat, the menus, and the truck graphics, plus the photos and the Instagram.",
+      "As owner and creative director, I built the brand for my biscuit food truck from the logo up: the sleepy-eyed cat, the menus, and the truck graphics, plus the photos and the Instagram.",
     tools: ["Logo design", "Menu design", "Vehicle graphics", "Photography", "Instagram"],
     image: "/projects/cathead-clipboard.webp",
     film: true,
@@ -41,7 +44,12 @@ export const projects: Project[] = [
     summary:
       "A class project app for a company that checks the fiber makeup of clothing. Scan a tag's barcode to get a breakdown of what a garment is really made of, plus a durability score, cost per wear, and a digital closet to keep track of it all.",
     tools: ["Figma", "Prototyping", "UX/UI design"],
-    image: "/projects/fiberglass.webp",
+    image: "/projects/fiberglass-demo-poster.webp",
+    video: {
+      mp4: "/projects/fiberglass-demo.mp4",
+      webm: "/projects/fiberglass-demo.webm",
+      poster: "/projects/fiberglass-demo-poster.webp",
+    },
     links: [
       {
         label: "Open prototype",
