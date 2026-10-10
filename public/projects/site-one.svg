@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-  <rect width="800" height="600" fill="#0E0F0C"/>
-  <rect x="360" y="90" width="380" height="300" rx="16" fill="#F6F7F2"/><rect x="360" y="90" width="380" height="36" rx="16" fill="#3BE37A"/><rect x="390" y="160" width="200" height="28" rx="6" fill="#0E0F0C"/><rect x="390" y="210" width="310" height="14" rx="6" fill="#0E0F0C" opacity="0.3"/><rect x="390" y="236" width="270" height="14" rx="6" fill="#0E0F0C" opacity="0.3"/>
-  <text x="48" y="552" font-family="system-ui, sans-serif" font-size="44" font-weight="800" fill="#F6F7F2">Website one</text>
-  <text x="48" y="80" font-family="ui-monospace, monospace" font-size="20" fill="#F6F7F2" opacity="0.7">PLACEHOLDER: SWAP ME</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 960">
+  <rect width="800" height="960" fill="#D9A441"/>
+  <rect x="180" y="260" width="440" height="420" rx="24" fill="#F6EFE2" stroke="#2E2219" stroke-width="6"/><rect x="180" y="260" width="440" height="50" rx="20" fill="#2E2219"/><rect x="220" y="360" width="240" height="34" rx="8" fill="#C8643B"/><rect x="220" y="420" width="350" height="16" rx="8" fill="#2E2219" opacity="0.3"/><rect x="220" y="452" width="300" height="16" rx="8" fill="#2E2219" opacity="0.3"/><rect x="220" y="560" width="160" height="50" rx="25" fill="#6FBF73"/>
+  <text x="400" y="840" text-anchor="middle" font-family="system-ui, sans-serif" font-size="52" font-weight="800" fill="#2E2219">Website one</text>
+  <text x="400" y="890" text-anchor="middle" font-family="ui-monospace, monospace" font-size="22" fill="#2E2219" opacity="0.6">placeholder: swap me</text>
 </svg>

@@ -14,7 +14,7 @@ export function Work() {
     <section id="work" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-20 sm:px-8 sm:py-28">
       <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <h2 className="font-display text-5xl font-extrabold tracking-tight sm:text-6xl">
-          Selected work<span className="text-lime">.</span>
+          Selected work<span className="text-terracotta">.</span>
         </h2>
         <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects">
           {filters.map((f) => (
@@ -24,7 +24,7 @@ export function Work() {
               onClick={() => setActive(f)}
               aria-pressed={active === f}
               className={`rounded-full border-2 border-ink px-4 py-1.5 text-sm font-semibold transition ${
-                active === f ? "bg-ink text-paper" : "bg-white hover:bg-lime"
+                active === f ? "bg-ink text-paper" : "bg-paper hover:bg-leaf"
               }`}
             >
               {f}
