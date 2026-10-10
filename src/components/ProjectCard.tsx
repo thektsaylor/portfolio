@@ -4,7 +4,9 @@ import type { Project } from "@/content/projects";
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <article className="group">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-t-[999px] bg-sand">
+      <div
+        className={`relative aspect-[4/5] overflow-hidden rounded-t-[999px] bg-sand ${project.film ? "film" : ""}`}
+      >
         <Image
           src={project.image}
           alt={`${project.title} preview`}
@@ -24,7 +26,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
               href={shot.src}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative aspect-square overflow-hidden rounded-2xl bg-sand"
+              className={`relative aspect-square overflow-hidden rounded-2xl bg-sand ${project.film ? "film" : ""}`}
             >
               <Image
                 src={shot.src}
@@ -45,7 +47,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         </span>
         <span>{project.year}</span>
       </div>
-      <h3 className="mt-4 font-display text-3xl font-extrabold tracking-tight">{project.title}</h3>
+      <h3 className="mt-4 font-display text-3xl font-extrabold tracking-[-0.035em]">{project.title}</h3>
       <p className="mt-3 max-w-md leading-relaxed text-muted">{project.summary}</p>
       <p className="mt-3 text-sm text-muted">{project.tools.join(" · ")}</p>
       {project.links.length > 0 && (

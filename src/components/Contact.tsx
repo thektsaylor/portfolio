@@ -14,11 +14,11 @@ export function Contact() {
       <Wave className="absolute -top-[39px] left-0 h-10 w-full text-ink" />
       <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
         <p className="text-xs tracking-[0.2em] text-paper/50 uppercase">
-          <span className="text-leaf">03</span>
+          <span className="text-leaf">04</span>
           <span className="mx-2">/</span>
           Contact
         </p>
-        <h2 className="mt-8 font-display text-6xl leading-[0.95] font-extrabold tracking-tight sm:text-8xl">
+        <h2 className="mt-8 font-display text-6xl leading-[0.9] font-extrabold tracking-tight sm:text-8xl">
           Let&apos;s make
           <br />
           something <span className="text-leaf">good.</span>
@@ -26,7 +26,7 @@ export function Contact() {
         <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_2fr]">
           <div>
             <p className="max-w-xs text-paper/70">
-              Internships, design roles, or just talking shop.
+              Data and UX roles, or just talking shop.
             </p>
             <a
               href={site.resume}

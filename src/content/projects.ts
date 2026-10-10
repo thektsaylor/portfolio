@@ -11,6 +11,8 @@ export type Project = {
   links: { label: string; href: string }[];
   // Optional extra shots shown as a strip under the main image.
   gallery?: { src: string; alt: string }[];
+  // Give real photos the warm film finish. Leave off for screenshots and mockups.
+  film?: boolean;
 };
 
 // Order here is the order on the page. Put your strongest work first.
@@ -18,11 +20,12 @@ export const projects: Project[] = [
   {
     title: "CatHead Biscuits",
     category: "Branding",
-    year: "2026",
+    year: "2017 – 2019",
     summary:
-      "The full brand for a biscuit food truck. I designed the sleepy-eyed CatHead logo, the menus, and the truck graphics, then shot the photos and ran the Instagram.",
+      "As Creative Director, I built the brand for a biscuit food truck from the logo up: the sleepy-eyed cat, the menus, and the truck graphics, plus the photos and the Instagram.",
     tools: ["Logo design", "Menu design", "Vehicle graphics", "Photography", "Instagram"],
     image: "/projects/cathead-clipboard.webp",
+    film: true,
     links: [{ label: "View on Instagram", href: "https://www.instagram.com/cathead.biscuits" }],
     gallery: [
       { src: "/projects/cathead-logo.webp", alt: "CatHead Biscuits logo: a sleepy-eyed cat face in a circle" },
@@ -51,8 +54,8 @@ export const projects: Project[] = [
     category: "Data",
     year: "2026",
     summary:
-      "Reporting dashboards and charts that turn raw search data into something a client can read in thirty seconds. Client names and numbers anonymized.",
-    tools: ["Data visualization", "SEO", "Looker Studio"],
+      "Monthly client performance reports that pull Search Console, Analytics, and GBP Insights data into visual dashboards with written trend analysis. Client names and numbers anonymized.",
+    tools: ["Google Search Console", "Google Analytics", "GBP Insights", "Data visualization"],
     image: "/projects/seo-data.svg",
     links: [],
   },
