@@ -102,7 +102,17 @@ body::after {
   will-change: transform;
 }
 
+/* Browser mockup: scroll the screenshot top to bottom while its card is hovered */
+.site-scroll {
+  background-size: 100% auto;
+  transition: background-position 7s ease-in-out;
+}
+.group:hover .site-scroll {
+  background-position: bottom;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .site-scroll { transition: none; }
   html { scroll-behavior: auto; }
   [data-arch] .arch-drift {
     transform: none;

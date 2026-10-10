@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Project } from "@/content/projects";
 import { ArchMedia } from "./ArchMedia";
+import { BrowserMockup } from "./BrowserMockup";
 import { PhoneMockup } from "./PhoneMockup";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -8,7 +9,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
     <article className="group">
       <ArchMedia
         className={`relative aspect-[4/5] overflow-hidden rounded-t-[999px] ${
-          project.video ? "bg-[#ead9c8]" : "bg-sand"
+          project.video || project.site ? "bg-[#ead9c8]" : "bg-sand"
         } ${project.film ? "film" : ""}`}
       >
         {project.video ? (
@@ -18,6 +19,14 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
               webm={project.video.webm}
               poster={project.video.poster}
               label={`Screen recording of the ${project.title} prototype`}
+            />
+          </div>
+        ) : project.site ? (
+          <div className="absolute top-[20%] left-1/2 w-[84%] -translate-x-1/2">
+            <BrowserMockup
+              url={project.site.url}
+              screenshot={project.site.screenshot}
+              label={`Screenshot of the ${project.title} website`}
             />
           </div>
         ) : (

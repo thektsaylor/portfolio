@@ -16,6 +16,8 @@ export type Project = {
   // A screen recording to play inside a phone mockup instead of the still image.
   // Give an .mp4 (Safari, Chrome) and a .webm fallback (Chromium, some Firefox builds).
   video?: { mp4: string; webm: string; poster: string };
+  // A website shown in a browser mockup. Use a full-page (tall) screenshot.
+  site?: { url: string; screenshot: string };
 };
 
 // Order here is the order on the page. Put your strongest work first.
@@ -78,7 +80,8 @@ export const projects: Project[] = [
     summary: "A new website for Luxi Loo Rentals, launching soon at luxiloorentals.com.",
     tools: ["Web design", "Vercel"],
     image: "/projects/site-one.svg",
-    links: [],
+    site: { url: "https://luxiloorentals.com", screenshot: "/projects/site-one.svg" },
+    links: [{ label: "Visit site", href: "https://luxiloorentals.com" }],
   },
   {
     title: "Truck Hunters LLC",
@@ -87,6 +90,7 @@ export const projects: Project[] = [
     summary: "An earlier site for Truck Hunters LLC. The homepage is the highlight.",
     tools: ["Web design"],
     image: "/projects/site-two.svg",
+    site: { url: "https://www.truckhuntersllc.com", screenshot: "/projects/site-two.svg" },
     links: [{ label: "Visit homepage", href: "https://www.truckhuntersllc.com/home" }],
   },
 ];
