@@ -1,41 +1,60 @@
 import { site } from "@/content/site";
+import { Squiggle, SunLine } from "./Decor";
 
 export function Hero() {
   return (
-    <section id="top" className="mx-auto max-w-6xl px-5 pt-16 pb-20 sm:px-8 sm:pt-28 sm:pb-28">
-      <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-white px-3 py-1 text-sm font-medium text-muted">
-        <span className="h-2 w-2 rounded-full bg-lime" aria-hidden />
-        Open to internships and freelance work
-      </p>
-      <h1 className="font-display text-6xl leading-[0.95] font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
-        Hi, I&apos;m {site.name.split(" ")[0]}.
-        <br />
-        I make things{" "}
-        <span className="relative whitespace-nowrap">
-          <span className="relative z-10">look good</span>
-          <span
-            className="absolute inset-x-0 bottom-[0.08em] -z-0 h-[0.35em] -rotate-1 bg-lime"
-            aria-hidden
-          />
+    <section id="top" className="mx-auto max-w-6xl px-5 pt-10 pb-24 sm:px-8 sm:pb-32">
+      {/* Masthead meta row */}
+      <div className="flex flex-wrap justify-between gap-x-6 gap-y-1 text-xs tracking-[0.2em] text-muted uppercase">
+        <span>Portfolio / {new Date().getFullYear()}</span>
+        <span>Design · Web · Data</span>
+        <span className="flex items-center gap-2">
+          <span className="h-1.5 w-1.5 rounded-full bg-leaf" aria-hidden />
+          Open to internships
         </span>
-        <br />
-        and make sense.
-      </h1>
-      <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted sm:text-xl">{site.intro}</p>
-      <div className="mt-10 flex flex-wrap gap-3">
-        <a
-          href="#work"
-          className="rounded-full bg-lime px-6 py-3 font-semibold text-ink transition hover:-translate-y-0.5 hover:shadow-[0_6px_0_0_var(--color-ink)]"
-        >
-          See my work
-        </a>
-        <a
-          href={site.resume}
-          download
-          className="rounded-full border-2 border-ink px-6 py-3 font-semibold transition hover:bg-ink hover:text-paper"
-        >
-          Download resume
-        </a>
+      </div>
+
+      <div className="mt-16 grid items-end gap-12 sm:mt-24 lg:grid-cols-[1.6fr_1fr]">
+        <h1 className="font-display text-6xl leading-[0.95] font-extrabold tracking-tight sm:text-8xl">
+          Hi, I&apos;m {site.name.split(" ")[0]}.
+          <br />
+          I make things{" "}
+          <span className="relative inline-block whitespace-nowrap text-forest">
+            look good
+            <Squiggle className="absolute -bottom-2 left-0 h-3 w-full text-leaf sm:-bottom-3 sm:h-4" />
+          </span>
+          <br />
+          and make sense.
+        </h1>
+
+        {/* The one boho moment: an arched window with a line-drawn sunset */}
+        <div className="mx-auto hidden w-full max-w-[14rem] sm:block lg:mr-0 lg:max-w-[18rem]" aria-hidden>
+          <div className="relative aspect-[3/4] overflow-hidden rounded-t-full bg-sand">
+            <SunLine className="absolute bottom-[12%] left-1/2 w-3/4 -translate-x-1/2 text-terracotta" />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-16 grid gap-8 border-t border-line pt-8 sm:mt-20 lg:grid-cols-[1fr_2fr]">
+        <p className="text-xs tracking-[0.2em] text-muted uppercase">Introduction</p>
+        <div>
+          <p className="max-w-2xl text-lg leading-relaxed sm:text-xl">{site.intro}</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#work"
+              className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition hover:bg-forest"
+            >
+              See my work
+            </a>
+            <a
+              href={site.resume}
+              download
+              className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:border-forest hover:text-forest"
+            >
+              Download resume
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );

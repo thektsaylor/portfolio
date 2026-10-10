@@ -8,17 +8,18 @@ const items = [
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line/80 bg-paper/85 backdrop-blur">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#top" className="font-display text-xl font-extrabold tracking-tight">
-          kt<span className="text-forest">.</span>
+    <header className="sticky top-0 z-50 bg-paper/90 backdrop-blur">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between border-b border-line px-5 py-4 sm:px-8">
+        <a href="#top" className="font-display text-lg font-extrabold tracking-tight">
+          {site.name}
+          <span className="text-leaf">.</span>
         </a>
-        <div className="flex items-center gap-1 sm:gap-2">
+        <div className="flex items-center gap-6">
           {items.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="hidden rounded-full px-3 py-1.5 text-sm font-medium text-muted transition hover:text-ink sm:block"
+              className="hidden text-sm text-muted transition hover:text-ink sm:block"
             >
               {item.label}
             </a>
@@ -26,9 +27,9 @@ export function Nav() {
           <a
             href={site.resume}
             download
-            className="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-paper transition hover:bg-forest"
+            className="text-sm font-semibold underline decoration-leaf decoration-2 underline-offset-4 transition hover:text-forest"
           >
-            Resume
+            Resume ↓
           </a>
         </div>
       </nav>

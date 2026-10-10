@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
-  <rect width="800" height="600" fill="#E7F9EC"/>
-  <rect x="360" y="90" width="380" height="300" rx="16" fill="#0E0F0C"/><circle cx="460" cy="220" r="60" fill="#3BE37A"/><rect x="550" y="180" width="150" height="24" rx="6" fill="#F6F7F2"/><rect x="550" y="220" width="110" height="14" rx="6" fill="#F6F7F2" opacity="0.5"/>
-  <text x="48" y="552" font-family="system-ui, sans-serif" font-size="44" font-weight="800" fill="#0E0F0C">Website two</text>
-  <text x="48" y="80" font-family="ui-monospace, monospace" font-size="20" fill="#0E0F0C" opacity="0.7">PLACEHOLDER: SWAP ME</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#DCE5D5"/>
+  <rect x="200" y="380" width="400" height="320" rx="10" fill="none" stroke="#231C16" stroke-width="4"/><circle cx="310" cy="520" r="60" fill="#6FBF73"/><line x1="400" y1="500" x2="560" y2="500" stroke="#231C16" stroke-width="4"/><line x1="400" y1="530" x2="520" y2="530" stroke="#231C16" stroke-width="3" opacity="0.4"/>
+  <text x="400" y="900" text-anchor="middle" font-family="ui-monospace, monospace" font-size="22" letter-spacing="4" fill="#231C16" opacity="0.6">PLACEHOLDER: SWAP ME</text>
 </svg>

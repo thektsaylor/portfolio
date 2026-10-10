@@ -5,7 +5,7 @@ export const site = {
   domain: "https://ktsaylor.com",
   role: "Designer, builder, and data nerd in the making",
   intro:
-    "Digital Technology and Design student at Arkansas State University with emphases in AI/ML and Cybersecurity & Cloud Computing, plus a psychology minor. By day I wrangle marketing ops and SEO reporting. By night I design apps, build sites, and photograph Cathead.",
+    "Digital Technology and Design student at Arkansas State University with emphases in AI/ML and Cybersecurity, plus a psychology minor. By day I wrangle marketing ops and SEO reporting. By night I design apps, build sites, and dream up brands like CatHead Biscuits.",
   location: "Arkansas",
   graduation: "Fall 2027",
   // Drop your resume into /public as resume.pdf and this button just works.
@@ -15,16 +15,16 @@ export const site = {
   links: {
     linkedin: "https://www.linkedin.com/in/YOUR-HANDLE",
     instagram: "https://www.instagram.com/YOUR-HANDLE",
-    catheadInstagram: "https://www.instagram.com/CATHEAD-HANDLE",
+    catheadInstagram: "https://www.instagram.com/cathead.biscuits",
     github: "https://github.com/thektsaylor",
   },
 };
 
 export const skills = [
-  { group: "Design", items: ["Figma", "UX/UI", "Prototyping", "Photography"] },
+  { group: "Design", items: ["Branding", "Logo design", "Figma", "UX/UI", "Photography"] },
   { group: "Build", items: ["Next.js", "React", "HTML/CSS", "TypeScript"] },
   { group: "Data", items: ["SEO reporting", "Data visualization", "Looker Studio", "Excel"] },
-  { group: "Tech", items: ["AI/ML", "Cybersecurity", "Cloud computing", "Python"] },
+  { group: "Tech", items: ["AI/ML", "Cybersecurity", "Python"] },
 ];
 
 export const nowItems = [

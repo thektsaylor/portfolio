@@ -1,14 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-paper: #f6f7f2;
-  --color-ink: #0e0f0c;
-  --color-muted: #5b5f57;
-  --color-line: #dfe2d8;
-  /* The pop: bright for fills, deep for text on light backgrounds */
-  --color-lime: #3be37a;
-  --color-lime-soft: #e7f9ec;
-  --color-forest: #0b7a3b;
+  /* Warm, sun-faded neutrals */
+  --color-paper: #f5f0e7;
+  --color-sand: #ebe2d2;
+  --color-ink: #231c16;
+  --color-muted: #75695c;
+  --color-line: #d8ccb9;
+  /* The pop stays green, just a little earthier */
+  --color-leaf: #6fbf73;
+  --color-leaf-soft: #e3eedb;
+  --color-forest: #2f5d3a;
+  /* Boho supporting cast */
+  --color-terracotta: #c8643b;
+  --color-clay: #e9b9a0;
+  --color-mustard: #d9a441;
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
 }
@@ -22,21 +28,23 @@ body {
   color: var(--color-ink);
 }
 
+/* Soft paper grain over everything */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
 ::selection {
-  background: var(--color-lime);
+  background: var(--color-leaf);
   color: var(--color-ink);
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .animate-marquee { animation: none; }
 }
