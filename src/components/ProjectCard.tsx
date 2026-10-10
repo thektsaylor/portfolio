@@ -1,20 +1,35 @@
 import Image from "next/image";
 import type { Project } from "@/content/projects";
+import { ArchMedia } from "./ArchMedia";
+import { PhoneMockup } from "./PhoneMockup";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <article className="group">
-      <div
-        className={`relative aspect-[4/5] overflow-hidden rounded-t-[999px] bg-sand ${project.film ? "film" : ""}`}
+      <ArchMedia
+        className={`relative aspect-[4/5] overflow-hidden rounded-t-[999px] ${
+          project.video ? "bg-[#ead9c8]" : "bg-sand"
+        } ${project.film ? "film" : ""}`}
       >
-        <Image
-          src={project.image}
-          alt={`${project.title} preview`}
-          fill
-          sizes="(min-width: 640px) 50vw, 100vw"
-          className="object-cover transition duration-700 group-hover:scale-[1.03]"
-        />
-      </div>
+        {project.video ? (
+          <div className="absolute top-[13%] left-1/2 w-[52%] -translate-x-1/2">
+            <PhoneMockup
+              mp4={project.video.mp4}
+              webm={project.video.webm}
+              poster={project.video.poster}
+              label={`Screen recording of the ${project.title} prototype`}
+            />
+          </div>
+        ) : (
+          <Image
+            src={project.image}
+            alt={`${project.title} preview`}
+            fill
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="object-cover transition duration-700 group-hover:scale-[1.03]"
+          />
+        )}
+      </ArchMedia>
       {project.gallery && (
         <div
           className="mt-3 grid gap-3"

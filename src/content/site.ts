@@ -84,3 +84,12 @@ export const education = [
     summary: "",
   },
 ];
+
+// Polaroid collage in the About section. Three or four photos look best.
+// Swap these for personal shots (hobbies, pets, places, your desk) any time.
+export const collage = [
+  { src: "/projects/cathead-truck.webp", alt: "The CatHead Biscuits food truck", caption: "the truck" },
+  { src: "/projects/fiberglass-demo-poster.webp", alt: "Fiberglass app splash screen", caption: "fiberglass" },
+  { src: "/projects/cathead-stamp.webp", alt: "Hand-stamped CatHead logo", caption: "hand-stamped" },
+  { src: "/projects/cathead-menus.webp", alt: "A stack of CatHead menus", caption: "menus" },
+];

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { projects, type Category } from "@/content/projects";
 import { ProjectCard } from "./ProjectCard";
+import { Reveal } from "./Reveal";
 import { SectionHead } from "./SectionHead";
 
 const filters: ("All" | Category)[] = ["All", "Branding", "UX/UI", "Web", "Data"];
@@ -35,9 +36,9 @@ export function Work() {
       {/* Two columns, right column dropped down for a magazine-style stagger */}
       <div className="grid gap-x-16 gap-y-20 sm:grid-cols-2">
         {shown.map((project, i) => (
-          <div key={project.title} className={i % 2 === 1 ? "sm:mt-32" : ""}>
+          <Reveal key={project.title} delay={i % 2 === 1 ? 150 : 0} className={i % 2 === 1 ? "sm:mt-32" : ""}>
             <ProjectCard project={project} index={projects.indexOf(project)} />
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>
