@@ -24,14 +24,19 @@ export const projects: Project[] = [
     links: [{ label: "View on Instagram", href: "https://www.instagram.com/CATHEAD-HANDLE" }],
   },
   {
-    title: "Figma App Design",
+    title: "Fiberglass",
     category: "UX/UI",
     year: "2026",
     summary:
-      "A mobile app I designed end to end in Figma, from user flows and wireframes to a clickable high-fidelity prototype.",
-    tools: ["Figma", "Prototyping", "UX research"],
-    image: "/projects/figma-app.svg",
-    links: [{ label: "Open prototype", href: "https://www.figma.com/" }],
+      "A class project app for a company that checks the fiber makeup of clothing. Scan a tag's barcode to get a breakdown of what a garment is really made of, plus a durability score, cost per wear, and a digital closet to keep track of it all.",
+    tools: ["Figma", "Prototyping", "UX/UI design"],
+    image: "/projects/fiberglass.webp",
+    links: [
+      {
+        label: "Open prototype",
+        href: "https://www.figma.com/proto/mF3iXxzHA6W4Z8FWdXtmMt?node-id=8-5",
+      },
+    ],
   },
   {
     title: "SEO Data Visuals",
