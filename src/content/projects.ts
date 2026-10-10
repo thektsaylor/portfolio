@@ -21,7 +21,7 @@ export const projects: Project[] = [
       "An Instagram photo series starring Cathead. Composition, lighting, and consistent editing across a feed that people actually stop scrolling for.",
     tools: ["Photography", "Lightroom", "Instagram"],
     image: "/projects/cathead.svg",
-    links: [{ label: "View on Instagram", href: "https://www.instagram.com/CATHEAD-HANDLE" }],
+    links: [{ label: "View on Instagram", href: "https://www.instagram.com/cathead.biscuits" }],
   },
   {
     title: "Fiberglass",

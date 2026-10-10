@@ -15,7 +15,7 @@ export const site = {
   links: {
     linkedin: "https://www.linkedin.com/in/YOUR-HANDLE",
     instagram: "https://www.instagram.com/YOUR-HANDLE",
-    catheadInstagram: "https://www.instagram.com/CATHEAD-HANDLE",
+    catheadInstagram: "https://www.instagram.com/cathead.biscuits",
     github: "https://github.com/thektsaylor",
   },
 };
