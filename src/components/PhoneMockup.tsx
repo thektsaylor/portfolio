@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-// A drawn phone frame that loops a muted screen recording while it's on screen.
+// A drawn phone frame that loops a muted screen recording. It autoplays natively,
+// then pauses whenever it scrolls offscreen and resumes when it comes back.
 export function PhoneMockup({
   mp4,
   webm,
@@ -21,6 +22,8 @@ export function PhoneMockup({
     if (!video) return;
     // Respect reduced motion: show the first frame and let people press play themselves.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      video.pause();
+      video.currentTime = 0;
       video.controls = true;
       return;
     }
@@ -38,6 +41,7 @@ export function PhoneMockup({
         <video
           ref={videoRef}
           poster={poster}
+          autoPlay
           muted
           loop
           playsInline

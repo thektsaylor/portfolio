@@ -4,14 +4,18 @@ import { useEffect, useRef, useState } from "react";
 
 // The arched frame for a project. On first view the media wipes up into the arch
 // and settles from a slight zoom; after that it drifts gently as the page scrolls.
+// Visible by default; it's only hidden for the wipe once this script runs.
 export function ArchMedia({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [shown, setShown] = useState(false);
+  const [phase, setPhase] = useState<"idle" | "hidden" | "shown">("idle");
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+    // Only stage the wipe for frames that start below the fold.
+    if (el.getBoundingClientRect().top >= window.innerHeight) setPhase("hidden");
 
     let frame = 0;
     const update = () => {
@@ -29,11 +33,9 @@ export function ArchMedia({ children, className = "" }: { children: React.ReactN
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setShown(true);
-          if (!reduceMotion) {
-            update();
-            window.addEventListener("scroll", onScroll, { passive: true });
-          }
+          setPhase((p) => (p === "hidden" ? "shown" : p));
+          update();
+          window.addEventListener("scroll", onScroll, { passive: true });
         } else {
           window.removeEventListener("scroll", onScroll);
         }
@@ -49,7 +51,7 @@ export function ArchMedia({ children, className = "" }: { children: React.ReactN
   }, []);
 
   return (
-    <div ref={ref} data-arch data-shown={shown || undefined} className={className}>
+    <div ref={ref} data-arch={phase} className={className}>
       <div className="arch-zoom absolute inset-0">
         <div className="arch-drift absolute inset-0">{children}</div>
       </div>

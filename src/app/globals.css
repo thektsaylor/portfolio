@@ -69,34 +69,33 @@ body::after {
   color: var(--color-ink);
 }
 
-/* Scroll reveal: fade and lift into place */
-[data-reveal] {
+/* Scroll reveal: fade and lift into place. Hidden only after the script stages it. */
+[data-reveal="hidden"] {
   opacity: 0;
   transform: translateY(48px);
+}
+[data-reveal="shown"] {
   transition:
     opacity 0.9s ease,
     transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-[data-reveal][data-shown] {
-  opacity: 1;
-  transform: none;
 }
 
 /* Arch media: wipe up into the frame, settle from a zoom, then drift on scroll */
 [data-arch] {
   --drift: 0;
+}
+[data-arch="hidden"] {
   clip-path: inset(100% 0 0 0);
+}
+[data-arch="shown"] {
+  clip-path: inset(0 0 0 0);
   transition: clip-path 1.2s cubic-bezier(0.65, 0, 0.35, 1);
 }
-[data-arch][data-shown] {
-  clip-path: inset(0 0 0 0);
-}
-[data-arch] .arch-zoom {
+[data-arch="hidden"] .arch-zoom {
   transform: scale(1.18);
-  transition: transform 1.6s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-[data-arch][data-shown] .arch-zoom {
-  transform: scale(1);
+[data-arch="shown"] .arch-zoom {
+  transition: transform 1.6s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 [data-arch] .arch-drift {
   transform: translateY(calc(var(--drift) * -22px)) scale(1.06);
@@ -105,13 +104,7 @@ body::after {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  [data-reveal],
-  [data-arch],
-  [data-arch] .arch-zoom,
   [data-arch] .arch-drift {
-    opacity: 1;
     transform: none;
-    clip-path: none;
-    transition: none;
   }
 }
