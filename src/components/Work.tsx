@@ -5,7 +5,7 @@ import { projects, type Category } from "@/content/projects";
 import { ProjectCard } from "./ProjectCard";
 import { SectionHead } from "./SectionHead";
 
-const filters: ("All" | Category)[] = ["All", "UX/UI", "Web", "Data", "Photography"];
+const filters: ("All" | Category)[] = ["All", "Branding", "UX/UI", "Web", "Data"];
 
 export function Work() {
   const [active, setActive] = useState<(typeof filters)[number]>("All");

@@ -1,4 +1,4 @@
-export type Category = "Photography" | "UX/UI" | "Web" | "Data";
+export type Category = "Branding" | "UX/UI" | "Web" | "Data" | "Photography";
 
 export type Project = {
   title: string;
@@ -17,16 +17,17 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "CatHead Biscuits",
-    category: "Photography",
+    category: "Branding",
     year: "2026",
     summary:
-      "Photos for the CatHead Biscuits Instagram: menus, hand-stamped packaging, and the bright green truck that serves it all.",
-    tools: ["Photography", "Instagram", "Social content"],
+      "The full brand for a biscuit food truck. I designed the sleepy-eyed CatHead logo, the menus, and the truck graphics, then shot the photos and ran the Instagram.",
+    tools: ["Logo design", "Menu design", "Vehicle graphics", "Photography", "Instagram"],
     image: "/projects/cathead-clipboard.webp",
     links: [{ label: "View on Instagram", href: "https://www.instagram.com/cathead.biscuits" }],
     gallery: [
-      { src: "/projects/cathead-menus.webp", alt: "Fanned stack of CatHead Biscuits menus on a yellow table" },
+      { src: "/projects/cathead-logo.webp", alt: "CatHead Biscuits logo: a sleepy-eyed cat face in a circle" },
       { src: "/projects/cathead-stamp.webp", alt: "CatHead Biscuits logo stamped in blue ink on paper" },
+      { src: "/projects/cathead-menus.webp", alt: "Fanned stack of CatHead Biscuits menus on a yellow table" },
       { src: "/projects/cathead-truck.webp", alt: "The green CatHead Biscuits food truck with its cat logo" },
     ],
   },

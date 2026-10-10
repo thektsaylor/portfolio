@@ -14,7 +14,10 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         />
       </div>
       {project.gallery && (
-        <div className="mt-3 grid grid-cols-3 gap-3">
+        <div
+          className="mt-3 grid gap-3"
+          style={{ gridTemplateColumns: `repeat(${project.gallery.length}, minmax(0, 1fr))` }}
+        >
           {project.gallery.map((shot) => (
             <a
               key={shot.src}
@@ -27,7 +30,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
                 src={shot.src}
                 alt={shot.alt}
                 fill
-                sizes="(min-width: 640px) 16vw, 33vw"
+                sizes="(min-width: 640px) 12vw, 25vw"
                 className="object-cover transition duration-500 hover:scale-105"
               />
             </a>
