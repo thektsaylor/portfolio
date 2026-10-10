@@ -32,3 +32,15 @@ export function Squiggle({ className }: Props) {
     </svg>
   );
 }
+
+// Scalloped edge that softens the jump into the dark contact section.
+export function Wave({ className }: Props) {
+  return (
+    <svg viewBox="0 0 1200 40" preserveAspectRatio="none" className={className} aria-hidden>
+      <path
+        d="M0 40V20C50 0 100 0 150 20s100 20 150 0 100-20 150 0 100 20 150 0 100-20 150 0 100 20 150 0 100-20 150 0 100 20 150 0v20z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}

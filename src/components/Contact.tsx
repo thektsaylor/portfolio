@@ -1,4 +1,5 @@
 import { site } from "@/content/site";
+import { Wave } from "./Decor";
 
 export function Contact() {
   const links = [
@@ -9,7 +10,8 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="scroll-mt-20 bg-ink text-paper">
+    <section id="contact" className="relative scroll-mt-20 bg-ink text-paper">
+      <Wave className="absolute -top-[39px] left-0 h-10 w-full text-ink" />
       <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
         <p className="text-xs tracking-[0.2em] text-paper/50 uppercase">
           <span className="text-leaf">03</span>
