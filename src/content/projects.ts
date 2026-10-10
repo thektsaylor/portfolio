@@ -23,9 +23,9 @@ export const projects: Project[] = [
   {
     title: "CatHead Biscuits",
     category: "Branding",
-    year: "2017 – 2019",
+    year: "2016 – 2019",
     summary:
-      "As Creative Director, I built the brand for a biscuit food truck from the logo up: the sleepy-eyed cat, the menus, and the truck graphics, plus the photos and the Instagram.",
+      "As owner and creative director, I built the brand for my biscuit food truck from the logo up: the sleepy-eyed cat, the menus, and the truck graphics, plus the photos and the Instagram.",
     tools: ["Logo design", "Menu design", "Vehicle graphics", "Photography", "Instagram"],
     image: "/projects/cathead-clipboard.webp",
     film: true,
