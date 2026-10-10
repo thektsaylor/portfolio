@@ -5,7 +5,7 @@ export const site = {
   domain: "https://ktsaylor.com",
   role: "Machine learning and UX student working in data visualization and MarTech",
   intro:
-    "Machine learning and UX student at Arkansas State University, minoring in psychology and marketing. By day I'm a Marketing Technology Operations intern at SEO Counselors, turning search data into reports clients actually read. Before that, I spent years as a creative director and designer, including building the CatHead Biscuits brand from the logo up.",
+    "Machine learning and UX student at Arkansas State University, minoring in psychology and marketing. By day I'm the Marketing Operations Coordinator at SEO Counselors, turning search data into reports clients actually read. Before that, I spent years as a creative director and designer, including building the CatHead Biscuits brand from the logo up.",
   location: "Northwest Arkansas",
   graduation: "Fall 2027",
   headshot: "/headshot.webp",
@@ -29,7 +29,7 @@ export const skills = [
 ];
 
 export const nowItems = [
-  "Marketing Technology Operations Intern at SEO Counselors",
+  "Marketing Operations Coordinator at SEO Counselors",
   "Building a custom MCP server to automate client reporting",
   "B.S. in Digital Technology & Design at A-State, 4.0 GPA",
 ];
@@ -38,7 +38,7 @@ export const nowItems = [
 export const experience = [
   {
     years: "2026 – Now",
-    role: "Marketing Technology Operations Intern",
+    role: "Marketing Operations Coordinator",
     org: "SEO Counselors · Bentonville, AR",
     summary:
       "Build monthly client performance reports from Search Console, Analytics, and GBP Insights data. Manage Google Business Profiles across client accounts, automate posting with GoHighLevel's API features, and check AI-generated reports for accuracy before they reach clients. Currently building a custom MCP server to replace a manual reporting workflow.",
