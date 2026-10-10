@@ -18,7 +18,7 @@ export function Contact() {
           <span className="mx-2">/</span>
           Contact
         </p>
-        <h2 className="mt-8 font-display text-6xl leading-[0.95] font-extrabold tracking-tight sm:text-8xl">
+        <h2 className="mt-8 font-display text-6xl leading-[0.9] font-extrabold tracking-tight sm:text-8xl">
           Let&apos;s make
           <br />
           something <span className="text-leaf">good.</span>

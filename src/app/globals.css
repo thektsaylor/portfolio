@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  /* Squeezed-together headline spacing */
+  --tracking-tight: -0.05em;
+}
+
 @theme inline {
   /* Warm, sun-faded neutrals */
   --color-paper: #f5f0e7;
@@ -7,6 +12,8 @@
   --color-ink: #231c16;
   --color-muted: #75695c;
   --color-line: #d8ccb9;
+  /* Faded 90s mushroom, borrowed from the cozy-kitchen look */
+  --color-mushroom: #e2d5c5;
   /* The pop stays green, just a little earthier */
   --color-leaf: #6fbf73;
   --color-leaf-soft: #e3eedb;
@@ -38,6 +45,23 @@ body::after {
   opacity: 0.05;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Warm, faded film finish for real photos (not screenshots) */
+.film img {
+  filter: sepia(0.2) saturate(0.85) contrast(0.92) brightness(1.04);
+}
+
+.film::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.22;
+  mix-blend-mode: multiply;
+  background-image:
+    radial-gradient(ellipse at center, transparent 55%, rgba(60, 35, 15, 0.9) 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 ::selection {

@@ -16,7 +16,7 @@ export function Hero() {
       </div>
 
       <div className="mt-16 grid items-end gap-12 sm:mt-24 lg:grid-cols-[1.6fr_1fr]">
-        <h1 className="font-display text-6xl leading-[0.95] font-extrabold tracking-tight sm:text-8xl">
+        <h1 className="font-display text-6xl leading-[0.9] font-extrabold tracking-tight sm:text-8xl">
           Hi, I&apos;m {site.name.split(" ")[0]}.
           <br />
           I make things{" "}

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { Inter, Inter_Tight } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const display = Inter_Tight({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["600", "800"],

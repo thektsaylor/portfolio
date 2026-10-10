@@ -11,6 +11,8 @@ export type Project = {
   links: { label: string; href: string }[];
   // Optional extra shots shown as a strip under the main image.
   gallery?: { src: string; alt: string }[];
+  // Give real photos the warm film finish. Leave off for screenshots and mockups.
+  film?: boolean;
 };
 
 // Order here is the order on the page. Put your strongest work first.
@@ -23,6 +25,7 @@ export const projects: Project[] = [
       "As Creative Director, I built the brand for a biscuit food truck from the logo up: the sleepy-eyed cat, the menus, and the truck graphics, plus the photos and the Instagram.",
     tools: ["Logo design", "Menu design", "Vehicle graphics", "Photography", "Instagram"],
     image: "/projects/cathead-clipboard.webp",
+    film: true,
     links: [{ label: "View on Instagram", href: "https://www.instagram.com/cathead.biscuits" }],
     gallery: [
       { src: "/projects/cathead-logo.webp", alt: "CatHead Biscuits logo: a sleepy-eyed cat face in a circle" },
