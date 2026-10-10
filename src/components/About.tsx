@@ -1,51 +1,43 @@
 import { nowItems, site, skills } from "@/content/site";
-import { Sprig, Wave } from "./Decor";
-
-const cardColors = ["bg-leaf-soft", "bg-clay/60", "bg-mustard/40", "bg-paper"];
+import { SectionHead } from "./SectionHead";
 
 export function About() {
   return (
-    <section id="about" className="relative scroll-mt-20 bg-sand">
-      <Wave className="absolute -top-[39px] left-0 h-10 w-full text-sand" />
-      <div className="relative mx-auto grid max-w-6xl gap-12 overflow-hidden px-5 py-20 sm:px-8 sm:py-28 lg:grid-cols-[1.1fr_1fr]">
+    <section id="about" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-20 sm:px-8 sm:py-28">
+      <SectionHead index="02" title="About" />
+      <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
+        <div className="space-y-8 text-sm">
+          <div>
+            <p className="mb-3 text-xs tracking-[0.2em] text-muted uppercase">Right now</p>
+            <ul className="space-y-2">
+              {nowItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="mb-3 text-xs tracking-[0.2em] text-muted uppercase">Based in</p>
+            <p>
+              {site.location}. Graduating {site.graduation}.
+            </p>
+          </div>
+        </div>
         <div>
-          <h2 className="font-display text-5xl font-extrabold tracking-tight sm:text-6xl">
-            About me<span className="text-terracotta">.</span>
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-muted">
-            I live where design, tech, and people overlap. The psychology minor keeps me asking why
-            users do what they do, the SEO job keeps me honest with real data, and the AI and security
-            coursework keeps me curious about how all of it works under the hood.
+          <p className="font-display text-3xl leading-snug font-semibold tracking-tight sm:text-4xl">
+            I live where design, tech, and people overlap. The psychology minor keeps me asking{" "}
+            <span className="text-forest">why users do what they do</span>, the SEO job keeps me honest
+            with real data, and the AI and security coursework keeps me curious about how all of it
+            works under the hood.
           </p>
-          <h3 className="mt-10 mb-4 text-sm font-bold tracking-widest text-terracotta uppercase">Right now</h3>
-          <ul className="space-y-3">
-            {nowItems.map((item) => (
-              <li key={item} className="flex gap-3 text-lg">
-                <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-forest" aria-hidden />
-                {item}
-              </li>
+          <dl className="mt-14 border-t border-line">
+            {skills.map((s) => (
+              <div key={s.group} className="grid gap-2 border-b border-line py-4 sm:grid-cols-[10rem_1fr]">
+                <dt className="text-xs tracking-[0.2em] text-muted uppercase sm:pt-0.5">{s.group}</dt>
+                <dd>{s.items.join(" · ")}</dd>
+              </div>
             ))}
-          </ul>
-          <p className="mt-6 text-sm text-muted">
-            Based in {site.location}. Graduating {site.graduation}.
-          </p>
+          </dl>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          {skills.map((s, i) => (
-            <div
-              key={s.group}
-              className={`rounded-t-[5rem] rounded-b-3xl border-2 border-ink px-5 pt-10 pb-6 text-center ${cardColors[i % cardColors.length]}`}
-            >
-              <h3 className="font-display text-xl font-extrabold">{s.group}</h3>
-              <ul className="mt-3 space-y-1.5 text-muted">
-                {s.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-        <Sprig className="pointer-events-none absolute -right-6 -bottom-8 hidden h-56 rotate-12 text-forest/30 lg:block" />
       </div>
     </section>
   );

@@ -2,11 +2,11 @@
 
 @theme inline {
   /* Warm, sun-faded neutrals */
-  --color-paper: #f6efe2;
-  --color-sand: #ecdfc8;
-  --color-ink: #2e2219;
-  --color-muted: #6f6152;
-  --color-line: #ddcdb2;
+  --color-paper: #f5f0e7;
+  --color-sand: #ebe2d2;
+  --color-ink: #231c16;
+  --color-muted: #75695c;
+  --color-line: #d8ccb9;
   /* The pop stays green, just a little earthier */
   --color-leaf: #6fbf73;
   --color-leaf-soft: #e3eedb;
@@ -35,7 +35,7 @@ body::after {
   inset: 0;
   z-index: 100;
   pointer-events: none;
-  opacity: 0.08;
+  opacity: 0.05;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
@@ -45,25 +45,6 @@ body::after {
   color: var(--color-ink);
 }
 
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-@keyframes spin-slow {
-  to { transform: rotate(360deg); }
-}
-
-.animate-marquee {
-  animation: marquee 40s linear infinite;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 60s linear infinite;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .animate-marquee,
-  .animate-spin-slow { animation: none; }
 }
