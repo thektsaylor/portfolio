@@ -110,9 +110,19 @@ body::after {
 .group:hover .site-scroll {
   background-position: bottom;
 }
+/* Touch screens have no hover, so drift down the page and back on a loop */
+@keyframes site-scroll {
+  from { background-position: top; }
+  to { background-position: bottom; }
+}
+@media (hover: none) {
+  .site-scroll {
+    animation: site-scroll 14s ease-in-out 1s infinite alternate;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .site-scroll { transition: none; }
+  .site-scroll { transition: none; animation: none; }
   html { scroll-behavior: auto; }
   [data-arch] .arch-drift {
     transform: none;
