@@ -13,6 +13,27 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           className="object-cover transition duration-700 group-hover:scale-[1.03]"
         />
       </div>
+      {project.gallery && (
+        <div className="mt-3 grid grid-cols-3 gap-3">
+          {project.gallery.map((shot) => (
+            <a
+              key={shot.src}
+              href={shot.src}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative aspect-square overflow-hidden rounded-2xl bg-sand"
+            >
+              <Image
+                src={shot.src}
+                alt={shot.alt}
+                fill
+                sizes="(min-width: 640px) 16vw, 33vw"
+                className="object-cover transition duration-500 hover:scale-105"
+              />
+            </a>
+          ))}
+        </div>
+      )}
       <div className="mt-5 flex items-baseline justify-between gap-4 border-b border-line pb-3 text-xs tracking-[0.2em] text-muted uppercase">
         <span>
           <span className="text-forest">{String(index + 1).padStart(2, "0")}</span>

@@ -5,7 +5,7 @@ export const site = {
   domain: "https://ktsaylor.com",
   role: "Designer, builder, and data nerd in the making",
   intro:
-    "Digital Technology and Design student at Arkansas State University with emphases in AI/ML and Cybersecurity & Cloud Computing, plus a psychology minor. By day I wrangle marketing ops and SEO reporting. By night I design apps, build sites, and photograph Cathead.",
+    "Digital Technology and Design student at Arkansas State University with emphases in AI/ML and Cybersecurity & Cloud Computing, plus a psychology minor. By day I wrangle marketing ops and SEO reporting. By night I design apps, build sites, and shoot photos for CatHead Biscuits.",
   location: "Arkansas",
   graduation: "Fall 2027",
   // Drop your resume into /public as resume.pdf and this button just works.

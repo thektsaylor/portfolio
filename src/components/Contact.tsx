@@ -5,7 +5,7 @@ export function Contact() {
   const links = [
     { label: "LinkedIn", href: site.links.linkedin },
     { label: "Instagram", href: site.links.instagram },
-    { label: "Cathead on Instagram", href: site.links.catheadInstagram },
+    { label: "CatHead on Instagram", href: site.links.catheadInstagram },
     { label: "GitHub", href: site.links.github },
   ];
 

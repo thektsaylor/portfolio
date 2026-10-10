@@ -9,19 +9,26 @@ export type Project = {
   // Path inside /public. Swap the placeholder SVGs for real screenshots or photos.
   image: string;
   links: { label: string; href: string }[];
+  // Optional extra shots shown as a strip under the main image.
+  gallery?: { src: string; alt: string }[];
 };
 
 // Order here is the order on the page. Put your strongest work first.
 export const projects: Project[] = [
   {
-    title: "Cathead",
+    title: "CatHead Biscuits",
     category: "Photography",
     year: "2026",
     summary:
-      "An Instagram photo series starring Cathead. Composition, lighting, and consistent editing across a feed that people actually stop scrolling for.",
-    tools: ["Photography", "Lightroom", "Instagram"],
-    image: "/projects/cathead.svg",
+      "Photos for the CatHead Biscuits Instagram: menus, hand-stamped packaging, and the bright green truck that serves it all.",
+    tools: ["Photography", "Instagram", "Social content"],
+    image: "/projects/cathead-clipboard.webp",
     links: [{ label: "View on Instagram", href: "https://www.instagram.com/cathead.biscuits" }],
+    gallery: [
+      { src: "/projects/cathead-menus.webp", alt: "Fanned stack of CatHead Biscuits menus on a yellow table" },
+      { src: "/projects/cathead-stamp.webp", alt: "CatHead Biscuits logo stamped in blue ink on paper" },
+      { src: "/projects/cathead-truck.webp", alt: "The green CatHead Biscuits food truck with its cat logo" },
+    ],
   },
   {
     title: "Fiberglass",
