@@ -119,8 +119,9 @@ export function OddsAndEnds() {
           <PieceView key={`${p.src}-${i}`} piece={p} index={i} />
         ))}
       </div>
-      <p className="mx-auto mt-4 hidden max-w-5xl text-xs tracking-[0.2em] text-muted uppercase md:block">
-        Go ahead, move things around.
+      <p className="mx-auto mt-4 max-w-5xl text-xs tracking-[0.2em] text-muted uppercase">
+        <span className="hidden md:inline">Go ahead, move things around.</span>
+        <span className="md:hidden">Go ahead, move things around. Hop on a desktop to try it.</span>
       </p>
     </section>
   );
