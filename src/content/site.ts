@@ -54,7 +54,7 @@ export const experience = [
     role: "Owner & Creative Director",
     org: "CatHead Biscuits · Fayetteville, AR",
     summary:
-      "Built a food truck brand from the logo up: menus, truck graphics, photography, and an Instagram grown from scratch. Ran marketing, budgeting, vendors, staffing, and event client consultations.",
+      "Built a food truck brand from conception: menus, truck graphics, photography, and an Instagram grown from scratch. Ran marketing, budgeting, vendors, staffing, and event client consultations.",
   },
   {
     years: "2012 – 2019",
