@@ -1,6 +1,6 @@
-import { Alfa_Slab_One, Caveat, Chewy, Comfortaa, Oswald, Playfair_Display, Rubik } from "next/font/google";
+import { Alfa_Slab_One, Chewy, Comfortaa, Oswald, Playfair_Display, Rubik } from "next/font/google";
 
-// The Design Technology lookbook title, rebuilt as cut-paper ransom-note letters.
+// The lookbook title, rebuilt as cut-paper ransom-note letters.
 // Each letter gets its own scrap of paper, typeface, and tilt.
 
 const slab = Alfa_Slab_One({ weight: "400", subsets: ["latin"], display: "swap" });
@@ -9,7 +9,6 @@ const comfortaa = Comfortaa({ weight: "700", subsets: ["latin"], display: "swap"
 const oswald = Oswald({ weight: "600", subsets: ["latin"], display: "swap" });
 const chewy = Chewy({ weight: "400", subsets: ["latin"], display: "swap" });
 const playfair = Playfair_Display({ weight: "500", style: ["normal", "italic"], subsets: ["latin"], display: "swap" });
-const caveat = Caveat({ weight: "500", subsets: ["latin"], display: "swap" });
 
 type Tile = { ch: string; font: string; paper: string; ink: string; tilt: number; italic?: boolean; outline?: boolean; torn: string };
 
@@ -62,10 +61,7 @@ function Row({ tiles, big }: { tiles: Tile[]; big?: boolean }) {
 
 export function Masthead() {
   return (
-    <h2 aria-label="Design Technology Lookbook" className="flex flex-col items-center">
-      <span className={`${caveat.className} mb-1 text-xl text-ink sm:text-2xl`} aria-hidden>
-        Design Technology
-      </span>
+    <h2 aria-label="Lookbook" className="flex flex-col items-center">
       <span className="flex flex-col gap-1 sm:gap-2" aria-hidden>
         <Row tiles={top} big />
         <Row tiles={bottom} />
