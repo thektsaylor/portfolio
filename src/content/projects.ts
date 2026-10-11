@@ -40,10 +40,10 @@ export const projects: Project[] = [
     gallery: [
       { src: "/projects/cathead-truck-sign.webp", alt: "The CatHead Biscuits truck with its chalkboard sign" },
       { src: "/projects/cathead-stamp.webp", alt: "CatHead Biscuits logo hand-stamped in blue ink on a bag" },
-      { src: "/projects/cathead-menu.webp", alt: "CatHead Biscuits menu on a clipboard" },
       { src: "/projects/cathead-chicken-pimento.webp", alt: "Fried chicken biscuit with pimento cheese over a daisy tablecloth" },
       { src: "/projects/cathead-towanda.webp", alt: "Towanda biscuit stacked with fried green tomatoes and microgreens" },
       { src: "/projects/cathead-sausage-cheese.webp", alt: "Sausage biscuit smothered in melted cheese" },
+      { src: "/projects/cathead-menu.webp", alt: "CatHead Biscuits menu on a clipboard" },
       { src: "/projects/cathead-gravy-chicken.webp", alt: "Fried chicken biscuit with gravy and cheddar in checkered paper" },
       { src: "/projects/cathead-pulled-pork.webp", alt: "Pulled pork biscuit on a floral plate in front of the truck logo" },
       { src: "/projects/cathead-chicken-egg.webp", alt: "Chicken, egg, and cheese biscuit with a CatHead bag" },

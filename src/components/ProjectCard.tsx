@@ -21,8 +21,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         <Showcase project={project} />
       ) : (
         <ArchMedia
-          className={`relative aspect-[4/5] overflow-hidden rounded-2xl ${
-            project.video ? "bg-[#ead9c8]" : "bg-sand"
+          className={`relative aspect-[4/5] ${
+            project.video ? "" : "overflow-hidden rounded-2xl bg-sand"
           } ${project.film ? "film" : ""}`}
         >
           {project.video ? (
