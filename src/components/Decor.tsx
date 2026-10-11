@@ -27,3 +27,18 @@ export function Wave({ className }: Props) {
     </svg>
   );
 }
+
+// The Wave's top edge drawn as a single line, for the rule under the nav.
+export function WaveLine({ className }: Props) {
+  return (
+    <svg viewBox="0 0 1200 40" preserveAspectRatio="none" className={className} aria-hidden>
+      <path
+        d="M0 20C50 0 100 0 150 20s100 20 150 0 100-20 150 0 100 20 150 0 100-20 150 0 100 20 150 0 100-20 150 0 100 20 150 0"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
+  );
+}

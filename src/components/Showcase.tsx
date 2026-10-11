@@ -50,7 +50,9 @@ export function Showcase({ project }: { project: Project }) {
             />
           </div>
         )}
-        <div className="thumb-strip mt-3 flex snap-x gap-3 overflow-x-auto pb-2">
+        {/* The padding (offset by the negative margin) leaves room for the selected ring,
+            which a scrolling container would otherwise clip. */}
+        <div className="thumb-strip -mx-1 mt-2 flex snap-x scroll-px-1 gap-3 overflow-x-auto p-1 pb-3">
           {gallery.map((shot, i) => {
             const on = i === picked || (picked < 0 && (shot.full ?? shot.src) === project.image && i === gallery.findIndex((g) => (g.full ?? g.src) === project.image));
             return (

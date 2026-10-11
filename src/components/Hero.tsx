@@ -8,7 +8,7 @@ export function Hero() {
       {/* Masthead meta row */}
       <div className="flex flex-wrap justify-between gap-x-6 gap-y-1 text-xs tracking-[0.2em] text-muted uppercase">
         <span>Portfolio / {new Date().getFullYear()}</span>
-        <span>Design · Data · AI</span>
+        <span>Design · Data</span>
         <span className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-leaf" aria-hidden />
           Open to UX &amp; MarTech roles
@@ -30,7 +30,7 @@ export function Hero() {
             />
           </div>
         </div>
-        <h1 className="font-display text-6xl leading-[0.9] font-extrabold tracking-tight sm:text-8xl text-center lg:pt-4 lg:text-right lg:text-[7.25rem]">
+        <h1 className="font-display text-6xl leading-[1.08] font-extrabold tracking-tight sm:text-8xl sm:leading-[0.9] text-center lg:pt-4 lg:text-right lg:text-[7.25rem]">
           Hi, I&apos;m {site.name.split(" ")[0]}. I&nbsp;make things{" "}
           <span className="relative inline-block whitespace-nowrap text-forest">
             look good
