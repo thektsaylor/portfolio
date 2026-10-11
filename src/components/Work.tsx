@@ -14,7 +14,7 @@ export function Work() {
 
   return (
     <section id="work" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-20 sm:px-8 sm:py-28">
-      <SectionHead index="01" title="Selected work">
+      <SectionHead title="Selected work">
         <div className="flex flex-wrap gap-x-5 gap-y-2" role="group" aria-label="Filter projects">
           {filters.map((f) => (
             <button

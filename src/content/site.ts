@@ -5,7 +5,7 @@ export const site = {
   domain: "https://ktsaylor.com",
   role: "Machine learning and UX student working in data visualization and MarTech",
   intro:
-    "Machine learning and UX student at Arkansas State University, minoring in psychology and marketing. Working as a Marketing Operations Coordinator at SEO Counselors, turning search data into reports clients read. Before that, I spent years as a creative director and designer, including building the brands from the logo up.",
+    "Machine learning and UX student at Arkansas State University, minoring in psychology and marketing. Working as a Marketing Operations Coordinator, turning search data into reports clients read. Before that, I spent years as a creative director and designer, including building the brands from the logo up.",
   location: "Northwest Arkansas",
   // Short version for search results and link previews (about 150 characters).
   description:
