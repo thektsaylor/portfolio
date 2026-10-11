@@ -86,7 +86,7 @@ export const education = [
   },
   {
     years: "2012 – 2014",
-    role: "Associate of Arts and Sciences, STEM",
+    role: "Associate of Applied Science (A.A.S.), STEM",
     org: "NorthWest Arkansas Community College",
     summary: "",
   },
