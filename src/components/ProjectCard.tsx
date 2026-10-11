@@ -6,7 +6,7 @@ import { PhoneMockup } from "./PhoneMockup";
 import { Showcase } from "./Showcase";
 import { SiteStage } from "./SiteStage";
 
-export function ProjectCard({ project, index }: { project: Project; index: number }) {
+export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group">
       {project.site ? (
@@ -26,7 +26,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           } ${project.film ? "film" : ""}`}
         >
           {project.video ? (
-            <div className="absolute top-[13%] left-1/2 w-[52%] -translate-x-1/2">
+            <div className="absolute top-[8%] left-1/2 w-[48%] -translate-x-1/2">
               <PhoneMockup
                 mp4={project.video.mp4}
                 webm={project.video.webm}
@@ -47,8 +47,6 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       )}
       <div className="mt-5 flex items-baseline justify-between gap-4 border-b border-line pb-3 text-xs tracking-[0.2em] text-muted uppercase">
         <span>
-          <span className="text-forest">{String(index + 1).padStart(2, "0")}</span>
-          <span className="mx-2">/</span>
           {project.category}
         </span>
         <span>{project.year}</span>

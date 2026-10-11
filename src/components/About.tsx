@@ -29,7 +29,7 @@ export function About() {
             I&apos;m interested in how intelligent systems get built, but also{" "}
             <span className="text-forest">how people use them</span>. Bias, transparency, ethics, and
             security are all important from the start, and knowing where automated logic still needs a
-            creative, human touch is what sets great design apart.
+            creative, human touch is what turns good design into great design.
           </p>
           <dl className="mt-14 border-t border-line">
             {skills.map((s) => (
