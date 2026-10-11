@@ -5,7 +5,7 @@ export const site = {
   domain: "https://ktsaylor.com",
   role: "Machine learning and UX student working in data visualization and MarTech",
   intro:
-    "Machine learning and UX student at Arkansas State University, minoring in psychology and marketing. By day I'm the Marketing Operations Coordinator at SEO Counselors, turning search data into reports clients actually read. Before that, I spent years as a creative director and designer, including building the CatHead Biscuits brand from the logo up.",
+    "Machine learning and UX student at Arkansas State University, minoring in psychology and marketing. Working as a Marketing Operations Coordinator at SEO Counselors, turning search data into reports clients actually read. Before that, I spent years as a creative director and designer, including building the brands from the logo up.",
   location: "Northwest Arkansas",
   graduation: "Fall 2027",
   headshot: "/headshot.webp",
@@ -22,7 +22,7 @@ export const site = {
 
 export const skills = [
   { group: "Design", items: ["Figma", "UX/UI", "Branding & logo design", "Adobe Creative Suite", "Canva"] },
-  { group: "Data", items: ["Google Search Console", "Google Analytics", "Tableau", "Power BI", "SQL", "KPI dashboards"] },
+  { group: "Data", items: ["Google Search Console", "Google Analytics", "Tableau", "Power BI", "KPI dashboards"] },
   { group: "AI", items: ["Machine learning", "Python", "Prompt engineering", "APIs & MCP", "Responsible AI"] },
   { group: "Build", items: ["HTML/CSS", "JavaScript", "GitHub", "Claude Code"] },
 ];
@@ -54,7 +54,7 @@ export const experience = [
     role: "Owner & Creative Director",
     org: "CatHead Biscuits · Fayetteville, AR",
     summary:
-      "Built a food truck brand from the logo up: menus, truck graphics, photography, and an Instagram grown from scratch. Ran marketing, budgeting, vendors, staffing, and event client consultations.",
+      "Built a food truck brand from conception: menus, truck graphics, photography, and an Instagram grown from scratch. Ran marketing, budgeting, vendors, staffing, and event client consultations.",
   },
   {
     years: "2012 – 2019",

@@ -29,7 +29,7 @@ export function About() {
             I&apos;m as interested in how intelligent systems get built as in{" "}
             <span className="text-forest">how people actually use them</span>. That means thinking about
             bias, transparency, privacy, and security from the start, and knowing exactly where automated
-            logic still needs a human check.
+            logic still needs a creative, human touch.
           </p>
           <dl className="mt-14 border-t border-line">
             {skills.map((s) => (
