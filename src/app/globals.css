@@ -110,6 +110,11 @@ body::after {
   }
 }
 
+/* Showcase: soft crossfade when the main image swaps, thin scrollbar on the thumbnail strip */
+@keyframes showcase-fade { from { opacity: 0; } to { opacity: 1; } }
+.showcase-fade { animation: showcase-fade 0.35s ease; }
+.thumb-strip { scrollbar-width: thin; scrollbar-color: var(--color-line) transparent; }
+
 /* Website cards: rise up out of the horizon line, tied to scroll position */
 .site-rise {
   transform: translateY(calc((1 - var(--rise, 1)) * 105%));
@@ -137,6 +142,7 @@ body::after {
 
 @media (prefers-reduced-motion: reduce) {
   .site-scroll { transition: none; animation: none; }
+  .showcase-fade { animation: none; }
   html { scroll-behavior: auto; }
   [data-arch] .arch-drift {
     transform: none;

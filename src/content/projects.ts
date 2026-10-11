@@ -9,10 +9,10 @@ export type Project = {
   // Path inside /public. Swap the placeholder SVGs for real screenshots or photos.
   image: string;
   links: { label: string; href: string }[];
-  // Optional extra shots shown as a strip under the main image.
-  // href opens something other than the thumbnail itself (e.g. the full report).
-  gallery?: { src: string; alt: string; href?: string }[];
-  // "contain" shows the whole thumbnail (good for charts); default "cover" fills the square.
+  // Optional strip of thumbnails under the main image (4 visible, scrolls sideways).
+  // Hovering or tapping one swaps the main image to `full` (or to the thumbnail itself).
+  gallery?: { src: string; alt: string; full?: string }[];
+  // "contain" shows whole images (good for charts and full reports); default "cover" fills the frame.
   galleryFit?: "cover" | "contain";
   // Give real photos the warm film finish. Leave off for screenshots and mockups.
   film?: boolean;
@@ -38,11 +38,15 @@ export const projects: Project[] = [
     film: true,
     links: [{ label: "View on Instagram", href: "https://www.instagram.com/cathead.biscuits" }],
     gallery: [
+      { src: "/projects/cathead-truck-sign.webp", alt: "The CatHead Biscuits truck with its chalkboard sign" },
       { src: "/projects/cathead-stamp.webp", alt: "CatHead Biscuits logo hand-stamped in blue ink on a bag" },
       { src: "/projects/cathead-menu.webp", alt: "CatHead Biscuits menu on a clipboard" },
-      { src: "/projects/cathead-chicken-pimento.webp", alt: "Fried chicken biscuit with pimento cheese held over a daisy tablecloth" },
+      { src: "/projects/cathead-chicken-pimento.webp", alt: "Fried chicken biscuit with pimento cheese over a daisy tablecloth" },
       { src: "/projects/cathead-towanda.webp", alt: "Towanda biscuit stacked with fried green tomatoes and microgreens" },
-      { src: "/projects/cathead-skillet.webp", alt: "Breakfast skillet with a biscuit, eggs, and beans on a red picnic table" },
+      { src: "/projects/cathead-sausage-cheese.webp", alt: "Sausage biscuit smothered in melted cheese" },
+      { src: "/projects/cathead-gravy-chicken.webp", alt: "Fried chicken biscuit with gravy and cheddar in checkered paper" },
+      { src: "/projects/cathead-pulled-pork.webp", alt: "Pulled pork biscuit on a floral plate in front of the truck logo" },
+      { src: "/projects/cathead-chicken-egg.webp", alt: "Chicken, egg, and cheese biscuit with a CatHead bag" },
     ],
   },
   {
@@ -78,14 +82,16 @@ export const projects: Project[] = [
       "Plain-language, wins-first cards for clients, with declines and next steps flagged to the team instead",
     ],
     tools: ["Google Search Console", "GA4", "Google Business Profile", "Data visualization", "Claude"],
-    image: "/projects/seo-data.webp",
+    image: "/projects/seo-report-upholstery.webp",
     links: [],
     galleryFit: "contain",
     gallery: [
-      { src: "/projects/seo-ai-overviews.webp", alt: "Daily Google AI Overview appearances chart", href: "/projects/seo-report-upholstery.webp" },
-      { src: "/projects/seo-keywords.webp", alt: "Tracked keyword positions shown as chips", href: "/projects/seo-report-upholstery.webp" },
-      { src: "/projects/seo-found-you.webp", alt: "Donut chart of Maps versus Search views", href: "/projects/seo-report-upholstery.webp" },
-      { src: "/projects/seo-year-over-year.webp", alt: "Year-over-year comparison bars", href: "/projects/seo-report-construction.webp" },
+      { src: "/projects/seo-ai-overviews.webp", alt: "Daily Google AI Overview appearances chart, upholstery client", full: "/projects/seo-report-upholstery.webp" },
+      { src: "/projects/seo-keywords.webp", alt: "Tracked keyword positions, upholstery client", full: "/projects/seo-report-upholstery.webp" },
+      { src: "/projects/seo-found-you.webp", alt: "Maps versus Search views donut, upholstery client", full: "/projects/seo-report-upholstery.webp" },
+      { src: "/projects/seo-ai-overviews-2.webp", alt: "Daily Google AI Overview appearances chart, construction supply client", full: "/projects/seo-report-construction.webp" },
+      { src: "/projects/seo-keywords-2.webp", alt: "Tracked keyword positions, construction supply client", full: "/projects/seo-report-construction.webp" },
+      { src: "/projects/seo-year-over-year.webp", alt: "Year-over-year comparison bars, construction supply client", full: "/projects/seo-report-construction.webp" },
     ],
   },
   {

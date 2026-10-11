@@ -3,6 +3,7 @@ import type { Project } from "@/content/projects";
 import { ArchMedia } from "./ArchMedia";
 import { BrowserMockup } from "./BrowserMockup";
 import { PhoneMockup } from "./PhoneMockup";
+import { Showcase } from "./Showcase";
 import { SiteStage } from "./SiteStage";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -16,6 +17,8 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             label={`Screenshot of the ${project.title} website`}
           />
         </SiteStage>
+      ) : project.gallery ? (
+        <Showcase project={project} />
       ) : (
         <ArchMedia
           className={`relative aspect-[4/5] overflow-hidden rounded-2xl ${
@@ -41,36 +44,6 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             />
           )}
         </ArchMedia>
-      )}
-      {project.gallery && (
-        <div
-          className="mt-3 grid gap-3"
-          style={{ gridTemplateColumns: `repeat(${project.gallery.length}, minmax(0, 1fr))` }}
-        >
-          {project.gallery.map((shot, i, all) => (
-            <a
-              key={shot.src}
-              href={shot.href ?? shot.src}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`relative overflow-hidden rounded-xl transition duration-300 ease-out hover:z-20 hover:shadow-[0_18px_40px_-12px_rgba(46,34,25,0.5)] focus-visible:z-20 ${
-                project.galleryFit === "contain"
-                  ? "aspect-[3/2] hover:scale-[2.3] focus-visible:scale-[2.3]"
-                  : "aspect-square hover:scale-[1.7] focus-visible:scale-[1.7]"
-              } ${
-                i === 0 ? "origin-bottom-left" : i === all.length - 1 ? "origin-bottom-right" : "origin-bottom"
-              } ${project.galleryFit === "contain" ? "bg-[#fbf7f0]" : "bg-sand"} ${project.film ? "film" : ""}`}
-            >
-              <Image
-                src={shot.src}
-                alt={shot.alt}
-                fill
-                sizes="(min-width: 640px) 20vw, 40vw"
-                className={project.galleryFit === "contain" ? "object-contain p-1" : "object-cover object-top"}
-              />
-            </a>
-          ))}
-        </div>
       )}
       <div className="mt-5 flex items-baseline justify-between gap-4 border-b border-line pb-3 text-xs tracking-[0.2em] text-muted uppercase">
         <span>
