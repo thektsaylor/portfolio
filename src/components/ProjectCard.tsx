@@ -73,6 +73,16 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
       </div>
       <h3 className="mt-4 font-display text-3xl font-extrabold tracking-[-0.035em]">{project.title}</h3>
       <p className="mt-3 max-w-md leading-relaxed text-muted">{project.summary}</p>
+      {project.highlights && (
+        <ul className="mt-4 max-w-md space-y-2 text-sm leading-relaxed text-muted">
+          {project.highlights.map((point) => (
+            <li key={point} className="flex gap-2.5">
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-leaf" aria-hidden />
+              {point}
+            </li>
+          ))}
+        </ul>
+      )}
       <p className="mt-3 text-sm text-muted">{project.tools.join(" · ")}</p>
       {project.links.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-5">
