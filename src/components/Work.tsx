@@ -37,7 +37,7 @@ export function Work() {
       <div className="grid gap-x-16 gap-y-20 sm:grid-cols-2">
         {shown.map((project, i) => (
           <Reveal key={project.title} delay={i % 2 === 1 ? 150 : 0} className={i % 2 === 1 ? "sm:mt-32" : ""}>
-            <ProjectCard project={project} index={projects.indexOf(project)} />
+            <ProjectCard project={project} />
           </Reveal>
         ))}
       </div>

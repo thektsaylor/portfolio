@@ -11,7 +11,7 @@ export function Hero() {
         <span>Design · Data · AI</span>
         <span className="flex items-center gap-2">
           <span className="h-1.5 w-1.5 rounded-full bg-leaf" aria-hidden />
-          Open to data &amp; UX roles
+          Open to UX &amp; MarTech roles
         </span>
       </div>
 
