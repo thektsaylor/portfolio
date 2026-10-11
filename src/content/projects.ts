@@ -34,14 +34,15 @@ export const projects: Project[] = [
     summary:
       "As owner and creative director, I built the brand for my biscuit food truck from the logo up: the sleepy-eyed cat, the menus, and the truck graphics, plus the photos and the Instagram.",
     tools: ["Logo design", "Menu design", "Vehicle graphics", "Photography", "Instagram"],
-    image: "/projects/cathead-clipboard.webp",
+    image: "/projects/cathead-truck-sign.webp",
     film: true,
     links: [{ label: "View on Instagram", href: "https://www.instagram.com/cathead.biscuits" }],
     gallery: [
-      { src: "/projects/cathead-logo.webp", alt: "CatHead Biscuits logo: a sleepy-eyed cat face in a circle" },
-      { src: "/projects/cathead-stamp.webp", alt: "CatHead Biscuits logo stamped in blue ink on paper" },
-      { src: "/projects/cathead-menus.webp", alt: "Fanned stack of CatHead Biscuits menus on a yellow table" },
-      { src: "/projects/cathead-truck.webp", alt: "The green CatHead Biscuits food truck with its cat logo" },
+      { src: "/projects/cathead-stamp.webp", alt: "CatHead Biscuits logo hand-stamped in blue ink on a bag" },
+      { src: "/projects/cathead-menu.webp", alt: "CatHead Biscuits menu on a clipboard" },
+      { src: "/projects/cathead-chicken-pimento.webp", alt: "Fried chicken biscuit with pimento cheese held over a daisy tablecloth" },
+      { src: "/projects/cathead-towanda.webp", alt: "Towanda biscuit stacked with fried green tomatoes and microgreens" },
+      { src: "/projects/cathead-skillet.webp", alt: "Breakfast skillet with a biscuit, eggs, and beans on a red picnic table" },
     ],
   },
   {
