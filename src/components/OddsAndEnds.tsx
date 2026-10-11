@@ -1,224 +1,215 @@
 import Image from "next/image";
-import { Reveal } from "./Reveal";
+import { Draggable } from "./Draggable";
 import { SectionHead } from "./SectionHead";
 
-// A scrapbook page of small print pieces (invitations, a cookbook cover, a recipe card),
-// dressed with fiber-arts odds and ends: washi tape, a yarn ball on needles, a pressed
-// fern, and swatches from botanical dye pots. Personal details on the pieces are blurred.
+// An open junk-journal spread: small print and logo work layered over ledger and
+// graph paper with pressed botanicals, a knitted swatch, washi tape, and stamps.
+// Every piece can be picked up and moved with a mouse. Addresses and phone numbers
+// on the pieces are blurred.
 
-type Fastener = "tape" | "corners" | "stitch";
+type Frame = "plain" | "stamp" | "torn" | "sticker" | "botanical" | "knit";
+type Tape = "kraft" | "cream" | "sage" | "rose";
+
+// Loose paper glued down under the pieces: same placement fields, plus width / height.
+type Scrap = {
+  kind: "kraft" | "newsprint" | "gingham" | "ticket";
+  ratio: number;
+  d: [number, number, number, number, number];
+  m?: [number, number, number, number, number];
+};
+
+const scraps: Scrap[] = [
+  { kind: "newsprint", ratio: 0.85, d: [2, 14, 20, -3, 2], m: [60, 30, 60, 4, 2] },
+  { kind: "kraft", ratio: 0.95, d: [60, 39, 15, 6, 2], m: [196, 50, 46, -4, 2] },
+  { kind: "gingham", ratio: 1.15, d: [58, 69, 16, -8, 2], m: [318, 46, 48, 6, 2] },
+  { kind: "kraft", ratio: 1.3, d: [3, 63, 14, 5, 2] },
+  { kind: "ticket", ratio: 2.4, d: [88, 39, 10, 4, 21], m: [408, 30, 30, 4, 21] },
+];
 
 type Piece = {
   src: string;
-  alt: string;
   w: number;
   h: number;
-  // Desktop placement on the page, as percentages, plus a tilt in degrees.
-  top: string;
-  left: string;
-  width: string;
-  tilt: number;
-  fastener: Fastener;
-  tape?: string;
+  alt: string;
+  frame: Frame;
+  // Desktop: top and left as % of the spread, width as % of its width, tilt, layer.
+  d: [number, number, number, number, number];
+  // Phones (optional): top in units of a 100-wide by 420-tall page, then the same fields.
+  m?: [number, number, number, number, number];
+  tape?: Tape;
+  clip?: boolean;
 };
+
+const MOBILE_H = 420;
 
 const pieces: Piece[] = [
-  { src: "/odds/camp.webp", alt: "Camping-themed fourth birthday invitation with tents and marshmallows", w: 377, h: 528, top: "9%", left: "3%", width: "17%", tilt: -5, fastener: "tape", tape: "madder" },
-  { src: "/odds/weenie.webp", alt: "Hot dog themed third birthday invitation on red gingham", w: 377, h: 528, top: "24%", left: "21.5%", width: "16%", tilt: 4, fastener: "corners" },
-  { src: "/odds/sourdough.webp", alt: "Single loaf sourdough recipe card with line-drawn bread and rolling pin", w: 548, h: 365, top: "5%", left: "39.5%", width: "25%", tilt: -2, fastener: "tape", tape: "indigo" },
-  { src: "/odds/roast.webp", alt: "Pink dinner party invitation with a roasting pot and line-drawn vegetables", w: 377, h: 528, top: "11%", left: "66%", width: "15.5%", tilt: 6, fastener: "stitch" },
-  { src: "/odds/rex.webp", alt: "T-rex birthday invitation with balloons on crumpled paper", w: 377, h: 528, top: "34%", left: "82.5%", width: "15%", tilt: -4, fastener: "tape", tape: "marigold" },
-  { src: "/odds/shower.webp", alt: "Pink toile baby shower invitation with a ribbon bow", w: 377, h: 528, top: "50%", left: "42%", width: "15%", tilt: -3, fastener: "tape", tape: "walnut" },
-  { src: "/odds/cookbook.webp", alt: "Family cookbook cover with red line-drawn baking tools", w: 381, h: 493, top: "55%", left: "61%", width: "15.5%", tilt: 3, fastener: "corners" },
+  // Background layer: a strip of knitted fabric glued down first
+  { src: "/odds/knit-cream.webp", w: 700, h: 525, alt: "Close-up of cream stockinette knitting", frame: "torn", d: [33, 14, 26, -6, 1], m: [116, 26, 64, -5, 1] },
+
+  // Print work
+  { src: "/odds/fall-festival.webp", w: 387, h: 516, alt: "Fall birthday party poster with a watercolor pumpkin and hanging stars", frame: "plain", tape: "kraft", d: [5, 3, 16.5, -4, 10], m: [4, 4, 44, -3, 10] },
+  { src: "/odds/thanksgiving.webp", w: 377, h: 528, alt: "Red line-art Thanksgiving dinner invitation in an arched frame", frame: "stamp", d: [8, 19.5, 15, 3, 11], m: [10, 52, 43, 3, 11] },
+  { src: "/odds/secrets.webp", w: 632, h: 316, alt: "Article header reading Women Who Smuggled Secrets over a knitted cipher chart", frame: "torn", tape: "cream", d: [57, 2, 25, -2, 12], m: [80, 6, 88, -2, 12] },
+  { src: "/odds/weenie.webp", w: 377, h: 528, alt: "Hot dog themed third birthday invitation on red gingham", frame: "plain", clip: true, d: [46, 27.5, 15, 5, 13], m: [140, 52, 42, -4, 13] },
+  { src: "/odds/knit-swatch.webp", w: 900, h: 605, alt: "Teal knitted swatch hanging from a wooden needle", frame: "knit", d: [0, 38, 22, -3, 14], m: [206, 4, 82, -3, 14] },
+  { src: "/odds/bbq.webp", w: 376, h: 532, alt: "Fourth of July BBQ party poster with a grill and rocket pops", frame: "stamp", d: [25, 51, 15, -3, 10], m: [132, 5, 43, 2, 10] },
+  { src: "/odds/brand-board.webp", w: 344, h: 581, alt: "Brand board for a home inspection company: logo, palette, fonts, and mood board", frame: "plain", tape: "sage", d: [4, 84, 13, 4, 11], m: [262, 54, 38, 3, 11] },
+  { src: "/odds/cookbook.webp", w: 381, h: 493, alt: "Family cookbook cover with red line-drawn baking tools", frame: "plain", tape: "rose", d: [23, 67, 14.5, -4, 12], m: [338, 8, 42, 3, 12] },
+  { src: "/odds/tea.webp", w: 377, h: 528, alt: "Watercolor wildflower invitation to a bridal tea", frame: "torn", d: [55, 55, 14, 2, 13], m: [268, 6, 43, -2, 13] },
+
+  // Logo stickers
+  { src: "/odds/slipstitch.webp", w: 351, h: 364, alt: "Slip Stitch Heirlooms retro sunset logo sticker", frame: "sticker", d: [1, 29.5, 11.5, 8, 20], m: [66, 64, 30, 8, 20] },
+  { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Bearded sailor icon logo sticker", frame: "sticker", d: [77, 11, 5.5, -6, 20], m: [214, 82, 14, -6, 20] },
+  { src: "/odds/rapscallion.webp", w: 383, h: 141, alt: "Rapscallion Station ransom-note bar logo sticker", frame: "sticker", d: [81, 70, 19, -3, 20], m: [340, 52, 44, -4, 20] },
+  { src: "/odds/logistics-logo.webp", w: 300, h: 221, alt: "Logistics company logo sticker", frame: "sticker", d: [56, 87.5, 10, 6, 20], m: [372, 58, 28, 6, 20] },
+
+  // Pressed botanicals, some tucked under the pieces and some laid on top
+  { src: "/odds/bot/sweetgum.webp", w: 300, h: 258, alt: "", frame: "botanical", d: [79, 37, 10, 20, 4], m: [190, 70, 26, 20, 4] },
+  { src: "/odds/bot/sweetgum-2.webp", w: 290, h: 247, alt: "", frame: "botanical", d: [1, 73, 9, -15, 3] },
+  { src: "/odds/bot/meadow-rue.webp", w: 209, h: 300, alt: "", frame: "botanical", d: [44, 77, 7, 12, 5], m: [300, 84, 15, 12, 25] },
+  { src: "/odds/bot/fern.webp", w: 165, h: 300, alt: "", frame: "botanical", d: [62, 46, 6, -8, 25], m: [56, 2, 14, -8, 25] },
+  { src: "/odds/bot/yarrow.webp", w: 190, h: 284, alt: "", frame: "botanical", d: [64, 21, 6, 10, 5] },
+  { src: "/odds/bot/skeleton-leaf.webp", w: 144, h: 220, alt: "", frame: "botanical", d: [17, 31, 5, -20, 5], m: [250, 40, 14, -20, 25] },
+  { src: "/odds/bot/rose-peach.webp", w: 239, h: 226, alt: "", frame: "botanical", d: [38, 1, 8, 0, 25], m: [118, 2, 20, 0, 25] },
+  { src: "/odds/bot/rose-gold.webp", w: 160, h: 170, alt: "", frame: "botanical", d: [85, 52, 6, 15, 25], m: [396, 10, 16, 15, 25] },
+  { src: "/odds/bot/dandelion.webp", w: 183, h: 187, alt: "", frame: "botanical", d: [37, 90, 6, 0, 25], m: [190, 4, 15, 0, 25] },
+  { src: "/odds/bot/dandelion-2.webp", w: 184, h: 185, alt: "", frame: "botanical", d: [47, 44.5, 5, 0, 25] },
+  { src: "/odds/bot/cosmos.webp", w: 185, h: 183, alt: "", frame: "botanical", d: [89, 20, 5.5, 10, 25], m: [330, 40, 15, 10, 25] },
+  { src: "/odds/bot/cosmos-2.webp", w: 205, h: 229, alt: "", frame: "botanical", d: [72, 47, 6, -10, 25] },
+  { src: "/odds/bot/marigold.webp", w: 167, h: 288, alt: "", frame: "botanical", d: [29, 47, 3.5, 8, 25], m: [24, 88, 10, 8, 25] },
+  { src: "/odds/bot/daisy-stem.webp", w: 104, h: 300, alt: "", frame: "botanical", d: [42, 95.5, 2.8, -6, 25] },
+  { src: "/odds/bot/pasque.webp", w: 167, h: 300, alt: "", frame: "botanical", d: [5, 0.5, 4, 8, 25] },
+  { src: "/odds/bot/rosebud.webp", w: 123, h: 207, alt: "", frame: "botanical", d: [88, 65, 3.5, 30, 25], m: [404, 88, 9, 30, 25] },
+  { src: "/odds/bot/tulip.webp", w: 107, h: 117, alt: "", frame: "botanical", d: [74, 91, 3.5, -12, 25] },
+  { src: "/odds/bot/pansy.webp", w: 84, h: 89, alt: "", frame: "botanical", d: [23, 47.5, 2.5, 0, 25], m: [130, 92, 6, 0, 25] },
+  { src: "/odds/bot/dandelion-2.webp", w: 184, h: 185, alt: "", frame: "botanical", d: [92, 3, 0, 0, 0], m: [262, 92, 8, 0, 25] },
 ];
 
-// Colors from the dye pot: madder root, indigo, marigold, avocado pit, black walnut.
-const dyes = {
-  madder: "#c4574a",
-  indigo: "#3d5a80",
-  marigold: "#e0a526",
-  avocado: "#d9a3a0",
-  walnut: "#7a5a3f",
-};
-
-const tapeStyles: Record<string, string> = {
-  madder: `repeating-linear-gradient(45deg, ${dyes.madder}b3 0 6px, #f1d2c8b3 6px 12px)`,
-  indigo: `repeating-linear-gradient(90deg, ${dyes.indigo}a6 0 4px, #dfe5eea6 4px 9px)`,
-  marigold: `radial-gradient(circle at 4px 4px, ${dyes.marigold} 2px, transparent 2.5px) 0 0/9px 9px, #f6e3b4c0`,
-  walnut: `repeating-linear-gradient(-45deg, ${dyes.walnut}99 0 3px, #eadccab3 3px 10px)`,
-};
+// Ragged edges for torn paper, generated once so they match between renders.
+function tornPath(seed: number) {
+  let s = seed;
+  const rand = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
+  const top: string[] = [];
+  const bottom: string[] = [];
+  for (let x = 0; x <= 100; x += 4) top.push(`${x}% ${(rand() * 3).toFixed(1)}%`);
+  for (let x = 100; x >= 0; x -= 4) bottom.push(`${x}% ${(97 + rand() * 3).toFixed(1)}%`);
+  return `polygon(${[...top, ...bottom].join(",")})`;
+}
 
 export function OddsAndEnds() {
   return (
     <section id="odds" className="mx-auto max-w-6xl px-5 pb-20 sm:px-8 sm:pb-28">
       <SectionHead title="Odds & Ends" />
-      <div className="scrapbook relative overflow-hidden rounded-[1.75rem] p-5 shadow-[0_30px_60px_-30px_rgba(46,34,25,0.45)] sm:p-8 md:aspect-[16/10] md:p-0">
-        {/* Running stitch around the page */}
-        <div
-          className="pointer-events-none absolute inset-3 rounded-[1.25rem] border-2 border-dashed border-terracotta/35"
-          aria-hidden
-        />
+      <div className="journal relative aspect-[100/420] overflow-hidden rounded-md shadow-[0_40px_70px_-35px_rgba(46,34,25,0.6)] md:aspect-[16/10]">
+        {/* Paper: ledger lines on the left page, graph paper on the right, a gutter between */}
+        <div className="journal-ledger absolute inset-y-0 left-0 hidden w-1/2 md:block" aria-hidden />
+        <div className="journal-graph absolute inset-y-0 right-0 hidden w-1/2 md:block" aria-hidden />
+        <div className="journal-ledger absolute inset-0 md:hidden" aria-hidden />
+        <div className="journal-gutter absolute inset-y-0 left-1/2 hidden w-24 -translate-x-1/2 md:block" aria-hidden />
 
-        {/* Decorations sit behind the pieces */}
-        <YarnBall className="absolute bottom-[4%] left-[2%] hidden w-[19%] md:block" />
-        <Fern className="absolute top-[3%] right-[1%] hidden w-[11%] rotate-12 md:block" />
-        <Swatches id="weave-lg" className="absolute bottom-[5%] left-[22%] hidden w-[18%] md:block" />
-        <Fern className="absolute right-[18%] bottom-[2%] hidden w-[8%] -rotate-[100deg] opacity-80 md:block" />
-
-        <ul className="relative grid grid-cols-2 gap-x-5 gap-y-8 py-4 sm:grid-cols-3 md:block md:h-full md:py-0">
-          {pieces.map((p, i) => (
-            <li
-              key={p.src}
-              className="md:absolute md:top-(--top) md:left-(--left) md:w-(--w) hover:z-20"
-              style={{ "--top": p.top, "--left": p.left, "--w": p.width } as React.CSSProperties}
-            >
-              <Reveal delay={(i % 4) * 110}>
-                <div
-                  className="scrap relative rotate-(--tilt) transition duration-500 ease-out hover:scale-[1.06] hover:rotate-0"
-                  style={{ "--tilt": `${p.tilt}deg` } as React.CSSProperties}
-                >
-                  <Image
-                    src={p.src}
-                    alt={p.alt}
-                    width={p.w}
-                    height={p.h}
-                    sizes="(min-width: 768px) 18vw, 45vw"
-                    className="block h-auto w-full shadow-[0_14px_28px_-14px_rgba(46,34,25,0.6)]"
-                  />
-                  <Fasten kind={p.fastener} tape={p.tape} />
-                </div>
-              </Reveal>
-            </li>
-          ))}
-          {/* Fills the empty cell beside the last piece on small screens */}
-          <li className="flex items-center justify-center md:hidden" aria-hidden>
-            <YarnBall className="w-[90%]" />
-          </li>
-        </ul>
-
-        {/* On small screens the decorations line up under the pieces */}
-        <div className="mt-6 flex items-end justify-between gap-4 md:hidden" aria-hidden>
-          <Swatches id="weave-sm" className="w-[62%]" />
-          <Fern className="w-[16%] rotate-12" />
+        {/* Decoupage: oversized botanicals soaked into the paper */}
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <Image src="/odds/bot/fern.webp" alt="" width={165} height={300} className="decoupage absolute top-[8%] left-[1%] w-[14%]" />
+          <Image src="/odds/bot/sweetgum.webp" alt="" width={300} height={258} className="decoupage absolute right-[4%] bottom-[2%] w-[22%] rotate-12" />
+          <Image src="/odds/bot/meadow-rue.webp" alt="" width={209} height={300} className="decoupage absolute top-[30%] left-[42%] w-[16%] -rotate-12" />
         </div>
+
+        {scraps.map((sc, i) => (
+          <ScrapView key={`scrap-${i}`} scrap={sc} index={i} />
+        ))}
+        {pieces.map((p, i) => (
+          <PieceView key={`${p.src}-${i}`} piece={p} index={i} />
+        ))}
       </div>
+      <p className="mt-4 hidden text-xs tracking-[0.2em] text-muted uppercase md:block">
+        Go ahead, move things around.
+      </p>
     </section>
   );
 }
 
-function Fasten({ kind, tape }: { kind: Fastener; tape?: string }) {
-  if (kind === "tape") {
-    return (
-      <span
-        className="absolute -top-3 left-1/2 h-5 w-[46%] -translate-x-1/2 -rotate-3 shadow-sm"
-        style={{ background: tapeStyles[tape ?? "madder"] }}
+function PieceView({ piece: p, index }: { piece: Piece; index: number }) {
+  const [top, left, width, tilt, z] = p.d;
+  const m = p.m;
+  const vars = {
+    "--t": `${top}%`,
+    "--l": `${left}%`,
+    "--w": `${width}%`,
+    "--tilt": `${tilt}deg`,
+    "--mt": m ? `${(m[0] / MOBILE_H) * 100}%` : "0",
+    "--ml": m ? `${m[1]}%` : "0",
+    "--mw": m ? `${m[2]}%` : "0",
+    "--mtilt": m ? `${m[3]}deg` : "0deg",
+    zIndex: z || (m ? m[4] : 1),
+  } as React.CSSProperties;
+
+  const visibility = [m ? "block" : "hidden", width > 0 ? "md:block" : "md:hidden"].join(" ");
+
+  return (
+    <Draggable
+      className={`piece absolute top-(--mt) left-(--ml) w-(--mw) md:top-(--t) md:left-(--l) md:w-(--w) ${visibility} piece-${p.frame}`}
+      style={vars}
+    >
+      <div
+        className={p.frame === "stamp" ? "stamp" : p.frame === "torn" ? "torn-wrap" : ""}
+        style={p.frame === "torn" ? ({ clipPath: tornPath(index * 7 + 3) } as React.CSSProperties) : undefined}
+      >
+        <Image
+          src={p.src}
+          alt={p.alt}
+          width={p.w}
+          height={p.h}
+          draggable={false}
+          sizes={p.frame === "botanical" ? "8rem" : "(min-width: 768px) 22vw, 45vw"}
+          className="block h-auto w-full select-none"
+          aria-hidden={p.alt ? undefined : true}
+        />
+      </div>
+      {p.tape && <span className={`washi washi-${p.tape}`} aria-hidden />}
+      {p.clip && <PaperClip />}
+    </Draggable>
+  );
+}
+
+function ScrapView({ scrap, index }: { scrap: Scrap; index: number }) {
+  const [top, left, width, tilt, z] = scrap.d;
+  const m = scrap.m;
+  const vars = {
+    "--t": `${top}%`,
+    "--l": `${left}%`,
+    "--w": `${width}%`,
+    "--tilt": `${tilt}deg`,
+    "--mt": m ? `${(m[0] / MOBILE_H) * 100}%` : "0",
+    "--ml": m ? `${m[1]}%` : "0",
+    "--mw": m ? `${m[2]}%` : "0",
+    "--mtilt": m ? `${m[3]}deg` : "0deg",
+    zIndex: z,
+  } as React.CSSProperties;
+  return (
+    <Draggable
+      className={`piece absolute top-(--mt) left-(--ml) w-(--mw) md:top-(--t) md:left-(--l) md:w-(--w) ${m ? "block" : "hidden md:block"}`}
+      style={vars}
+    >
+      <div
+        className={`scrap scrap-${scrap.kind}`}
+        style={{ aspectRatio: `1 / ${scrap.ratio}`, clipPath: scrap.kind === "ticket" ? undefined : tornPath(index * 13 + 5) }}
         aria-hidden
       />
-    );
-  }
-  if (kind === "corners") {
-    return (
-      <>
-        <span className="photo-corner absolute -top-1 -left-1" aria-hidden />
-        <span className="photo-corner absolute -top-1 -right-1 rotate-90" aria-hidden />
-        <span className="photo-corner absolute -right-1 -bottom-1 rotate-180" aria-hidden />
-        <span className="photo-corner absolute -bottom-1 -left-1 -rotate-90" aria-hidden />
-      </>
-    );
-  }
-  // A cross-stitch tacked through the top
-  return (
-    <svg viewBox="0 0 40 40" className="absolute -top-3 left-1/2 w-8 -translate-x-1/2" aria-hidden>
-      <path d="M8 8l24 24M32 8L8 32" stroke={dyes.madder} strokeWidth="4" strokeLinecap="round" />
-      <path d="M8 8l24 24" stroke="#fff" strokeOpacity=".35" strokeWidth="1.2" strokeDasharray="3 3" />
-    </svg>
+    </Draggable>
   );
 }
 
-// A ball of yarn with two needles pushed through and a loose strand.
-function YarnBall({ className }: { className?: string }) {
+function PaperClip() {
   return (
-    <svg viewBox="0 0 220 170" className={className} aria-hidden>
+    <svg viewBox="0 0 24 64" className="absolute -top-4 right-[18%] w-[9%] min-w-3" aria-hidden>
       <path
-        d="M118 120c30 10 46 34 78 30s14-30-8-22"
+        d="M8 46V12a6 6 0 0 1 12 0v40a9 9 0 0 1-18 0V18"
         fill="none"
-        stroke={dyes.madder}
-        strokeWidth="3"
+        stroke="#9a9a96"
+        strokeWidth="2.6"
         strokeLinecap="round"
       />
-      <line x1="20" y1="30" x2="150" y2="130" stroke="#b58a5c" strokeWidth="5" strokeLinecap="round" />
-      <line x1="40" y1="140" x2="170" y2="22" stroke="#b58a5c" strokeWidth="5" strokeLinecap="round" />
-      <circle cx="20" cy="30" r="6" fill={dyes.walnut} />
-      <circle cx="170" cy="22" r="6" fill={dyes.walnut} />
-      <circle cx="95" cy="85" r="52" fill={dyes.madder} />
-      <g fill="none" stroke="#f3d6cc" strokeWidth="2.2" strokeLinecap="round" opacity=".75">
-        <path d="M52 62c22 18 66 18 90 2" />
-        <path d="M46 86c28 20 70 22 98 2" />
-        <path d="M52 110c24 16 60 16 84 0" />
-        <path d="M78 36c-18 26-18 72 4 98" />
-        <path d="M106 34c14 28 14 74-6 100" />
-      </g>
-      <g fill="none" stroke="#8f3a31" strokeWidth="1.6" strokeLinecap="round" opacity=".5">
-        <path d="M60 50c30 6 54 26 70 60" />
-        <path d="M58 122c20-28 46-46 82-52" />
-      </g>
-    </svg>
-  );
-}
-
-// A pressed fern frond: a curved stem with alternating leaflets.
-function Fern({ className }: { className?: string }) {
-  const leaflets = Array.from({ length: 11 }, (_, i) => i);
-  return (
-    <svg viewBox="0 0 80 200" className={className} aria-hidden>
-      <path d="M40 196C38 140 44 70 36 6" fill="none" stroke="#5f7a4a" strokeWidth="2.4" strokeLinecap="round" />
-      {leaflets.map((i) => {
-        const y = 184 - i * 16;
-        const size = 22 - i * 1.5;
-        const x = 40 - (i * 0.4);
-        return (
-          <g key={i} fill="#7d9a5f" opacity={0.85 - i * 0.02}>
-            <ellipse cx={x - size / 2 - 1} cy={y - 4} rx={size / 2} ry={size / 5} transform={`rotate(-28 ${x} ${y})`} />
-            <ellipse cx={x + size / 2 + 1} cy={y - 10} rx={size / 2} ry={size / 5} transform={`rotate(28 ${x} ${y - 6})`} />
-          </g>
-        );
-      })}
-    </svg>
-  );
-}
-
-// Fabric swatches from the dye pot, cut with pinking shears.
-function Swatches({ className, id }: { className?: string; id: string }) {
-  const pinked = (size: number) => {
-    const teeth = 10;
-    const step = size / teeth;
-    let d = "M0 0";
-    for (let i = 0; i < teeth; i++) d += `l${step / 2} ${i % 2 ? 3 : -3}l${step / 2} ${i % 2 ? -3 : 3}`;
-    for (let i = 0; i < teeth; i++) d += `l${i % 2 ? -3 : 3} ${step / 2}l${i % 2 ? 3 : -3} ${step / 2}`;
-    for (let i = 0; i < teeth; i++) d += `l${-step / 2} ${i % 2 ? -3 : 3}l${-step / 2} ${i % 2 ? 3 : -3}`;
-    for (let i = 0; i < teeth; i++) d += `l${i % 2 ? 3 : -3} ${-step / 2}l${i % 2 ? -3 : 3} ${-step / 2}`;
-    return d + "z";
-  };
-  const swatches = [
-    { color: dyes.indigo, x: 8, y: 34, r: -8 },
-    { color: dyes.marigold, x: 70, y: 18, r: 6 },
-    { color: dyes.avocado, x: 128, y: 40, r: -4 },
-    { color: dyes.walnut, x: 186, y: 22, r: 9 },
-  ];
-  return (
-    <svg viewBox="0 0 260 120" className={className} aria-hidden>
-      <defs>
-        <pattern id={id} width="4" height="4" patternUnits="userSpaceOnUse">
-          <path d="M0 2h4M2 0v4" stroke="#fff" strokeOpacity=".14" strokeWidth="1" />
-        </pattern>
-      </defs>
-      {swatches.map((s) => (
-        <g key={s.color} transform={`translate(${s.x} ${s.y}) rotate(${s.r} 30 30)`}>
-          <path d={pinked(60)} fill={s.color} />
-          <path d={pinked(60)} fill={`url(#${id})`} />
-          <path d="M6 6h48v48H6z" fill="none" stroke="#fff" strokeOpacity=".45" strokeWidth="1.2" strokeDasharray="3 3" />
-        </g>
-      ))}
+      <path d="M8 46V12a6 6 0 0 1 12 0" fill="none" stroke="#e9e8e2" strokeWidth="0.9" strokeLinecap="round" />
     </svg>
   );
 }
