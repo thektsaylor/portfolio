@@ -26,10 +26,10 @@ export function About() {
         </div>
         <div>
           <p className="font-display text-3xl leading-snug font-semibold tracking-[-0.03em] sm:text-4xl">
-            I&apos;m interested in how intelligent systems get built and also{" "}
-            <span className="text-forest">how people actually use them</span>. That means thinking about
-            bias, transparency, ethics, and security from the start, and knowing where automated logic
-            still needs a creative, human touch.
+            I&apos;m interested in how intelligent systems get built, but also{" "}
+            <span className="text-forest">how people use them</span>. Bias, transparency, ethics, and
+            security are all important from the start, and knowing where automated logic still needs a
+            creative, human touch is what makes a system worth using.
           </p>
           <dl className="mt-14 border-t border-line">
             {skills.map((s) => (
