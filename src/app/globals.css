@@ -150,3 +150,32 @@ body::after {
     transform: none;
   }
 }
+
+/* Sticky nav: the frosted bar ends in a wave (one 300px period, tiled) instead of a
+   straight edge, with a thin line traced along the same curve. */
+.nav-bar::before,
+.nav-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+.nav-bar::before {
+  background: rgb(245 240 231 / 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'%3E%3Cpath d='M0 0H300V6C250 12 200 12 150 6C100 0 50 0 0 6Z'/%3E%3C/svg%3E");
+  mask:
+    linear-gradient(#000 0 0) top / 100% calc(100% - 12px) no-repeat,
+    var(--wave) bottom left / 300px 12px repeat-x;
+  -webkit-mask:
+    linear-gradient(#000 0 0) top / 100% calc(100% - 12px) no-repeat,
+    var(--wave) bottom left / 300px 12px repeat-x;
+}
+.nav-bar::after {
+  top: auto;
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'%3E%3Cpath d='M0 6C50 0 100 0 150 6S250 12 300 6' fill='none' stroke='%23d8ccb9' stroke-width='1.5'/%3E%3C/svg%3E") bottom left / 300px 12px repeat-x;
+  z-index: 0;
+}
