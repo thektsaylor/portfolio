@@ -91,7 +91,7 @@ export const education = [
 // Swap these for personal shots (hobbies, pets, places, your desk) any time.
 export const collage = [
   { src: "/projects/cathead-truck-sign.webp", alt: "The CatHead Biscuits food truck", caption: "cathead" },
-  { src: "/projects/fiberglass-demo-poster.webp", alt: "Fiberglass app splash screen", caption: "fiberglass" },
+  { src: "/projects/fiberglass-sheep.webp", alt: "Line-drawn sheep from the Fiberglass app loading screen", caption: "fiberglass" },
   { src: "/projects/seo-ai-overviews.webp", alt: "AI Overview chart from an SEO report", caption: "seo reports" },
-  { src: "/projects/luxi-loo-home.webp", alt: "Luxi Loo Rentals homepage", caption: "luxi loo" },
+  { src: "/projects/luxi-loo-weddings.webp", alt: "Luxi Loo Rentals wedding banner with a bride at a restroom trailer", caption: "luxi loo" },
 ];
