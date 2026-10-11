@@ -108,7 +108,7 @@ export const projects: Project[] = [
   {
     title: "Truck Hunters LLC",
     category: "Web",
-    year: "",
+    year: "2023",
     summary:
       "A third-party logistics company with a bold hero and a photo grid of their twelve freight services, so shippers can find their load type at a glance.",
     tools: ["Web design"],
