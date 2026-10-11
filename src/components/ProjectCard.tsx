@@ -3,61 +3,70 @@ import type { Project } from "@/content/projects";
 import { ArchMedia } from "./ArchMedia";
 import { BrowserMockup } from "./BrowserMockup";
 import { PhoneMockup } from "./PhoneMockup";
+import { SiteStage } from "./SiteStage";
 
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <article className="group">
-      <ArchMedia
-        className={`relative aspect-[4/5] overflow-hidden rounded-t-[999px] ${
-          project.video || project.site ? "bg-[#ead9c8]" : "bg-sand"
-        } ${project.film ? "film" : ""}`}
-      >
-        {project.video ? (
-          <div className="absolute top-[13%] left-1/2 w-[52%] -translate-x-1/2">
-            <PhoneMockup
-              mp4={project.video.mp4}
-              webm={project.video.webm}
-              poster={project.video.poster}
-              label={`Screen recording of the ${project.title} prototype`}
-            />
-          </div>
-        ) : project.site ? (
-          <div className="absolute top-[20%] left-1/2 w-[84%] -translate-x-1/2">
-            <BrowserMockup
-              url={project.site.url}
-              screenshot={project.site.screenshot}
-              label={`Screenshot of the ${project.title} website`}
-            />
-          </div>
-        ) : (
-          <Image
-            src={project.image}
-            alt={`${project.title} preview`}
-            fill
-            sizes="(min-width: 640px) 50vw, 100vw"
-            className="object-cover transition duration-700 group-hover:scale-[1.03]"
+      {project.site ? (
+        <SiteStage>
+          <BrowserMockup
+            url={project.site.url}
+            screenshot={project.site.screenshot}
+            label={`Screenshot of the ${project.title} website`}
           />
-        )}
-      </ArchMedia>
+        </SiteStage>
+      ) : (
+        <ArchMedia
+          className={`relative aspect-[4/5] overflow-hidden rounded-2xl ${
+            project.video ? "bg-[#ead9c8]" : "bg-sand"
+          } ${project.film ? "film" : ""}`}
+        >
+          {project.video ? (
+            <div className="absolute top-[13%] left-1/2 w-[52%] -translate-x-1/2">
+              <PhoneMockup
+                mp4={project.video.mp4}
+                webm={project.video.webm}
+                poster={project.video.poster}
+                label={`Screen recording of the ${project.title} prototype`}
+              />
+            </div>
+          ) : (
+            <Image
+              src={project.image}
+              alt={`${project.title} preview`}
+              fill
+              sizes="(min-width: 640px) 50vw, 100vw"
+              className="object-cover transition duration-700 group-hover:scale-[1.03]"
+            />
+          )}
+        </ArchMedia>
+      )}
       {project.gallery && (
         <div
           className="mt-3 grid gap-3"
           style={{ gridTemplateColumns: `repeat(${project.gallery.length}, minmax(0, 1fr))` }}
         >
-          {project.gallery.map((shot) => (
+          {project.gallery.map((shot, i, all) => (
             <a
               key={shot.src}
-              href={shot.src}
+              href={shot.href ?? shot.src}
               target="_blank"
               rel="noopener noreferrer"
-              className={`relative aspect-square overflow-hidden rounded-2xl bg-sand ${project.film ? "film" : ""}`}
+              className={`relative overflow-hidden rounded-xl transition duration-300 ease-out hover:z-20 hover:shadow-[0_18px_40px_-12px_rgba(46,34,25,0.5)] focus-visible:z-20 ${
+                project.galleryFit === "contain"
+                  ? "aspect-[3/2] hover:scale-[2.3] focus-visible:scale-[2.3]"
+                  : "aspect-square hover:scale-[1.7] focus-visible:scale-[1.7]"
+              } ${
+                i === 0 ? "origin-bottom-left" : i === all.length - 1 ? "origin-bottom-right" : "origin-bottom"
+              } ${project.galleryFit === "contain" ? "bg-[#fbf7f0]" : "bg-sand"} ${project.film ? "film" : ""}`}
             >
               <Image
                 src={shot.src}
                 alt={shot.alt}
                 fill
-                sizes="(min-width: 640px) 12vw, 25vw"
-                className="object-cover object-top transition duration-500 hover:scale-105"
+                sizes="(min-width: 640px) 20vw, 40vw"
+                className={project.galleryFit === "contain" ? "object-contain p-1" : "object-cover object-top"}
               />
             </a>
           ))}

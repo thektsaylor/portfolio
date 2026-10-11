@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// The arched frame for a project. On first view the media wipes up into the arch
+// The image frame for a project. On first view the media wipes up into the frame
 // and settles from a slight zoom; after that it drifts gently as the page scrolls.
 // Visible by default; it's only hidden for the wipe once this script runs.
 export function ArchMedia({ children, className = "" }: { children: React.ReactNode; className?: string }) {

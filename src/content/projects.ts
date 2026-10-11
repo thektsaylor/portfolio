@@ -10,7 +10,10 @@ export type Project = {
   image: string;
   links: { label: string; href: string }[];
   // Optional extra shots shown as a strip under the main image.
-  gallery?: { src: string; alt: string }[];
+  // href opens something other than the thumbnail itself (e.g. the full report).
+  gallery?: { src: string; alt: string; href?: string }[];
+  // "contain" shows the whole thumbnail (good for charts); default "cover" fills the square.
+  galleryFit?: "cover" | "contain";
   // Give real photos the warm film finish. Leave off for screenshots and mockups.
   film?: boolean;
   // A screen recording to play inside a phone mockup instead of the still image.
@@ -76,9 +79,12 @@ export const projects: Project[] = [
     tools: ["Google Search Console", "GA4", "Google Business Profile", "Data visualization", "Claude"],
     image: "/projects/seo-data.webp",
     links: [],
+    galleryFit: "contain",
     gallery: [
-      { src: "/projects/seo-report-upholstery.webp", alt: "Full monthly SEO report for an upholstery client, anonymized" },
-      { src: "/projects/seo-report-construction.webp", alt: "Full monthly SEO report for a construction supply client, anonymized" },
+      { src: "/projects/seo-ai-overviews.webp", alt: "Daily Google AI Overview appearances chart", href: "/projects/seo-report-upholstery.webp" },
+      { src: "/projects/seo-keywords.webp", alt: "Tracked keyword positions shown as chips", href: "/projects/seo-report-upholstery.webp" },
+      { src: "/projects/seo-found-you.webp", alt: "Donut chart of Maps versus Search views", href: "/projects/seo-report-upholstery.webp" },
+      { src: "/projects/seo-year-over-year.webp", alt: "Year-over-year comparison bars", href: "/projects/seo-report-construction.webp" },
     ],
   },
   {
