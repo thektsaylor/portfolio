@@ -1,5 +1,4 @@
 import { site } from "@/content/site";
-import { WaveLine } from "./Decor";
 
 const items = [
   { label: "Work", href: "#work" },
@@ -10,8 +9,8 @@ const items = [
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 bg-paper/90 backdrop-blur">
-      <nav className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+    <header className="nav-bar sticky top-0 z-50 pb-3">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
         <a href="#top" className="font-display text-lg font-extrabold tracking-[-0.03em]">
           {site.name}
           <span className="text-leaf">.</span>
@@ -34,7 +33,6 @@ export function Nav() {
             Resume ↓
           </a>
         </div>
-        <WaveLine className="absolute inset-x-0 -bottom-1 h-2 w-full text-line sm:-bottom-1.5 sm:h-3" />
       </nav>
     </header>
   );
