@@ -179,3 +179,104 @@ body::after {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'%3E%3Cpath d='M0 6C50 0 100 0 150 6S250 12 300 6' fill='none' stroke='%23d8ccb9' stroke-width='1.5'/%3E%3C/svg%3E") bottom left / 300px 12px repeat-x;
   z-index: 0;
 }
+
+/* Odds & Ends: a junk-journal spread. Paper grain comes from an SVG noise tile. */
+.journal {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .36 0 0 0 0 .25 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 30% 20%, #f6eedd, #eadcc2 70%, #dfcca9);
+}
+.journal-ledger {
+  background:
+    linear-gradient(90deg, transparent 9%, rgb(196 87 74 / 0.35) 9% calc(9% + 1px), transparent calc(9% + 1px)),
+    repeating-linear-gradient(180deg, transparent 0 27px, rgb(61 90 128 / 0.16) 27px 28px);
+}
+.journal-graph {
+  background:
+    repeating-linear-gradient(90deg, rgb(95 122 74 / 0.12) 0 1px, transparent 1px 22px),
+    repeating-linear-gradient(180deg, rgb(95 122 74 / 0.12) 0 1px, transparent 1px 22px);
+}
+.journal-gutter {
+  background: linear-gradient(90deg, transparent, rgb(80 60 40 / 0.18) 45%, rgb(80 60 40 / 0.28) 50%, rgb(80 60 40 / 0.18) 55%, transparent);
+}
+.decoupage {
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  filter: sepia(0.6) saturate(0.7);
+}
+
+/* Each piece can be dragged; --dx/--dy come from Draggable */
+.piece {
+  --rot: var(--mtilt);
+  transform: translate(var(--dx, 0), var(--dy, 0)) rotate(var(--rot));
+  touch-action: auto;
+}
+@media (width >= 48rem) {
+  .piece { --rot: var(--tilt); cursor: grab; }
+  .piece[data-dragging] { cursor: grabbing; }
+}
+.piece-plain > div, .piece-stamp > div, .piece-torn > div {
+  filter: drop-shadow(0 10px 14px rgb(46 34 25 / 0.28));
+}
+.piece-sticker img { filter: drop-shadow(0 4px 6px rgb(46 34 25 / 0.3)); }
+.piece-botanical img { filter: drop-shadow(0 2px 2px rgb(46 34 25 / 0.18)); }
+.piece-knit img { filter: drop-shadow(0 12px 14px rgb(46 34 25 / 0.3)); }
+.piece[data-dragging] img { filter: drop-shadow(0 22px 22px rgb(46 34 25 / 0.35)); }
+
+/* Postage-stamp edge: solid paper in the middle, perforated holes around it */
+.stamp {
+  background: #fdf8ee;
+  padding: 7%;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    radial-gradient(circle 4px, #0000 92%, #000) -5px -5px / 10px 10px round;
+  -webkit-mask-composite: source-over;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    radial-gradient(circle 4px, #0000 92%, #000) -5px -5px / 10px 10px round;
+}
+
+/* Washi tape: translucent with frayed ends */
+.washi {
+  position: absolute;
+  top: -0.7rem;
+  left: 50%;
+  width: 44%;
+  height: 1.3rem;
+  translate: -50% 0;
+  rotate: -4deg;
+  opacity: 0.85;
+  clip-path: polygon(0 8%, 4% 0, 8% 10%, 92% 0, 96% 12%, 100% 4%, 100% 92%, 96% 100%, 92% 88%, 8% 100%, 4% 90%, 0 100%);
+}
+.washi-kraft { background: repeating-linear-gradient(90deg, #c9a77c 0 2px, #d4b58d 2px 5px); }
+.washi-cream { background: #efe4cc; }
+.washi-sage { background: repeating-linear-gradient(45deg, #a9b796 0 6px, #c3ceb2 6px 12px); }
+.washi-rose { background: radial-gradient(circle at 5px 5px, #c4574a 1.6px, transparent 2px) 0 0 / 10px 10px, #ecc9c0; }
+
+/* Paper scraps */
+.scrap { box-shadow: 0 6px 12px -6px rgb(46 34 25 / 0.35); }
+.scrap-kraft {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .24 0 0 0 0 .13 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3C/svg%3E"),
+    #c49a6c;
+}
+.scrap-newsprint {
+  background:
+    repeating-linear-gradient(180deg, transparent 0 5px, rgb(60 50 40 / 0.22) 5px 7px),
+    linear-gradient(90deg, transparent 31%, #efe6d2 31% 34%, transparent 34% 65%, #efe6d2 65% 68%, transparent 68%),
+    #efe6d2;
+  background-blend-mode: multiply;
+}
+.scrap-gingham {
+  background:
+    repeating-linear-gradient(0deg, rgb(61 90 128 / 0.45) 0 9px, transparent 9px 18px),
+    repeating-linear-gradient(90deg, rgb(61 90 128 / 0.45) 0 9px, transparent 9px 18px),
+    #f4efe6;
+}
+.scrap-ticket {
+  background:
+    radial-gradient(circle at 0 50%, transparent 6px, #d9b98a 6.5px) left / 51% 100% no-repeat,
+    radial-gradient(circle at 100% 50%, transparent 6px, #d9b98a 6.5px) right / 51% 100% no-repeat;
+  outline: 1px dashed rgb(90 60 30 / 0.45);
+  outline-offset: -5px;
+}
