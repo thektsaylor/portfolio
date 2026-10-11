@@ -12,7 +12,6 @@ export function ProjectCard({ project }: { project: Project }) {
       {project.site ? (
         <SiteStage>
           <BrowserMockup
-            url={project.site.url}
             screenshot={project.site.screenshot}
             label={`Screenshot of the ${project.title} website`}
           />

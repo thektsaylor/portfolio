@@ -98,5 +98,5 @@ export const collage = [
   { src: "/projects/cathead-towanda.webp", alt: "Towanda biscuit stacked with fried green tomatoes", caption: "cathead" },
   { src: "/projects/fiberglass-sheep.webp", alt: "Line-drawn sheep from the Fiberglass app loading screen", caption: "fiberglass" },
   { src: "/projects/seo-ai-overviews.webp", alt: "AI Overview chart from an SEO report", caption: "seo reports" },
-  { src: "/projects/luxi-loo-map.webp", alt: "Luxi Loo four-state service area map: Kansas, Missouri, Oklahoma, Arkansas", caption: "luxi loo" },
+  { src: "/projects/restroom-rentals-map.webp", alt: "Four-state service area map: Kansas, Missouri, Oklahoma, Arkansas", caption: "web design" },
 ];

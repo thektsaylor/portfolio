@@ -22,7 +22,8 @@ export type Project = {
   // Optional short "how it works" points shown under the summary.
   highlights?: string[];
   // A website shown in a browser mockup. Use a full-page (tall) screenshot.
-  site?: { url: string; screenshot: string };
+  // Client names stay off the page so it doesn't surface in searches for their brands.
+  site?: { screenshot: string };
 };
 
 // Order here is the order on the page. Put your strongest work first.
@@ -95,25 +96,25 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Luxi Loo Rentals",
+    title: "Restroom Trailer Rentals",
     category: "Web",
     year: "2026",
     summary:
       "A website for a luxury restroom trailer rental company serving Northwest Arkansas and Southwest Missouri. It splits events and commercial visitors, then walks them through the fleet, an interactive service-area map, amenities, a four-step how-it-works, the owners' story, reviews, and FAQs.",
     tools: ["Web design", "UX writing", "Local SEO", "Vercel"],
-    image: "/projects/luxi-loo-home.webp",
-    site: { url: "https://luxiloorentals.com", screenshot: "/projects/luxi-loo-home.webp" },
+    image: "/projects/restroom-rentals-home.webp",
+    site: { screenshot: "/projects/restroom-rentals-home.webp" },
     links: [{ label: "Visit site", href: "https://luxiloorentals.com" }],
   },
   {
-    title: "Truck Hunters LLC",
+    title: "Freight Logistics Company",
     category: "Web",
     year: "2023",
     summary:
       "A third-party logistics company with a bold hero and a photo grid of their twelve freight services, so shippers can find their load type at a glance.",
     tools: ["Web design"],
-    image: "/projects/truck-hunters-home.webp",
-    site: { url: "https://www.truckhuntersllc.com", screenshot: "/projects/truck-hunters-home.webp" },
+    image: "/projects/logistics-home.webp",
+    site: { screenshot: "/projects/logistics-home.webp" },
     links: [{ label: "Visit homepage", href: "https://www.truckhuntersllc.com/home" }],
   },
 ];
