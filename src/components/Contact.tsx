@@ -25,7 +25,7 @@ export function Contact() {
         <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_2fr]">
           <div>
             <p className="max-w-xs text-paper/70">
-              UX and MarTech roles, or just talking shop.
+              UX and MarTech roles, or coffee &amp; shop talk.
             </p>
             <a
               href={site.resume}
