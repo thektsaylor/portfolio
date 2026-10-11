@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// The arched frame for a project. On first view the media wipes up into the arch
+// The image frame for a project. On first view the media wipes up into the frame
 // and settles from a slight zoom; after that it drifts gently as the page scrolls.
 // Visible by default; it's only hidden for the wipe once this script runs.
 export function ArchMedia({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -52,8 +52,12 @@ export function ArchMedia({ children, className = "" }: { children: React.ReactN
 
   return (
     <div ref={ref} data-arch={phase} className={className}>
-      <div className="arch-zoom absolute inset-0">
-        <div className="arch-drift absolute inset-0">{children}</div>
+      {/* The wipe clips this inner layer, not the observed frame: a fully clipped
+          target never reports as intersecting, so it would never reveal. */}
+      <div className="arch-clip absolute inset-0">
+        <div className="arch-zoom absolute inset-0">
+          <div className="arch-drift absolute inset-0">{children}</div>
+        </div>
       </div>
     </div>
   );

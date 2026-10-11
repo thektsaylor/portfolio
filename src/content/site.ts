@@ -15,7 +15,6 @@ export const site = {
   email: "",
   links: {
     linkedin: "https://www.linkedin.com/in/thektsaylor",
-    instagram: "https://www.instagram.com/YOUR-HANDLE",
     catheadInstagram: "https://www.instagram.com/cathead.biscuits",
     github: "https://github.com/thektsaylor",
   },
@@ -91,8 +90,8 @@ export const education = [
 // Polaroid collage in the About section. Three or four photos look best.
 // Swap these for personal shots (hobbies, pets, places, your desk) any time.
 export const collage = [
-  { src: "/projects/cathead-truck.webp", alt: "The CatHead Biscuits food truck", caption: "the truck" },
-  { src: "/projects/fiberglass-demo-poster.webp", alt: "Fiberglass app splash screen", caption: "fiberglass" },
-  { src: "/projects/cathead-stamp.webp", alt: "Hand-stamped CatHead logo", caption: "hand-stamped" },
-  { src: "/projects/cathead-menus.webp", alt: "A stack of CatHead menus", caption: "menus" },
+  { src: "/projects/cathead-towanda.webp", alt: "Towanda biscuit stacked with fried green tomatoes", caption: "cathead" },
+  { src: "/projects/fiberglass-sheep.webp", alt: "Line-drawn sheep from the Fiberglass app loading screen", caption: "fiberglass" },
+  { src: "/projects/seo-ai-overviews.webp", alt: "AI Overview chart from an SEO report", caption: "seo reports" },
+  { src: "/projects/luxi-loo-map.webp", alt: "Luxi Loo four-state service area map: Kansas, Missouri, Oklahoma, Arkansas", caption: "luxi loo" },
 ];

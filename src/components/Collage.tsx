@@ -27,7 +27,7 @@ export function Collage() {
                 style={{ "--tilt": `${spot.tilt}deg` } as React.CSSProperties}
               >
                 <div className="film relative aspect-square overflow-hidden">
-                  <Image src={photo.src} alt={photo.alt} fill sizes="12rem" className="object-cover" />
+                  <Image src={photo.src} alt={photo.alt} fill sizes="12rem" className="object-cover object-top" />
                 </div>
                 <figcaption className="absolute inset-x-0 bottom-[5%] text-center text-[0.6rem] tracking-[0.2em] text-muted uppercase">
                   {photo.caption}

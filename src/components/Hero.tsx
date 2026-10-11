@@ -15,32 +15,30 @@ export function Hero() {
         </span>
       </div>
 
-      <div className="mt-16 grid items-end gap-12 sm:mt-24 lg:grid-cols-[1.6fr_1fr]">
-        <h1 className="font-display text-6xl leading-[0.9] font-extrabold tracking-tight sm:text-8xl">
-          Hi, I&apos;m {site.name.split(" ")[0]}.
-          <br />
-          I make things{" "}
-          <span className="relative inline-block whitespace-nowrap text-forest">
-            look good
-            <Squiggle className="absolute -bottom-2 left-0 h-3 w-full text-leaf sm:-bottom-3 sm:h-4" />
-          </span>
-          <br />
-          and make sense.
-        </h1>
-
-        {/* The one boho moment: an arched portrait */}
-        <div className="mx-auto w-full max-w-[11rem] sm:max-w-[14rem] lg:mr-0 lg:max-w-[18rem]">
+      {/* Below lg the portrait sits above the headline; from lg up it floats right and the
+          headline wraps around its arch (see .arch-wrap in globals.css). */}
+      <div className="mt-12 sm:mt-20 lg:mt-24">
+        <div className="arch-wrap mx-auto mb-10 w-full max-w-[11rem] sm:max-w-[14rem] lg:float-right lg:mb-0 lg:ml-4 lg:max-w-[19rem]">
           <div className="relative aspect-[3/4] overflow-hidden rounded-t-full bg-sand">
             <Image
               src={site.headshot}
               alt={`Portrait of ${site.name}`}
               fill
               priority
-              sizes="(min-width: 1024px) 18rem, 14rem"
+              sizes="(min-width: 1024px) 19rem, 14rem"
               className="object-cover"
             />
           </div>
         </div>
+        <h1 className="font-display text-6xl leading-[0.9] font-extrabold tracking-tight sm:text-8xl text-center lg:pt-4 lg:text-right lg:text-[7.25rem]">
+          Hi, I&apos;m {site.name.split(" ")[0]}. I&nbsp;make things{" "}
+          <span className="relative inline-block whitespace-nowrap text-forest">
+            look good
+            <Squiggle className="absolute -bottom-2 left-0 h-3 w-full text-leaf sm:-bottom-3 sm:h-4" />
+          </span>{" "}
+          and make sense.
+        </h1>
+        <div className="clear-both" />
       </div>
 
       <div className="mt-16 grid gap-8 border-t border-line pt-8 sm:mt-20 lg:grid-cols-[1fr_2fr]">

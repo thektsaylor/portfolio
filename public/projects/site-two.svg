@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000">
-  <rect width="800" height="1000" fill="#DCE5D5"/>
-  <rect x="200" y="380" width="400" height="320" rx="10" fill="none" stroke="#231C16" stroke-width="4"/><circle cx="310" cy="520" r="60" fill="#6FBF73"/><line x1="400" y1="500" x2="560" y2="500" stroke="#231C16" stroke-width="4"/><line x1="400" y1="530" x2="520" y2="530" stroke="#231C16" stroke-width="3" opacity="0.4"/>
-  <text x="400" y="900" text-anchor="middle" font-family="ui-monospace, monospace" font-size="22" letter-spacing="4" fill="#231C16" opacity="0.6">PLACEHOLDER: SWAP ME</text>
-</svg>
