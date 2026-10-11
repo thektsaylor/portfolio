@@ -23,7 +23,7 @@ export function Contact() {
         <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_2fr]">
           <div>
             <p className="max-w-xs text-paper/70">
-              UX and MarTech roles, or coffee &amp; shop talk.
+              UX &amp; MarTech roles, or coffee &amp; shop talk.
             </p>
             <a
               href={site.resume}
@@ -60,7 +60,6 @@ export function Contact() {
         </div>
         <footer className="mt-24 flex flex-col justify-between gap-2 text-xs tracking-[0.2em] text-paper/40 uppercase sm:flex-row">
           <span>© {new Date().getFullYear()} {site.name}</span>
-          <span>Built with Next.js</span>
         </footer>
       </div>
     </section>
