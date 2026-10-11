@@ -7,6 +7,11 @@ export const site = {
   intro:
     "Machine learning and UX student at Arkansas State University, minoring in psychology and marketing. Working as a Marketing Operations Coordinator at SEO Counselors, turning search data into reports clients actually read. Before that, I spent years as a creative director and designer, including building the brands from the logo up.",
   location: "Northwest Arkansas",
+  // Short version for search results and link previews (about 150 characters).
+  description:
+    "Kt Saylor: UX designer and marketing operations coordinator in Northwest Arkansas. Data visualization, SEO reporting, and AI workflows.",
+  jobTitle: "Marketing Operations Coordinator",
+  employer: "SEO Counselors",
   graduation: "Fall 2027",
   headshot: "/headshot.webp",
   // Drop your resume into /public as resume.pdf and this button just works.
