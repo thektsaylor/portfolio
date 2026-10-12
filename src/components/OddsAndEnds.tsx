@@ -55,29 +55,29 @@ const pieces: Piece[] = [
 
   // Logo stickers, stuck on the kraft paper
   { src: "/odds/rapscallion.webp", w: 520, h: 195, alt: "Rapscallion Station ransom-note bar logo sticker", frame: "sticker", d: [55, 72.5, 15, -4, 20], m: [386, 12, 50, -4, 20] },
-  { src: "/odds/slipstitch.webp", w: 351, h: 364, alt: "Slip Stitch Heirlooms retro sunset logo sticker", frame: "sticker", d: [65, 87, 8.5, 8, 20], m: [384, 64, 26, 8, 20] },
+  { src: "/odds/slipstitch.webp", w: 506, h: 520, alt: "Slip Stitch Heirlooms retro sunset logo sticker", frame: "sticker", d: [65, 87, 8.5, 8, 20], m: [384, 64, 26, 8, 20] },
   { src: "/odds/logistics-logo.webp", w: 300, h: 221, alt: "Logistics company logo sticker", frame: "sticker", d: [70, 73.5, 8, 6, 20], m: [406, 14, 22, 6, 20] },
   { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Bearded sailor icon logo sticker", frame: "sticker", d: [69, 83, 4.2, -6, 20], m: [404, 44, 12, -6, 20] },
 
   // Pressed botanicals, some tucked under the pieces and some laid on top
-  { src: "/odds/bot/sweetgum.webp", w: 300, h: 258, alt: "", frame: "botanical", d: [79, 7, 8, 20, 4], m: [190, 70, 24, 20, 4] },
-  { src: "/odds/bot/sweetgum-2.webp", w: 290, h: 247, alt: "", frame: "botanical", d: [30, 76, 7, -15, 3] },
-  { src: "/odds/bot/meadow-rue.webp", w: 209, h: 300, alt: "", frame: "botanical", d: [36, 68.5, 5, 12, 5], m: [300, 86, 13, 12, 25] },
-  { src: "/odds/bot/fern.webp", w: 165, h: 300, alt: "", frame: "botanical", d: [76, 50, 4.5, -8, 25], m: [52, 2, 12, -8, 25] },
-  { src: "/odds/bot/yarrow.webp", w: 190, h: 284, alt: "", frame: "botanical", d: [78, 30, 4.5, 10, 5] },
-  { src: "/odds/bot/skeleton-leaf.webp", w: 144, h: 220, alt: "", frame: "botanical", d: [16, 28.5, 4, -20, 5], m: [244, 42, 13, -20, 25] },
-  { src: "/odds/bot/rose-peach.webp", w: 239, h: 226, alt: "", frame: "botanical", d: [40, 0.5, 6.5, 0, 25], m: [116, 2, 18, 0, 25] },
-  { src: "/odds/bot/rose-gold.webp", w: 160, h: 170, alt: "", frame: "botanical", d: [84, 60, 5, 15, 25], m: [440, 8, 14, 15, 25] },
-  { src: "/odds/bot/dandelion.webp", w: 183, h: 187, alt: "", frame: "botanical", d: [44, 92, 5, 0, 25], m: [186, 4, 14, 0, 25] },
-  { src: "/odds/bot/dandelion-2.webp", w: 184, h: 185, alt: "", frame: "botanical", d: [28, 49, 4, 0, 25] },
-  { src: "/odds/bot/cosmos.webp", w: 185, h: 183, alt: "", frame: "botanical", d: [82, 24.5, 5, 10, 25], m: [372, 82, 13, 10, 25] },
-  { src: "/odds/bot/cosmos-2.webp", w: 205, h: 229, alt: "", frame: "botanical", d: [64, 52.5, 4.5, -10, 25] },
-  { src: "/odds/bot/marigold.webp", w: 167, h: 288, alt: "", frame: "botanical", d: [24, 47, 3, 8, 25], m: [22, 88, 9, 8, 25] },
-  { src: "/odds/bot/daisy-stem.webp", w: 104, h: 300, alt: "", frame: "botanical", d: [50, 96.5, 2.4, -6, 25] },
-  { src: "/odds/bot/pasque.webp", w: 167, h: 300, alt: "", frame: "botanical", d: [3, 0.3, 3.5, 8, 25] },
-  { src: "/odds/bot/rosebud.webp", w: 123, h: 207, alt: "", frame: "botanical", d: [86, 68, 3, 30, 25], m: [442, 90, 8, 30, 25] },
-  { src: "/odds/bot/tulip.webp", w: 107, h: 117, alt: "", frame: "botanical", d: [38, 21, 3, -12, 25] },
-  { src: "/odds/bot/pansy.webp", w: 84, h: 89, alt: "", frame: "botanical", d: [12, 29.5, 2.2, 0, 25], m: [124, 92, 6, 0, 25] },
+  { src: "/odds/bot/sweetgum.webp", w: 294, h: 240, alt: "", frame: "botanical", d: [79, 7, 8, 20, 4], m: [190, 70, 24, 20, 4] },
+  { src: "/odds/bot/sweetgum-2.webp", w: 289, h: 244, alt: "", frame: "botanical", d: [30, 76, 7, -15, 3] },
+  { src: "/odds/bot/meadow-rue.webp", w: 206, h: 295, alt: "", frame: "botanical", d: [36, 68.5, 5, 12, 5], m: [300, 86, 13, 12, 25] },
+  { src: "/odds/bot/fern.webp", w: 165, h: 296, alt: "", frame: "botanical", d: [76, 50, 4.5, -8, 25], m: [52, 2, 12, -8, 25] },
+  { src: "/odds/bot/yarrow.webp", w: 192, h: 285, alt: "", frame: "botanical", d: [78, 30, 4.5, 10, 5] },
+  { src: "/odds/bot/skeleton-leaf.webp", w: 144, h: 219, alt: "", frame: "botanical", d: [16, 28.5, 4, -20, 5], m: [244, 42, 13, -20, 25] },
+  { src: "/odds/bot/rose-peach.webp", w: 240, h: 229, alt: "", frame: "botanical", d: [40, 0.5, 6.5, 0, 25], m: [116, 2, 18, 0, 25] },
+  { src: "/odds/bot/rose-gold.webp", w: 162, h: 170, alt: "", frame: "botanical", d: [84, 60, 5, 15, 25], m: [440, 8, 14, 15, 25] },
+  { src: "/odds/bot/dandelion.webp", w: 182, h: 189, alt: "", frame: "botanical", d: [44, 92, 5, 0, 25], m: [186, 4, 14, 0, 25] },
+  { src: "/odds/bot/dandelion-2.webp", w: 186, h: 185, alt: "", frame: "botanical", d: [28, 49, 4, 0, 25] },
+  { src: "/odds/bot/cosmos.webp", w: 187, h: 184, alt: "", frame: "botanical", d: [82, 24.5, 5, 10, 25], m: [372, 82, 13, 10, 25] },
+  { src: "/odds/bot/cosmos-2.webp", w: 205, h: 230, alt: "", frame: "botanical", d: [64, 52.5, 4.5, -10, 25] },
+  { src: "/odds/bot/marigold.webp", w: 169, h: 290, alt: "", frame: "botanical", d: [24, 47, 3, 8, 25], m: [22, 88, 9, 8, 25] },
+  { src: "/odds/bot/daisy-stem.webp", w: 100, h: 295, alt: "", frame: "botanical", d: [50, 96.5, 2.4, -6, 25] },
+  { src: "/odds/bot/pasque.webp", w: 165, h: 298, alt: "", frame: "botanical", d: [3, 0.3, 3.5, 8, 25] },
+  { src: "/odds/bot/rosebud.webp", w: 121, h: 207, alt: "", frame: "botanical", d: [86, 68, 3, 30, 25], m: [442, 90, 8, 30, 25] },
+  { src: "/odds/bot/tulip.webp", w: 105, h: 113, alt: "", frame: "botanical", d: [38, 21, 3, -12, 25] },
+  { src: "/odds/bot/pansy.webp", w: 86, h: 87, alt: "", frame: "botanical", d: [12, 29.5, 2.2, 0, 25], m: [124, 92, 6, 0, 25] },
 ];
 
 // Ragged edges for torn paper, generated once so they match between renders.
@@ -107,9 +107,9 @@ export function OddsAndEnds() {
 
         {/* Decoupage: oversized botanicals soaked into the paper */}
         <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <Image src="/odds/bot/fern.webp" alt="" width={165} height={300} className="decoupage absolute top-[8%] left-[1%] w-[14%]" />
-          <Image src="/odds/bot/sweetgum.webp" alt="" width={300} height={258} className="decoupage absolute right-[4%] bottom-[2%] w-[22%] rotate-12" />
-          <Image src="/odds/bot/meadow-rue.webp" alt="" width={209} height={300} className="decoupage absolute top-[30%] left-[42%] w-[16%] -rotate-12" />
+          <Image src="/odds/bot/fern.webp" alt="" width={165} height={296} className="decoupage absolute top-[8%] left-[1%] w-[14%]" />
+          <Image src="/odds/bot/sweetgum.webp" alt="" width={294} height={240} className="decoupage absolute right-[4%] bottom-[2%] w-[22%] rotate-12" />
+          <Image src="/odds/bot/meadow-rue.webp" alt="" width={206} height={295} className="decoupage absolute top-[30%] left-[42%] w-[16%] -rotate-12" />
         </div>
 
         {scraps.map((sc, i) => (
