@@ -55,8 +55,8 @@ const pieces: Piece[] = [
 
   // Logo stickers, stuck on the kraft paper
   { src: "/odds/rapscallion.webp", w: 520, h: 195, alt: "Rapscallion Station ransom-note bar logo sticker", frame: "sticker", d: [46, 72, 14, -4, 20], m: [386, 10, 50, -4, 20] },
-  { src: "/odds/slipstitch.webp", w: 506, h: 520, alt: "Slip Stitch Heirlooms retro sunset logo sticker", frame: "sticker", d: [64, 87, 8.5, 8, 20], m: [384, 66, 26, 8, 20] },
-  { src: "/odds/logistics-logo.webp", w: 300, h: 221, alt: "Logistics company logo sticker", frame: "sticker", d: [60, 71.5, 7, 6, 20], m: [408, 10, 22, 6, 20] },
+  { src: "/odds/slipstitch.webp", w: 499, h: 520, alt: "Slip Stitch Heirlooms retro sunset logo sticker", frame: "sticker", d: [64, 87, 8.5, 8, 20], m: [384, 66, 26, 8, 20] },
+  { src: "/odds/logistics-logo.webp", w: 420, h: 316, alt: "Logistics company logo sticker", frame: "sticker", d: [60, 71.5, 7, 6, 20], m: [408, 10, 22, 6, 20] },
   { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Bearded sailor icon logo sticker", frame: "sticker", d: [71, 72, 4, -6, 20], m: [410, 36, 12, -6, 20] },
 
   { src: "/odds/truck-patch.webp", w: 360, h: 360, alt: "Truck Patch round badge logo sticker", frame: "sticker", d: [45, 87.5, 8.5, 8, 20], m: [410, 50, 22, 8, 20] },
@@ -67,9 +67,9 @@ const pieces: Piece[] = [
   // Pressed botanicals, some tucked under the pieces and some laid on top
   { src: "/odds/bot/sweetgum.webp", w: 294, h: 240, alt: "", frame: "botanical", d: [79, 7, 8, 20, 4], m: [190, 70, 24, 20, 4] },
   { src: "/odds/bot/sweetgum-2.webp", w: 289, h: 244, alt: "", frame: "botanical", d: [30, 76, 7, -15, 3] },
-  { src: "/odds/bot/meadow-rue.webp", w: 206, h: 295, alt: "", frame: "botanical", d: [36, 68.5, 5, 12, 5], m: [300, 86, 13, 12, 25] },
-  { src: "/odds/bot/fern.webp", w: 165, h: 296, alt: "", frame: "botanical", d: [76, 50, 4.5, -8, 25], m: [52, 2, 12, -8, 25] },
-  { src: "/odds/bot/yarrow.webp", w: 192, h: 285, alt: "", frame: "botanical", d: [78, 30, 4.5, 10, 5] },
+  { src: "/odds/bot/rose-peach.webp", w: 240, h: 229, alt: "", frame: "botanical", d: [36, 68.5, 5, 12, 5], m: [300, 86, 13, 12, 25] },
+  { src: "/odds/bot/cosmos.webp", w: 187, h: 184, alt: "", frame: "botanical", d: [76, 50, 4.5, -8, 25], m: [52, 2, 12, -8, 25] },
+  { src: "/odds/bot/dandelion-2.webp", w: 186, h: 185, alt: "", frame: "botanical", d: [78, 30, 4.5, 10, 5] },
   { src: "/odds/bot/skeleton-leaf.webp", w: 144, h: 219, alt: "", frame: "botanical", d: [16, 28.5, 4, -20, 5], m: [244, 42, 13, -20, 25] },
   { src: "/odds/bot/rose-peach.webp", w: 240, h: 229, alt: "", frame: "botanical", d: [40, 0.5, 6.5, 0, 25], m: [116, 2, 18, 0, 25] },
   { src: "/odds/bot/rose-gold.webp", w: 162, h: 170, alt: "", frame: "botanical", d: [84, 60, 5, 15, 25], m: [472, 8, 14, 15, 25] },
