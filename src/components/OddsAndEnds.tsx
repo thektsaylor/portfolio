@@ -20,8 +20,8 @@ type Scrap = {
 
 const scraps: Scrap[] = [
   // The logo stickers sit on this sheet of kraft paper
-  { kind: "kraft", ratio: 0.62, d: [52, 71, 25, 5, 2], m: [382, 8, 84, 4, 2] },
-  { kind: "ticket", ratio: 0.42, d: [84, 40, 9, 4, 21], m: [434, 60, 30, 4, 21] },
+  { kind: "kraft", ratio: 0.75, d: [43, 70.5, 27.5, 4, 2], m: [382, 6, 88, 3, 2] },
+  { kind: "ticket", ratio: 0.42, d: [84, 40, 9, 4, 21], m: [470, 60, 30, 4, 21] },
 ];
 
 type Piece = {
@@ -39,7 +39,7 @@ type Piece = {
   binder?: boolean;
 };
 
-const MOBILE_H = 456;
+const MOBILE_H = 492;
 
 const pieces: Piece[] = [
   // Print work
@@ -54,10 +54,14 @@ const pieces: Piece[] = [
   { src: "/odds/tea.webp", w: 377, h: 528, alt: "Watercolor wildflower invitation to a bridal tea", frame: "torn", d: [42, 56, 12.5, 2, 13], m: [256, 6, 43, -2, 13] },
 
   // Logo stickers, stuck on the kraft paper
-  { src: "/odds/rapscallion.webp", w: 520, h: 195, alt: "Rapscallion Station ransom-note bar logo sticker", frame: "sticker", d: [55, 72.5, 15, -4, 20], m: [386, 12, 50, -4, 20] },
-  { src: "/odds/slipstitch.webp", w: 506, h: 520, alt: "Slip Stitch Heirlooms retro sunset logo sticker", frame: "sticker", d: [65, 87, 8.5, 8, 20], m: [384, 64, 26, 8, 20] },
-  { src: "/odds/logistics-logo.webp", w: 300, h: 221, alt: "Logistics company logo sticker", frame: "sticker", d: [70, 73.5, 8, 6, 20], m: [406, 14, 22, 6, 20] },
-  { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Bearded sailor icon logo sticker", frame: "sticker", d: [69, 83, 4.2, -6, 20], m: [404, 44, 12, -6, 20] },
+  { src: "/odds/rapscallion.webp", w: 520, h: 195, alt: "Rapscallion Station ransom-note bar logo sticker", frame: "sticker", d: [46, 72, 14, -4, 20], m: [386, 10, 50, -4, 20] },
+  { src: "/odds/slipstitch.webp", w: 506, h: 520, alt: "Slip Stitch Heirlooms retro sunset logo sticker", frame: "sticker", d: [60, 88.5, 8, 8, 20], m: [384, 66, 26, 8, 20] },
+  { src: "/odds/logistics-logo.webp", w: 300, h: 221, alt: "Logistics company logo sticker", frame: "sticker", d: [61, 72.5, 7.5, 6, 20], m: [408, 10, 22, 6, 20] },
+  { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Bearded sailor icon logo sticker", frame: "sticker", d: [76, 72.5, 4, -6, 20], m: [410, 36, 12, -6, 20] },
+
+  { src: "/odds/truck-patch.webp", w: 360, h: 360, alt: "Truck Patch round badge logo sticker", frame: "sticker", d: [46, 87, 8.5, 8, 20], m: [410, 50, 22, 8, 20] },
+  { src: "/odds/sheep.webp", w: 279, h: 340, alt: "Line-drawn sheep sticker from the Fiberglass app", frame: "sticker", d: [62, 81, 6.5, -6, 20], m: [430, 74, 20, -6, 20] },
+  { src: "/odds/saylor-made.webp", w: 520, h: 171, alt: "Saylor Made house logo sticker", frame: "sticker", d: [77, 76, 13, -3, 20], m: [440, 10, 44, -3, 20] },
 
   // Pressed botanicals, some tucked under the pieces and some laid on top
   { src: "/odds/bot/sweetgum.webp", w: 294, h: 240, alt: "", frame: "botanical", d: [79, 7, 8, 20, 4], m: [190, 70, 24, 20, 4] },
@@ -67,15 +71,15 @@ const pieces: Piece[] = [
   { src: "/odds/bot/yarrow.webp", w: 192, h: 285, alt: "", frame: "botanical", d: [78, 30, 4.5, 10, 5] },
   { src: "/odds/bot/skeleton-leaf.webp", w: 144, h: 219, alt: "", frame: "botanical", d: [16, 28.5, 4, -20, 5], m: [244, 42, 13, -20, 25] },
   { src: "/odds/bot/rose-peach.webp", w: 240, h: 229, alt: "", frame: "botanical", d: [40, 0.5, 6.5, 0, 25], m: [116, 2, 18, 0, 25] },
-  { src: "/odds/bot/rose-gold.webp", w: 162, h: 170, alt: "", frame: "botanical", d: [84, 60, 5, 15, 25], m: [440, 8, 14, 15, 25] },
-  { src: "/odds/bot/dandelion.webp", w: 182, h: 189, alt: "", frame: "botanical", d: [44, 92, 5, 0, 25], m: [186, 4, 14, 0, 25] },
+  { src: "/odds/bot/rose-gold.webp", w: 162, h: 170, alt: "", frame: "botanical", d: [84, 60, 5, 15, 25], m: [472, 8, 14, 15, 25] },
+  { src: "/odds/bot/dandelion.webp", w: 182, h: 189, alt: "", frame: "botanical", d: [88, 92, 4.5, 0, 25], m: [186, 4, 14, 0, 25] },
   { src: "/odds/bot/dandelion-2.webp", w: 186, h: 185, alt: "", frame: "botanical", d: [28, 49, 4, 0, 25] },
-  { src: "/odds/bot/cosmos.webp", w: 187, h: 184, alt: "", frame: "botanical", d: [82, 24.5, 5, 10, 25], m: [372, 82, 13, 10, 25] },
+  { src: "/odds/bot/cosmos.webp", w: 187, h: 184, alt: "", frame: "botanical", d: [82, 24.5, 5, 10, 25], m: [364, 84, 13, 10, 25] },
   { src: "/odds/bot/cosmos-2.webp", w: 205, h: 230, alt: "", frame: "botanical", d: [64, 52.5, 4.5, -10, 25] },
   { src: "/odds/bot/marigold.webp", w: 169, h: 290, alt: "", frame: "botanical", d: [24, 47, 3, 8, 25], m: [22, 88, 9, 8, 25] },
   { src: "/odds/bot/daisy-stem.webp", w: 100, h: 295, alt: "", frame: "botanical", d: [50, 96.5, 2.4, -6, 25] },
   { src: "/odds/bot/pasque.webp", w: 165, h: 298, alt: "", frame: "botanical", d: [3, 0.3, 3.5, 8, 25] },
-  { src: "/odds/bot/rosebud.webp", w: 121, h: 207, alt: "", frame: "botanical", d: [86, 68, 3, 30, 25], m: [442, 90, 8, 30, 25] },
+  { src: "/odds/bot/rosebud.webp", w: 121, h: 207, alt: "", frame: "botanical", d: [86, 68, 3, 30, 25], m: [474, 90, 8, 30, 25] },
   { src: "/odds/bot/tulip.webp", w: 105, h: 113, alt: "", frame: "botanical", d: [38, 21, 3, -12, 25] },
   { src: "/odds/bot/pansy.webp", w: 86, h: 87, alt: "", frame: "botanical", d: [12, 29.5, 2.2, 0, 25], m: [124, 92, 6, 0, 25] },
 ];
@@ -98,7 +102,7 @@ export function OddsAndEnds() {
       <div className="relative z-30 -mb-7 sm:-mb-9">
         <Masthead />
       </div>
-      <div className="journal relative mx-auto aspect-[100/456] max-w-5xl overflow-hidden rounded-md shadow-[0_40px_70px_-35px_rgba(46,34,25,0.6)] md:aspect-[11/5]">
+      <div className="journal relative mx-auto aspect-[100/492] max-w-5xl overflow-hidden rounded-md shadow-[0_40px_70px_-35px_rgba(46,34,25,0.6)] md:aspect-[11/5]">
         {/* Paper: ledger lines on the left page, graph paper on the right, a gutter between */}
         <div className="journal-ledger absolute inset-y-0 left-0 hidden w-1/2 md:block" aria-hidden />
         <div className="journal-graph absolute inset-y-0 right-0 hidden w-1/2 md:block" aria-hidden />
