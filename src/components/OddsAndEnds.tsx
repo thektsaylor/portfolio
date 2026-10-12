@@ -55,13 +55,14 @@ const pieces: Piece[] = [
 
   // Logo stickers, stuck on the kraft paper
   { src: "/odds/rapscallion.webp", w: 520, h: 195, alt: "Rapscallion Station ransom-note bar logo sticker", frame: "sticker", d: [46, 72, 14, -4, 20], m: [386, 10, 50, -4, 20] },
-  { src: "/odds/slipstitch.webp", w: 506, h: 520, alt: "Slip Stitch Heirlooms retro sunset logo sticker", frame: "sticker", d: [60, 88.5, 8, 8, 20], m: [384, 66, 26, 8, 20] },
-  { src: "/odds/logistics-logo.webp", w: 300, h: 221, alt: "Logistics company logo sticker", frame: "sticker", d: [61, 72.5, 7.5, 6, 20], m: [408, 10, 22, 6, 20] },
-  { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Bearded sailor icon logo sticker", frame: "sticker", d: [76, 72.5, 4, -6, 20], m: [410, 36, 12, -6, 20] },
+  { src: "/odds/slipstitch.webp", w: 506, h: 520, alt: "Slip Stitch Heirlooms retro sunset logo sticker", frame: "sticker", d: [64, 87, 8.5, 8, 20], m: [384, 66, 26, 8, 20] },
+  { src: "/odds/logistics-logo.webp", w: 300, h: 221, alt: "Logistics company logo sticker", frame: "sticker", d: [60, 71.5, 7, 6, 20], m: [408, 10, 22, 6, 20] },
+  { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Bearded sailor icon logo sticker", frame: "sticker", d: [71, 72, 4, -6, 20], m: [410, 36, 12, -6, 20] },
 
-  { src: "/odds/truck-patch.webp", w: 360, h: 360, alt: "Truck Patch round badge logo sticker", frame: "sticker", d: [46, 87, 8.5, 8, 20], m: [410, 50, 22, 8, 20] },
-  { src: "/odds/sheep.webp", w: 279, h: 340, alt: "Line-drawn sheep sticker from the Fiberglass app", frame: "sticker", d: [62, 81, 6.5, -6, 20], m: [430, 74, 20, -6, 20] },
-  { src: "/odds/saylor-made.webp", w: 520, h: 171, alt: "Saylor Made house logo sticker", frame: "sticker", d: [77, 76, 13, -3, 20], m: [440, 10, 44, -3, 20] },
+  { src: "/odds/truck-patch.webp", w: 360, h: 360, alt: "Truck Patch round badge logo sticker", frame: "sticker", d: [45, 87.5, 8.5, 8, 20], m: [410, 50, 22, 8, 20] },
+  { src: "/odds/sheep.webp", w: 279, h: 340, alt: "Line-drawn sheep sticker from the Fiberglass app", frame: "sticker", d: [54, 79.5, 6.5, -6, 20], m: [430, 74, 20, -6, 20] },
+  { src: "/odds/cathead.webp", w: 400, h: 372, alt: "CatHead Biscuits stamped cat logo sticker", frame: "sticker", d: [73.5, 81, 7.5, -5, 21], m: [446, 54, 22, -5, 20] },
+  { src: "/odds/saylor-made.webp", w: 520, h: 171, alt: "Saylor Made house logo sticker", frame: "sticker", d: [81, 70.5, 10.5, -3, 20], m: [440, 10, 44, -3, 20] },
 
   // Pressed botanicals, some tucked under the pieces and some laid on top
   { src: "/odds/bot/sweetgum.webp", w: 294, h: 240, alt: "", frame: "botanical", d: [79, 7, 8, 20, 4], m: [190, 70, 24, 20, 4] },
