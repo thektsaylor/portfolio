@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { PersonSchema } from "@/components/PersonSchema";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-screen font-sans">
         <PersonSchema />
         {children}
+        <Analytics />
       </body>
     </html>
   );
