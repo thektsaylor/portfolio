@@ -26,12 +26,7 @@ export function ProjectCard({ project }: { project: Project }) {
         >
           {project.video ? (
             <div className="absolute top-[8%] left-1/2 w-[48%] -translate-x-1/2">
-              <PhoneMockup
-                mp4={project.video.mp4}
-                webm={project.video.webm}
-                poster={project.video.poster}
-                label={`${project.title} prototype demo`}
-              />
+              <PhoneMockup video={project.video} label={`${project.title} prototype demo`} />
             </div>
           ) : (
             <Image

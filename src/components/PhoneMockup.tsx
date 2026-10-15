@@ -3,54 +3,43 @@
 import { useEffect, useRef, useState } from "react";
 
 // phone frame looping a muted screen recording, plays while on screen.
-// pause is always there (WCAG 2.2.2). paused / reduced motion / blocked autoplay
+// pause is always there (WCAG 2.2.2). reduced motion or blocked autoplay
 // (looking at you, iPhone low power mode) = wait for a tap on play
-export function PhoneMockup({
-  mp4,
-  webm,
-  poster,
-  label,
-}: {
-  mp4: string;
-  webm: string;
-  poster: string;
-  label: string;
-}) {
+export function PhoneMockup({ video, label }: { video: { mp4: string; poster: string }; label: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
-  // Hide the play button until the first autoplay attempt settles, so it doesn't flash.
+  // hide play until autoplay settles so it doesn't flash
   const [settled, setSettled] = useState(false);
-  const wantsPlay = useRef(true);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    // iOS checks the property, not just the attribute, before allowing muted autoplay.
-    video.muted = true;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) wantsPlay.current = false;
+    const el = videoRef.current;
+    if (!el) return;
+    // iOS checks the property, not just the attribute, before it allows muted autoplay
+    el.muted = true;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const io = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return video.pause();
-      if (!wantsPlay.current) return setSettled(true);
-      video.play().catch(() => {}).finally(() => setSettled(true));
+      if (!entry.isIntersecting) return el.pause();
+      if (reduceMotion) return setSettled(true);
+      el.play().catch(() => {}).finally(() => setSettled(true));
     });
-    io.observe(video);
+    io.observe(el);
     return () => io.disconnect();
   }, []);
 
   function toggle() {
-    const video = videoRef.current;
-    if (!video) return;
-    wantsPlay.current = video.paused;
-    if (video.paused) video.play().catch(() => {});
-    else video.pause();
+    const el = videoRef.current;
+    if (!el) return;
+    if (el.paused) el.play().catch(() => {});
+    else el.pause();
   }
 
   return (
-    <div className="relative rounded-[2.6rem] bg-ink p-[3.5%] shadow-[0_30px_60px_-20px_rgba(46,34,25,0.55)]">
-      <div className="relative aspect-[540/1170] overflow-hidden rounded-[2.1rem] bg-paper">
+    <div className="phone">
+      <div className="phone-screen">
         <video
           ref={videoRef}
-          poster={poster}
+          src={video.mp4}
+          poster={video.poster}
           muted
           loop
           playsInline
@@ -59,10 +48,7 @@ export function PhoneMockup({
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
           className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source src={mp4} type="video/mp4" />
-          <source src={webm} type="video/webm" />
-        </video>
+        />
         {playing ? (
           <button
             type="button"
@@ -90,11 +76,7 @@ export function PhoneMockup({
             </button>
           )
         )}
-        {/* Dynamic Island */}
-        <span
-          className="absolute top-[1.6%] left-1/2 h-[3.2%] w-[30%] -translate-x-1/2 rounded-full bg-ink"
-          aria-hidden
-        />
+        <span className="island" aria-hidden />
       </div>
     </div>
   );

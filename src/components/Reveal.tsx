@@ -14,7 +14,7 @@ export function Reveal({
   className?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const phase = useScrollIn(ref, "-12%");
+  const phase = useScrollIn(ref);
 
   return (
     <div ref={ref} data-reveal={phase} style={{ transitionDelay: `${delay}ms` }} className={className}>

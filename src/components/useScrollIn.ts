@@ -4,7 +4,7 @@ export type Phase = "idle" | "hidden" | "shown";
 
 // used by Reveal and ArchMedia.
 // starts visible. if it loads below the fold, hide it and show it once it scrolls in
-export function useScrollIn(ref: RefObject<HTMLElement | null>, bottomMargin = "-10%") {
+export function useScrollIn(ref: RefObject<HTMLElement | null>) {
   const [phase, setPhase] = useState<Phase>("idle");
 
   useEffect(() => {
@@ -21,11 +21,11 @@ export function useScrollIn(ref: RefObject<HTMLElement | null>, bottomMargin = "
           io.disconnect();
         }
       },
-      { rootMargin: `0px 0px ${bottomMargin} 0px` },
+      { rootMargin: "0px 0px -10% 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [ref, bottomMargin]);
+  }, [ref]);
 
   return phase;
 }
