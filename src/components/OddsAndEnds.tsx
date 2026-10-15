@@ -43,26 +43,26 @@ const MOBILE_H = 492;
 
 const pieces: Piece[] = [
   // Print work
-  { src: "/odds/fall-festival.webp", w: 387, h: 516, alt: "Fall birthday party poster with a watercolor pumpkin and hanging stars", frame: "plain", binder: true, d: [3, 3, 14, -4, 10], m: [4, 4, 44, -3, 10] },
-  { src: "/odds/thanksgiving.webp", w: 377, h: 528, alt: "Red line-art Thanksgiving dinner invitation in an arched frame", frame: "stamp", d: [5, 16.5, 13, 3, 11], m: [10, 52, 43, 3, 11] },
-  { src: "/odds/knit-swatch.webp", w: 600, h: 403, alt: "Teal knitted swatch hanging from a wooden needle", frame: "knit", d: [10, 30.5, 18.5, -3, 14], m: [196, 8, 80, -3, 14] },
-  { src: "/odds/cookbook.webp", w: 1000, h: 591, alt: "Wraparound family cookbook cover with red line-drawn baking tools", frame: "plain", tape: "rose", d: [7, 52.5, 24, -2, 12], m: [322, 4, 90, -2, 12] },
-  { src: "/odds/brand-board.webp", w: 344, h: 581, alt: "Brand board for a home inspection company: logo, palette, fonts, and mood board", frame: "plain", tape: "sage", d: [3, 83, 12, 4, 11], m: [250, 54, 38, 3, 11] },
-  { src: "/odds/secrets.webp", w: 632, h: 316, alt: "Article header reading Women Who Smuggled Secrets over a knitted cipher chart", frame: "torn", tape: "cream", d: [52, 2, 21, -2, 12], m: [76, 6, 88, -2, 12] },
-  { src: "/odds/weenie.webp", w: 377, h: 528, alt: "Hot dog themed third birthday invitation on red gingham", frame: "plain", clip: true, d: [44, 24, 13, 5, 13], m: [132, 52, 42, -4, 13] },
-  { src: "/odds/bbq.webp", w: 376, h: 532, alt: "Fourth of July BBQ party poster with a grill and rocket pops", frame: "stamp", d: [38, 39, 13, -3, 10], m: [126, 5, 43, 2, 10] },
-  { src: "/odds/tea.webp", w: 377, h: 528, alt: "Watercolor wildflower invitation to a bridal tea", frame: "torn", d: [42, 56, 12.5, 2, 13], m: [256, 6, 43, -2, 13] },
+  { src: "/odds/fall-festival.webp", w: 387, h: 516, alt: "Fall birthday poster", frame: "plain", binder: true, d: [3, 3, 14, -4, 10], m: [4, 4, 44, -3, 10] },
+  { src: "/odds/thanksgiving.webp", w: 377, h: 528, alt: "Thanksgiving invitation", frame: "stamp", d: [5, 16.5, 13, 3, 11], m: [10, 52, 43, 3, 11] },
+  { src: "/odds/knit-swatch.webp", w: 900, h: 605, alt: "Knitted swatch", frame: "knit", d: [10, 30.5, 18.5, -3, 14], m: [196, 8, 80, -3, 14] },
+  { src: "/odds/cookbook.webp", w: 1000, h: 591, alt: "Family cookbook cover", frame: "plain", tape: "rose", d: [7, 52.5, 24, -2, 12], m: [322, 4, 90, -2, 12] },
+  { src: "/odds/brand-board.webp", w: 344, h: 581, alt: "Home inspection brand board", frame: "plain", tape: "sage", d: [3, 83, 12, 4, 11], m: [250, 54, 38, 3, 11] },
+  { src: "/odds/secrets.webp", w: 632, h: 316, alt: "Women Who Smuggled Secrets header", frame: "torn", tape: "cream", d: [52, 2, 21, -2, 12], m: [76, 6, 88, -2, 12] },
+  { src: "/odds/weenie.webp", w: 377, h: 528, alt: "Hot dog birthday invitation", frame: "plain", clip: true, d: [44, 24, 13, 5, 13], m: [132, 52, 42, -4, 13] },
+  { src: "/odds/bbq.webp", w: 376, h: 532, alt: "Fourth of July BBQ poster", frame: "stamp", d: [38, 39, 13, -3, 10], m: [126, 5, 43, 2, 10] },
+  { src: "/odds/tea.webp", w: 377, h: 528, alt: "Bridal tea invitation", frame: "torn", d: [42, 56, 12.5, 2, 13], m: [256, 6, 43, -2, 13] },
 
   // Logo stickers, stuck on the kraft paper
-  { src: "/odds/rapscallion.webp", w: 520, h: 195, alt: "Rapscallion Station ransom-note bar logo sticker", frame: "sticker", d: [46, 72, 14, -4, 20], m: [386, 10, 50, -4, 20] },
-  { src: "/odds/slipstitch.webp", w: 499, h: 520, alt: "Slip Stitch Heirlooms retro sunset logo sticker", frame: "sticker", d: [64, 87, 8.5, 8, 20], m: [384, 66, 26, 8, 20] },
-  { src: "/odds/logistics-logo.webp", w: 420, h: 316, alt: "Logistics company logo sticker", frame: "sticker", d: [60, 71.5, 7, 6, 20], m: [408, 10, 22, 6, 20] },
-  { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Bearded sailor icon logo sticker", frame: "sticker", d: [71, 72, 4, -6, 20], m: [410, 36, 12, -6, 20] },
+  { src: "/odds/rapscallion.webp", w: 520, h: 195, alt: "Rapscallion Station logo", frame: "sticker", d: [46, 72, 14, -4, 20], m: [386, 10, 50, -4, 20] },
+  { src: "/odds/slipstitch.webp", w: 499, h: 520, alt: "Slip Stitch logo", frame: "sticker", d: [64, 87, 8.5, 8, 20], m: [384, 66, 26, 8, 20] },
+  { src: "/odds/logistics-logo.webp", w: 420, h: 316, alt: "Logistics company logo", frame: "sticker", d: [60, 71.5, 7, 6, 20], m: [408, 10, 22, 6, 20] },
+  { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Sailor logo", frame: "sticker", d: [71, 72, 4, -6, 20], m: [410, 36, 12, -6, 20] },
 
-  { src: "/odds/truck-patch.webp", w: 360, h: 360, alt: "Truck Patch round badge logo sticker", frame: "sticker", d: [45, 87.5, 8.5, 8, 20], m: [410, 50, 22, 8, 20] },
-  { src: "/odds/sheep.webp", w: 279, h: 340, alt: "Line-drawn sheep sticker from the Fiberglass app", frame: "sticker", d: [54, 79.5, 6.5, -6, 20], m: [430, 74, 20, -6, 20] },
-  { src: "/odds/cathead.webp", w: 400, h: 372, alt: "CatHead Biscuits stamped cat logo sticker", frame: "sticker", d: [73.5, 81, 7.5, -5, 21], m: [446, 54, 22, -5, 20] },
-  { src: "/odds/saylor-made.webp", w: 520, h: 171, alt: "Saylor Made house logo sticker", frame: "sticker", d: [81, 70.5, 10.5, -3, 20], m: [440, 10, 44, -3, 20] },
+  { src: "/odds/truck-patch.webp", w: 360, h: 360, alt: "Truck Patch logo", frame: "sticker", d: [45, 87.5, 8.5, 8, 20], m: [410, 50, 22, 8, 20] },
+  { src: "/odds/sheep.webp", w: 279, h: 340, alt: "Fiberglass sheep", frame: "sticker", d: [54, 79.5, 6.5, -6, 20], m: [430, 74, 20, -6, 20] },
+  { src: "/odds/cathead.webp", w: 400, h: 372, alt: "CatHead logo", frame: "sticker", d: [73.5, 81, 7.5, -5, 21], m: [446, 54, 22, -5, 20] },
+  { src: "/odds/saylor-made.webp", w: 520, h: 171, alt: "Saylor Made logo", frame: "sticker", d: [81, 70.5, 10.5, -3, 20], m: [440, 10, 44, -3, 20] },
 
   // Pressed botanicals, some tucked under the pieces and some laid on top
   { src: "/odds/bot/sweetgum.webp", w: 294, h: 240, alt: "", frame: "botanical", d: [79, 7, 8, 20, 4], m: [190, 70, 24, 20, 4] },

@@ -1,0 +1,6 @@
+/* TEAM */
+  Designer, developer, former art school drop out: Kt Saylor
+  Location: Northwest Arkansas
+
+/* SITE */
+  Built with: Next.js, Tailwind, Figma, Coffee

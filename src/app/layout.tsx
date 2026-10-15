@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { ConsoleHello } from "@/components/ConsoleHello";
 import { PersonSchema } from "@/components/PersonSchema";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -29,13 +30,13 @@ export const metadata: Metadata = {
     siteName: site.name,
     type: "website",
     locale: "en_US",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${site.name} portfolio` }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: `${site.name} portfolio` }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} | UX, Data Visualization & MarTech`,
     description: site.description,
-    images: ["/og.jpg"],
+    images: ["/og.png"],
   },
 };
 
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <PersonSchema />
         {children}
         <Analytics />
+        <ConsoleHello />
       </body>
     </html>
   );

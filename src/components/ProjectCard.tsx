@@ -13,7 +13,7 @@ export function ProjectCard({ project }: { project: Project }) {
         <SiteStage>
           <BrowserMockup
             screenshot={project.site.screenshot}
-            label={`A scrolling look at the ${project.title} website`}
+            label={`${project.title} website`}
           />
         </SiteStage>
       ) : project.gallery ? (
@@ -30,13 +30,13 @@ export function ProjectCard({ project }: { project: Project }) {
                 mp4={project.video.mp4}
                 webm={project.video.webm}
                 poster={project.video.poster}
-                label={`The ${project.title} prototype in action`}
+                label={`${project.title} prototype demo`}
               />
             </div>
           ) : (
             <Image
               src={project.image}
-              alt={`A first look at ${project.title}`}
+              alt={project.title}
               fill
               sizes="(min-width: 640px) 50vw, 100vw"
               className="object-cover transition duration-700 group-hover:scale-[1.03]"

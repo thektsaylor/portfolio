@@ -260,6 +260,19 @@ body::after {
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='4'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .24 0 0 0 0 .13 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)'/%3E%3C/svg%3E"),
     #c49a6c;
 }
+.scrap-newsprint {
+  background:
+    repeating-linear-gradient(180deg, transparent 0 5px, rgb(60 50 40 / 0.22) 5px 7px),
+    linear-gradient(90deg, transparent 31%, #efe6d2 31% 34%, transparent 34% 65%, #efe6d2 65% 68%, transparent 68%),
+    #efe6d2;
+  background-blend-mode: multiply;
+}
+.scrap-gingham {
+  background:
+    repeating-linear-gradient(0deg, rgb(61 90 128 / 0.45) 0 9px, transparent 9px 18px),
+    repeating-linear-gradient(90deg, rgb(61 90 128 / 0.45) 0 9px, transparent 9px 18px),
+    #f4efe6;
+}
 .scrap-ticket {
   background:
     radial-gradient(circle at 0 50%, transparent 6px, #d9b98a 6.5px) left / 51% 100% no-repeat,

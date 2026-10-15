@@ -1,21 +1,14 @@
-import localFont from "next/font/local";
+import { Alfa_Slab_One, Chewy, Comfortaa, Oswald, Playfair_Display, Rubik } from "next/font/google";
 
 // The lookbook title, rebuilt as cut-paper ransom-note letters.
-// Each letter gets its own scrap of paper, typeface, and tilt. The fonts are trimmed
-// to just the letters drawn here (under 1KB each) instead of whole typefaces.
+// Each letter gets its own scrap of paper, typeface, and tilt.
 
-const slab = localFont({ src: "../fonts/alfa-slab-one-normal.woff2", display: "swap" });
-const rubik = localFont({ src: "../fonts/rubik-normal.woff2", weight: "800", display: "swap" });
-const comfortaa = localFont({ src: "../fonts/comfortaa-normal.woff2", weight: "700", display: "swap" });
-const oswald = localFont({ src: "../fonts/oswald-normal.woff2", weight: "600", display: "swap" });
-const chewy = localFont({ src: "../fonts/chewy-normal.woff2", display: "swap" });
-const playfair = localFont({
-  src: [
-    { path: "../fonts/playfair-display-normal.woff2", weight: "500", style: "normal" },
-    { path: "../fonts/playfair-display-italic.woff2", weight: "500", style: "italic" },
-  ],
-  display: "swap",
-});
+const slab = Alfa_Slab_One({ weight: "400", subsets: ["latin"], display: "swap" });
+const rubik = Rubik({ weight: "800", subsets: ["latin"], display: "swap" });
+const comfortaa = Comfortaa({ weight: "700", subsets: ["latin"], display: "swap" });
+const oswald = Oswald({ weight: "600", subsets: ["latin"], display: "swap" });
+const chewy = Chewy({ weight: "400", subsets: ["latin"], display: "swap" });
+const playfair = Playfair_Display({ weight: "500", style: ["normal", "italic"], subsets: ["latin"], display: "swap" });
 
 type Tile = { ch: string; font: string; paper: string; ink: string; tilt: number; italic?: boolean; outline?: boolean; torn: string };
 
