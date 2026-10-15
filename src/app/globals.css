@@ -69,7 +69,7 @@ body::after {
   color: var(--color-ink);
 }
 
-/* Scroll reveal: fade and lift into place. Hidden only after the script stages it. */
+/* scroll reveal */
 [data-reveal="hidden"] {
   opacity: 0;
   transform: translateY(48px);

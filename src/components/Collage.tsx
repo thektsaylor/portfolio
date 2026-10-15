@@ -2,7 +2,7 @@ import Image from "next/image";
 import { collage } from "@/content/site";
 import { Reveal } from "./Reveal";
 
-// Hand-placed polaroid spots: position, width, and tilt for up to four photos.
+// polaroid spots, placed by hand: position, width, tilt
 const spots = [
   { top: "0%", left: "2%", width: "54%", tilt: -6 },
   { top: "6%", left: "46%", width: "50%", tilt: 5 },
@@ -32,7 +32,7 @@ export function Collage() {
                 <figcaption className="absolute inset-x-0 bottom-[5%] text-center text-[0.6rem] tracking-[0.2em] text-muted uppercase">
                   {photo.caption}
                 </figcaption>
-                {/* Strip of tape */}
+                {/* tape */}
                 <span
                   className="absolute -top-2 left-1/2 h-4 w-12 -translate-x-1/2 -rotate-3 bg-[#e3d3b9]/80"
                   aria-hidden

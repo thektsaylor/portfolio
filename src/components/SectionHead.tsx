@@ -1,4 +1,4 @@
-// Editorial section opener: title and hairline rule.
+// section title + thin rule
 export function SectionHead({
   title,
   children,

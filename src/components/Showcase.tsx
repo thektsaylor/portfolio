@@ -5,13 +5,12 @@ import { useState } from "react";
 import type { Project } from "@/content/projects";
 import { ArchMedia } from "./ArchMedia";
 
-// Main image plus a sideways-scrolling strip (4 thumbnails visible). Hovering, focusing,
-// or tapping a thumbnail swaps it into the main image; it stays until another is chosen.
+// big image + thumb strip. hover/focus/tap a thumb to swap it in
 export function Showcase({ project }: { project: Project }) {
   const gallery = project.gallery ?? [];
-  // Index of the chosen thumbnail; -1 shows the project's default image.
+  // -1 = default image
   const [picked, setPicked] = useState(-1);
-  // For chart-style galleries: the thumbnail under the pointer, shown enlarged above the strip.
+  // charts: hovered thumb pops up bigger above the strip
   const [zoomed, setZoomed] = useState(-1);
   const contain = project.galleryFit === "contain";
   const current = picked >= 0 ? gallery[picked] : undefined;
@@ -50,8 +49,7 @@ export function Showcase({ project }: { project: Project }) {
             />
           </div>
         )}
-        {/* The padding (offset by the negative margin) leaves room for the selected ring,
-            which a scrolling container would otherwise clip. */}
+        {/* padding + negative margin so the selected ring doesn't get clipped */}
         <div className="thumb-strip -mx-1 mt-2 flex snap-x scroll-px-1 gap-3 overflow-x-auto p-1 pb-3">
           {gallery.map((shot, i) => {
             const on = i === picked || (picked < 0 && (shot.full ?? shot.src) === project.image && i === gallery.findIndex((g) => (g.full ?? g.src) === project.image));

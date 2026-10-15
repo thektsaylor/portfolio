@@ -1,4 +1,4 @@
-// Small hand-drawn touches. Decorative only, so hidden from screen readers.
+// hand-drawn doodles (aria-hidden)
 
 type Props = { className?: string };
 
@@ -16,7 +16,7 @@ export function Squiggle({ className }: Props) {
   );
 }
 
-// Scalloped edge that softens the jump into the dark contact section.
+// scallops into the dark contact section
 export function Wave({ className }: Props) {
   return (
     <svg viewBox="0 0 1200 40" preserveAspectRatio="none" className={className} aria-hidden>

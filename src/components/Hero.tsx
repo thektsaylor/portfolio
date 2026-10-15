@@ -15,8 +15,7 @@ export function Hero() {
         </span>
       </div>
 
-      {/* Below lg the portrait sits above the headline; from lg up it floats right and the
-          headline wraps around its arch (see .arch-wrap in globals.css). */}
+      {/* phones: portrait on top. lg+: floats right, headline wraps the arch (.arch-wrap) */}
       <div className="mt-12 sm:mt-20 lg:mt-24">
         <div className="arch-wrap mx-auto mb-10 w-full max-w-[11rem] sm:max-w-[14rem] lg:float-right lg:mb-0 lg:ml-4 lg:max-w-[19rem]">
           <div className="relative aspect-[3/4] overflow-hidden rounded-t-full bg-sand">

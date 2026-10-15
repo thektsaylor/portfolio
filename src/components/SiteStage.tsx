@@ -2,8 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-// A long horizon line with a website rising up out of it as the card scrolls into view.
-// Visible (fully risen) by default, so it still reads fine without JavaScript.
+// site rises up out of the horizon line as you scroll (fully up if no JS)
 export function SiteStage({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -35,7 +34,7 @@ export function SiteStage({ children }: { children: React.ReactNode }) {
 
   return (
     <div ref={ref} className="relative aspect-[4/5]" style={{ "--rise": 1 } as React.CSSProperties}>
-      {/* Everything above the line; the site is clipped where it meets it */}
+      {/* clipped at the line */}
       <div className="absolute inset-x-0 top-0 bottom-[8%] overflow-hidden">
         <div className="site-rise absolute inset-x-[5%] top-[6%]">{children}</div>
       </div>

@@ -5,8 +5,7 @@ import { useRef } from "react";
 // Shared across pieces so whatever was grabbed last sits on top.
 let topLayer = 100;
 
-// Lets a mouse or pen pick up a scrapbook piece and move it around. Touch is left
-// alone so phones scroll normally. Positions reset on reload.
+// mouse/pen only, so phones can still scroll. resets on reload
 export function Draggable({
   children,
   className = "",

@@ -1,7 +1,6 @@
 import { Alfa_Slab_One, Chewy, Comfortaa, Oswald, Playfair_Display, Rubik } from "next/font/google";
 
-// The lookbook title, rebuilt as cut-paper ransom-note letters.
-// Each letter gets its own scrap of paper, typeface, and tilt.
+// ransom-note lookbook title: every letter gets its own scrap, font, and tilt
 
 const slab = Alfa_Slab_One({ weight: "400", subsets: ["latin"], display: "swap" });
 const rubik = Rubik({ weight: "800", subsets: ["latin"], display: "swap" });
@@ -12,7 +11,7 @@ const playfair = Playfair_Display({ weight: "500", style: ["normal", "italic"], 
 
 type Tile = { ch: string; font: string; paper: string; ink: string; tilt: number; italic?: boolean; outline?: boolean; torn: string };
 
-// Ragged clip paths for the paper scraps
+// torn edges
 const torn = [
   "polygon(2% 4%, 30% 0, 62% 3%, 98% 0, 100% 40%, 97% 72%, 100% 97%, 64% 100%, 35% 96%, 0 100%, 3% 66%, 0 30%)",
   "polygon(0 2%, 45% 0, 100% 3%, 97% 35%, 100% 68%, 98% 100%, 55% 97%, 4% 100%, 0 62%, 3% 28%)",

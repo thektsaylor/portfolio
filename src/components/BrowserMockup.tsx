@@ -1,6 +1,5 @@
-// A drawn browser window. The page is a tall screenshot that scrolls from top to
-// bottom while the card is hovered, like someone browsing the site.
-// The address bar stays generic so client domains never appear in the page text.
+// fake browser window, screenshot scrolls on hover
+// generic address bar on purpose (no client domains in the page text)
 export function BrowserMockup({ screenshot, label }: { screenshot: string; label: string }) {
   return (
     <div className="overflow-hidden rounded-xl bg-paper shadow-[0_30px_60px_-20px_rgba(46,34,25,0.55)] ring-1 ring-ink/15">

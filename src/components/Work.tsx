@@ -33,7 +33,7 @@ export function Work() {
           ))}
         </div>
       </SectionHead>
-      {/* Two columns, right column dropped down for a magazine-style stagger */}
+      {/* right column drops down, magazine stagger */}
       <div className="grid gap-x-16 gap-y-20 sm:grid-cols-2">
         {shown.map((project, i) => (
           <Reveal key={project.title} delay={i % 2 === 1 ? 150 : 0} className={i % 2 === 1 ? "sm:mt-32" : ""}>

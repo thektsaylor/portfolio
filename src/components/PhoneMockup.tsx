@@ -2,10 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// A drawn phone frame that loops a muted screen recording. It plays while on screen,
-// and a pause button stays available the whole time (WCAG 2.2.2). If the visitor
-// pauses it, prefers reduced motion, or the browser blocks autoplay (iPhone Low Power
-// Mode), it waits for a tap on the play button instead.
+// phone frame looping a muted screen recording, plays while on screen.
+// pause is always there (WCAG 2.2.2). paused / reduced motion / blocked autoplay
+// (looking at you, iPhone low power mode) = wait for a tap on play
 export function PhoneMockup({
   mp4,
   webm,
