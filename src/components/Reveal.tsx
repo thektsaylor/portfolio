@@ -9,10 +9,12 @@ export function Reveal({
   children,
   delay = 0,
   className = "",
+  style,
 }: {
   children: React.ReactNode;
   delay?: number;
   className?: string;
+  style?: React.CSSProperties;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<Phase>("idle");
@@ -37,7 +39,7 @@ export function Reveal({
   }, []);
 
   return (
-    <div ref={ref} data-reveal={phase} style={{ transitionDelay: `${delay}ms` }} className={className}>
+    <div ref={ref} data-reveal={phase} style={{ ...style, transitionDelay: `${delay}ms` }} className={className}>
       {children}
     </div>
   );
