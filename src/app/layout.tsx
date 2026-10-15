@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { ConsoleHello } from "@/components/ConsoleHello";
 import { PersonSchema } from "@/components/PersonSchema";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <PersonSchema />
         {children}
         <Analytics />
+        <ConsoleHello />
       </body>
     </html>
   );
