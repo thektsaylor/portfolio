@@ -33,18 +33,25 @@ export function Work() {
           ))}
         </div>
       </SectionHead>
-      {/* each card spans two rows and the right column starts a row lower,
-          so cards sit beside the gap between two others, not next to one */}
-      <div className="grid gap-x-16 gap-y-20 sm:grid-cols-2 sm:gap-y-10">
-        {shown.map((project, i) => (
-          <Reveal
-            key={project.title}
-            delay={i % 2 === 1 ? 150 : 0}
-            className="sm:col-start-(--col) sm:row-span-2 sm:row-start-(--row)"
-            style={{ "--col": (i % 2) + 1, "--row": i + 1 } as React.CSSProperties}
-          >
-            <ProjectCard project={project} />
-          </Reveal>
+      {/* two independent columns so each stacks tightly; the right one starts lower.
+          on phones the columns dissolve (display: contents) and order puts cards back
+          in their original sequence */}
+      <div className="flex flex-col gap-y-20 sm:flex-row sm:gap-x-16">
+        {[0, 1].map((col) => (
+          <div key={col} className={`contents sm:flex sm:flex-1 sm:flex-col sm:gap-y-24 ${col ? "sm:pt-80" : ""}`}>
+            {shown.map((project, i) =>
+              i % 2 === col ? (
+                <Reveal
+                  key={project.title}
+                  delay={col ? 150 : 0}
+                  className="order-(--o) sm:order-none"
+                  style={{ "--o": i } as React.CSSProperties}
+                >
+                  <ProjectCard project={project} />
+                </Reveal>
+              ) : null,
+            )}
+          </div>
         ))}
       </div>
     </section>
