@@ -1,6 +1,6 @@
 # Kt Saylor
 
-> UX designer and Marketing Operations Coordinator in Northwest Arkansas, working at the intersection of UX design, data visualization, SEO reporting, and AI workflows. B.S. in Digital Technology and Design (AI/Machine Learning emphasis) at Arkansas State University, minoring in psychology and marketing, expected Fall 2027.
+> UX designer and Marketing Operations Coordinator in Northwest Arkansas. UX design, data visualization, SEO reporting, and AI workflows. B.S. in Digital Technology and Design (AI/Machine Learning emphasis) at Arkansas State University, minoring in psychology and marketing, expected Fall 2027.
 
 ## About
 - Current role: Marketing Operations Coordinator at SEO Counselors (Bentonville, AR). Builds monthly client performance reports from Google Search Console, GA4, Google Business Profile, and keyword rank tracking data, and is building a custom MCP server to automate reporting.
