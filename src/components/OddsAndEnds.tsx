@@ -9,18 +9,22 @@ import { Masthead } from "./Masthead";
 type Frame = "plain" | "stamp" | "torn" | "sticker" | "botanical" | "knit";
 type Tape = "kraft" | "cream" | "sage" | "rose";
 
-// paper glued under everything (same fields + width/height)
+// where something sits on the spread. desktop numbers are % of the spread.
+// on phones, top is out of MOBILE_H (the page is way taller there), the rest is still %
+type Spot = { top: number; left: number; width: number; tilt: number; layer?: number };
+
+// paper glued under everything
 type Scrap = {
   kind: "kraft" | "ticket";
   ratio: number;
-  d: [number, number, number, number, number];
-  m?: [number, number, number, number, number];
+  desk: Spot;
+  phone?: Spot;
 };
 
 const scraps: Scrap[] = [
-  // The logo stickers sit on this sheet of kraft paper
-  { kind: "kraft", ratio: 0.75, d: [43, 70.5, 27.5, 4, 2], m: [382, 6, 88, 3, 2] },
-  { kind: "ticket", ratio: 0.42, d: [84, 40, 9, 4, 21], m: [470, 60, 30, 4, 21] },
+  // the logo stickers sit on this
+  { kind: "kraft", ratio: 0.75, desk: { top: 43, left: 70.5, width: 27.5, tilt: 4, layer: 2 }, phone: { top: 382, left: 6, width: 88, tilt: 3 } },
+  { kind: "ticket", ratio: 0.42, desk: { top: 84, left: 40, width: 9, tilt: 4, layer: 21 }, phone: { top: 470, left: 60, width: 30, tilt: 4 } },
 ];
 
 type Piece = {
@@ -29,10 +33,8 @@ type Piece = {
   h: number;
   alt: string;
   frame: Frame;
-  // Desktop: top and left as % of the spread, width as % of its width, tilt, layer.
-  d: [number, number, number, number, number];
-  // Phones (optional): top in units of a 100-wide by MOBILE_H-tall page, then the same fields.
-  m?: [number, number, number, number, number];
+  desk: Spot;
+  phone?: Spot; // leave off to hide it on phones
   tape?: Tape;
   clip?: boolean;
   binder?: boolean;
@@ -42,57 +44,68 @@ const MOBILE_H = 492;
 
 const pieces: Piece[] = [
   // Print work
-  { src: "/odds/fall-festival.webp", w: 387, h: 516, alt: "Fall birthday poster", frame: "plain", binder: true, d: [3, 3, 14, -4, 10], m: [4, 4, 44, -3, 10] },
-  { src: "/odds/thanksgiving.webp", w: 377, h: 528, alt: "Thanksgiving invitation", frame: "stamp", d: [5, 16.5, 13, 3, 11], m: [10, 52, 43, 3, 11] },
-  { src: "/odds/knit-swatch.webp", w: 900, h: 605, alt: "Knitted swatch", frame: "knit", d: [10, 30.5, 18.5, -3, 14], m: [196, 8, 80, -3, 14] },
-  { src: "/odds/cookbook.webp", w: 1000, h: 591, alt: "Family cookbook cover", frame: "plain", tape: "rose", d: [7, 52.5, 24, -2, 12], m: [322, 4, 90, -2, 12] },
-  { src: "/odds/brand-board.webp", w: 344, h: 581, alt: "Home inspection brand board", frame: "plain", tape: "sage", d: [3, 83, 12, 4, 11], m: [250, 54, 38, 3, 11] },
-  { src: "/odds/secrets.webp", w: 632, h: 316, alt: "Women Who Smuggled Secrets header", frame: "torn", tape: "cream", d: [52, 2, 21, -2, 12], m: [76, 6, 88, -2, 12] },
-  { src: "/odds/weenie.webp", w: 377, h: 528, alt: "Hot dog birthday invitation", frame: "plain", clip: true, d: [44, 24, 13, 5, 13], m: [132, 52, 42, -4, 13] },
-  { src: "/odds/bbq.webp", w: 376, h: 532, alt: "Fourth of July BBQ poster", frame: "stamp", d: [38, 39, 13, -3, 10], m: [126, 5, 43, 2, 10] },
-  { src: "/odds/tea.webp", w: 377, h: 528, alt: "Bridal tea invitation", frame: "torn", d: [42, 56, 12.5, 2, 13], m: [256, 6, 43, -2, 13] },
+  { src: "/odds/fall-festival.webp", w: 387, h: 516, alt: "Fall birthday poster", frame: "plain", binder: true, desk: { top: 3, left: 3, width: 14, tilt: -4, layer: 10 }, phone: { top: 4, left: 4, width: 44, tilt: -3 } },
+  { src: "/odds/thanksgiving.webp", w: 377, h: 528, alt: "Thanksgiving invitation", frame: "stamp", desk: { top: 5, left: 16.5, width: 13, tilt: 3, layer: 11 }, phone: { top: 10, left: 52, width: 43, tilt: 3 } },
+  { src: "/odds/knit-swatch.webp", w: 900, h: 605, alt: "Knitted swatch", frame: "knit", desk: { top: 10, left: 30.5, width: 18.5, tilt: -3, layer: 14 }, phone: { top: 196, left: 8, width: 80, tilt: -3 } },
+  { src: "/odds/cookbook.webp", w: 1000, h: 591, alt: "Family cookbook cover", frame: "plain", tape: "rose", desk: { top: 7, left: 52.5, width: 24, tilt: -2, layer: 12 }, phone: { top: 322, left: 4, width: 90, tilt: -2 } },
+  { src: "/odds/brand-board.webp", w: 344, h: 581, alt: "Home inspection brand board", frame: "plain", tape: "sage", desk: { top: 3, left: 83, width: 12, tilt: 4, layer: 11 }, phone: { top: 250, left: 54, width: 38, tilt: 3 } },
+  { src: "/odds/secrets.webp", w: 632, h: 316, alt: "Women Who Smuggled Secrets header", frame: "torn", tape: "cream", desk: { top: 52, left: 2, width: 21, tilt: -2, layer: 12 }, phone: { top: 76, left: 6, width: 88, tilt: -2 } },
+  { src: "/odds/weenie.webp", w: 377, h: 528, alt: "Hot dog birthday invitation", frame: "plain", clip: true, desk: { top: 44, left: 24, width: 13, tilt: 5, layer: 13 }, phone: { top: 132, left: 52, width: 42, tilt: -4 } },
+  { src: "/odds/bbq.webp", w: 376, h: 532, alt: "Fourth of July BBQ poster", frame: "stamp", desk: { top: 38, left: 39, width: 13, tilt: -3, layer: 10 }, phone: { top: 126, left: 5, width: 43, tilt: 2 } },
+  { src: "/odds/tea.webp", w: 377, h: 528, alt: "Bridal tea invitation", frame: "torn", desk: { top: 42, left: 56, width: 12.5, tilt: 2, layer: 13 }, phone: { top: 256, left: 6, width: 43, tilt: -2 } },
 
   // Logo stickers, stuck on the kraft paper
-  { src: "/odds/rapscallion.webp", w: 520, h: 195, alt: "Rapscallion Station logo", frame: "sticker", d: [46, 72, 14, -4, 20], m: [386, 10, 50, -4, 20] },
-  { src: "/odds/slipstitch.webp", w: 499, h: 520, alt: "Slip Stitch logo", frame: "sticker", d: [64, 87, 8.5, 8, 20], m: [384, 66, 26, 8, 20] },
-  { src: "/odds/logistics-logo.webp", w: 420, h: 316, alt: "Logistics company logo", frame: "sticker", d: [60, 71.5, 7, 6, 20], m: [408, 10, 22, 6, 20] },
-  { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Sailor logo", frame: "sticker", d: [71, 72, 4, -6, 20], m: [410, 36, 12, -6, 20] },
+  { src: "/odds/rapscallion.webp", w: 520, h: 195, alt: "Rapscallion Station logo", frame: "sticker", desk: { top: 46, left: 72, width: 14, tilt: -4, layer: 20 }, phone: { top: 386, left: 10, width: 50, tilt: -4 } },
+  { src: "/odds/slipstitch.webp", w: 499, h: 520, alt: "Slip Stitch logo", frame: "sticker", desk: { top: 64, left: 87, width: 8.5, tilt: 8, layer: 20 }, phone: { top: 384, left: 66, width: 26, tilt: 8 } },
+  { src: "/odds/logistics-logo.webp", w: 420, h: 316, alt: "Logistics company logo", frame: "sticker", desk: { top: 60, left: 71.5, width: 7, tilt: 6, layer: 20 }, phone: { top: 408, left: 10, width: 22, tilt: 6 } },
+  { src: "/odds/sailor.webp", w: 151, h: 197, alt: "Sailor logo", frame: "sticker", desk: { top: 71, left: 72, width: 4, tilt: -6, layer: 20 }, phone: { top: 410, left: 36, width: 12, tilt: -6 } },
 
-  { src: "/odds/truck-patch.webp", w: 360, h: 360, alt: "Truck Patch logo", frame: "sticker", d: [45, 87.5, 8.5, 8, 20], m: [410, 50, 22, 8, 20] },
-  { src: "/odds/sheep.webp", w: 279, h: 340, alt: "Fiberglass sheep", frame: "sticker", d: [54, 79.5, 6.5, -6, 20], m: [430, 74, 20, -6, 20] },
-  { src: "/odds/cathead.webp", w: 400, h: 372, alt: "CatHead logo", frame: "sticker", d: [73.5, 81, 7.5, -5, 21], m: [446, 54, 22, -5, 20] },
-  { src: "/odds/saylor-made.webp", w: 520, h: 171, alt: "Saylor Made logo", frame: "sticker", d: [81, 70.5, 10.5, -3, 20], m: [440, 10, 44, -3, 20] },
+  { src: "/odds/truck-patch.webp", w: 360, h: 360, alt: "Truck Patch logo", frame: "sticker", desk: { top: 45, left: 87.5, width: 8.5, tilt: 8, layer: 20 }, phone: { top: 410, left: 50, width: 22, tilt: 8 } },
+  { src: "/odds/sheep.webp", w: 279, h: 340, alt: "Fiberglass sheep", frame: "sticker", desk: { top: 54, left: 79.5, width: 6.5, tilt: -6, layer: 20 }, phone: { top: 430, left: 74, width: 20, tilt: -6 } },
+  { src: "/odds/cathead.webp", w: 400, h: 372, alt: "CatHead logo", frame: "sticker", desk: { top: 73.5, left: 81, width: 7.5, tilt: -5, layer: 21 }, phone: { top: 446, left: 54, width: 22, tilt: -5 } },
+  { src: "/odds/saylor-made.webp", w: 520, h: 171, alt: "Saylor Made logo", frame: "sticker", desk: { top: 81, left: 70.5, width: 10.5, tilt: -3, layer: 20 }, phone: { top: 440, left: 10, width: 44, tilt: -3 } },
 
   // Pressed botanicals, some tucked under the pieces and some laid on top
-  { src: "/odds/bot/sweetgum.webp", w: 294, h: 240, alt: "", frame: "botanical", d: [79, 7, 8, 20, 4], m: [190, 70, 24, 20, 4] },
-  { src: "/odds/bot/sweetgum-2.webp", w: 289, h: 244, alt: "", frame: "botanical", d: [30, 76, 7, -15, 3] },
-  { src: "/odds/bot/rose-peach.webp", w: 240, h: 229, alt: "", frame: "botanical", d: [36, 68.5, 5, 12, 5], m: [300, 86, 13, 12, 25] },
-  { src: "/odds/bot/cosmos.webp", w: 187, h: 184, alt: "", frame: "botanical", d: [76, 50, 4.5, -8, 25], m: [52, 2, 12, -8, 25] },
-  { src: "/odds/bot/dandelion-2.webp", w: 186, h: 185, alt: "", frame: "botanical", d: [78, 30, 4.5, 10, 5] },
-  { src: "/odds/bot/skeleton-leaf.webp", w: 144, h: 219, alt: "", frame: "botanical", d: [16, 28.5, 4, -20, 5], m: [244, 42, 13, -20, 25] },
-  { src: "/odds/bot/rose-peach.webp", w: 240, h: 229, alt: "", frame: "botanical", d: [40, 0.5, 6.5, 0, 25], m: [116, 2, 18, 0, 25] },
-  { src: "/odds/bot/rose-gold.webp", w: 162, h: 170, alt: "", frame: "botanical", d: [84, 60, 5, 15, 25], m: [472, 8, 14, 15, 25] },
-  { src: "/odds/bot/dandelion.webp", w: 182, h: 189, alt: "", frame: "botanical", d: [88, 92, 4.5, 0, 25], m: [186, 4, 14, 0, 25] },
-  { src: "/odds/bot/dandelion-2.webp", w: 186, h: 185, alt: "", frame: "botanical", d: [28, 49, 4, 0, 25] },
-  { src: "/odds/bot/cosmos.webp", w: 187, h: 184, alt: "", frame: "botanical", d: [82, 24.5, 5, 10, 25], m: [364, 84, 13, 10, 25] },
-  { src: "/odds/bot/cosmos-2.webp", w: 205, h: 230, alt: "", frame: "botanical", d: [64, 52.5, 4.5, -10, 25] },
-  { src: "/odds/bot/marigold.webp", w: 169, h: 290, alt: "", frame: "botanical", d: [24, 47, 3, 8, 25], m: [22, 88, 9, 8, 25] },
-  { src: "/odds/bot/daisy-stem.webp", w: 100, h: 295, alt: "", frame: "botanical", d: [50, 96.5, 2.4, -6, 25] },
-  { src: "/odds/bot/pasque.webp", w: 165, h: 298, alt: "", frame: "botanical", d: [3, 0.3, 3.5, 8, 25] },
-  { src: "/odds/bot/rosebud.webp", w: 121, h: 207, alt: "", frame: "botanical", d: [86, 68, 3, 30, 25], m: [474, 90, 8, 30, 25] },
-  { src: "/odds/bot/tulip.webp", w: 105, h: 113, alt: "", frame: "botanical", d: [38, 21, 3, -12, 25] },
-  { src: "/odds/bot/pansy.webp", w: 86, h: 87, alt: "", frame: "botanical", d: [12, 29.5, 2.2, 0, 25], m: [124, 92, 6, 0, 25] },
+  { src: "/odds/bot/sweetgum.webp", w: 294, h: 240, alt: "", frame: "botanical", desk: { top: 79, left: 7, width: 8, tilt: 20, layer: 4 }, phone: { top: 190, left: 70, width: 24, tilt: 20 } },
+  { src: "/odds/bot/sweetgum-2.webp", w: 289, h: 244, alt: "", frame: "botanical", desk: { top: 30, left: 76, width: 7, tilt: -15, layer: 3 } },
+  { src: "/odds/bot/rose-peach.webp", w: 240, h: 229, alt: "", frame: "botanical", desk: { top: 36, left: 68.5, width: 5, tilt: 12, layer: 5 }, phone: { top: 300, left: 86, width: 13, tilt: 12 } },
+  { src: "/odds/bot/cosmos.webp", w: 187, h: 184, alt: "", frame: "botanical", desk: { top: 76, left: 50, width: 4.5, tilt: -8, layer: 25 }, phone: { top: 52, left: 2, width: 12, tilt: -8 } },
+  { src: "/odds/bot/dandelion-2.webp", w: 186, h: 185, alt: "", frame: "botanical", desk: { top: 78, left: 30, width: 4.5, tilt: 10, layer: 5 } },
+  { src: "/odds/bot/skeleton-leaf.webp", w: 144, h: 219, alt: "", frame: "botanical", desk: { top: 16, left: 28.5, width: 4, tilt: -20, layer: 5 }, phone: { top: 244, left: 42, width: 13, tilt: -20 } },
+  { src: "/odds/bot/rose-peach.webp", w: 240, h: 229, alt: "", frame: "botanical", desk: { top: 40, left: 0.5, width: 6.5, tilt: 0, layer: 25 }, phone: { top: 116, left: 2, width: 18, tilt: 0 } },
+  { src: "/odds/bot/rose-gold.webp", w: 162, h: 170, alt: "", frame: "botanical", desk: { top: 84, left: 60, width: 5, tilt: 15, layer: 25 }, phone: { top: 472, left: 8, width: 14, tilt: 15 } },
+  { src: "/odds/bot/dandelion.webp", w: 182, h: 189, alt: "", frame: "botanical", desk: { top: 88, left: 92, width: 4.5, tilt: 0, layer: 25 }, phone: { top: 186, left: 4, width: 14, tilt: 0 } },
+  { src: "/odds/bot/dandelion-2.webp", w: 186, h: 185, alt: "", frame: "botanical", desk: { top: 28, left: 49, width: 4, tilt: 0, layer: 25 } },
+  { src: "/odds/bot/cosmos.webp", w: 187, h: 184, alt: "", frame: "botanical", desk: { top: 82, left: 24.5, width: 5, tilt: 10, layer: 25 }, phone: { top: 364, left: 84, width: 13, tilt: 10 } },
+  { src: "/odds/bot/cosmos-2.webp", w: 205, h: 230, alt: "", frame: "botanical", desk: { top: 64, left: 52.5, width: 4.5, tilt: -10, layer: 25 } },
+  { src: "/odds/bot/marigold.webp", w: 169, h: 290, alt: "", frame: "botanical", desk: { top: 24, left: 47, width: 3, tilt: 8, layer: 25 }, phone: { top: 22, left: 88, width: 9, tilt: 8 } },
+  { src: "/odds/bot/daisy-stem.webp", w: 100, h: 295, alt: "", frame: "botanical", desk: { top: 50, left: 96.5, width: 2.4, tilt: -6, layer: 25 } },
+  { src: "/odds/bot/pasque.webp", w: 165, h: 298, alt: "", frame: "botanical", desk: { top: 3, left: 0.3, width: 3.5, tilt: 8, layer: 25 } },
+  { src: "/odds/bot/rosebud.webp", w: 121, h: 207, alt: "", frame: "botanical", desk: { top: 86, left: 68, width: 3, tilt: 30, layer: 25 }, phone: { top: 474, left: 90, width: 8, tilt: 30 } },
+  { src: "/odds/bot/tulip.webp", w: 105, h: 113, alt: "", frame: "botanical", desk: { top: 38, left: 21, width: 3, tilt: -12, layer: 25 } },
+  { src: "/odds/bot/pansy.webp", w: 86, h: 87, alt: "", frame: "botanical", desk: { top: 12, left: 29.5, width: 2.2, tilt: 0, layer: 25 }, phone: { top: 124, left: 92, width: 6, tilt: 0 } },
 ];
 
-// torn edges, made once so they don't change between renders
-function tornPath(seed: number) {
-  let s = seed;
-  const rand = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
-  const top: string[] = [];
-  const bottom: string[] = [];
-  for (let x = 0; x <= 100; x += 4) top.push(`${x}% ${(rand() * 3).toFixed(1)}%`);
-  for (let x = 100; x >= 0; x -= 4) bottom.push(`${x}% ${(97 + rand() * 3).toFixed(1)}%`);
-  return `polygon(${[...top, ...bottom].join(",")})`;
+// torn top and bottom edges: two for the torn prints, one for the kraft paper
+const ragged = [
+  "polygon(0 1%, 8% 2.5%, 15% 0.5%, 24% 2%, 33% 0, 41% 2.8%, 50% 1%, 58% 2.2%, 67% 0.3%, 75% 2.6%, 84% 1.2%, 92% 2.9%, 100% 0.8%, 100% 98.5%, 91% 97.2%, 83% 99.6%, 74% 97.8%, 66% 99.1%, 57% 97%, 49% 99.4%, 40% 97.6%, 32% 99.8%, 23% 97.4%, 15% 99%, 7% 97.3%, 0 99.5%)",
+  "polygon(0 2%, 9% 0.4%, 17% 2.6%, 26% 1%, 34% 2.9%, 43% 0.6%, 51% 2.1%, 60% 0.2%, 68% 2.7%, 77% 1.4%, 85% 2.4%, 93% 0.5%, 100% 2%, 100% 97.8%, 92% 99.5%, 84% 97.1%, 75% 99%, 67% 97.5%, 58% 99.7%, 50% 97.9%, 41% 99.2%, 33% 97.2%, 24% 99.4%, 16% 97.7%, 8% 99.8%, 0 97.6%)",
+  "polygon(0 0.6%, 7% 2.2%, 16% 1.1%, 25% 2.9%, 33% 0.4%, 42% 1.8%, 50% 0.2%, 59% 2.5%, 66% 1.3%, 76% 2.8%, 83% 0.7%, 92% 2.3%, 100% 1.5%, 100% 99%, 93% 97.4%, 85% 99.7%, 76% 97.6%, 68% 98.8%, 59% 97.1%, 51% 99.5%, 42% 97.9%, 34% 99.3%, 25% 97.2%, 17% 99.6%, 9% 97.8%, 0 98.6%)",
+];
+
+// css variables for where a piece or scrap sits (desktop + phone)
+function spotVars(desk: Spot, phone?: Spot) {
+  return {
+    "--t": `${desk.top}%`,
+    "--l": `${desk.left}%`,
+    "--w": `${desk.width}%`,
+    "--tilt": `${desk.tilt}deg`,
+    "--mt": phone ? `${(phone.top / MOBILE_H) * 100}%` : "0",
+    "--ml": phone ? `${phone.left}%` : "0",
+    "--mw": phone ? `${phone.width}%` : "0",
+    "--mtilt": phone ? `${phone.tilt}deg` : "0deg",
+    zIndex: desk.layer ?? 1,
+  } as React.CSSProperties;
 }
 
 export function OddsAndEnds() {
@@ -117,7 +130,7 @@ export function OddsAndEnds() {
         </div>
 
         {scraps.map((sc, i) => (
-          <ScrapView key={`scrap-${i}`} scrap={sc} index={i} />
+          <ScrapView key={`scrap-${i}`} scrap={sc} />
         ))}
         {pieces.map((p, i) => (
           <PieceView key={`${p.src}-${i}`} piece={p} index={i} />
@@ -132,30 +145,14 @@ export function OddsAndEnds() {
 }
 
 function PieceView({ piece: p, index }: { piece: Piece; index: number }) {
-  const [top, left, width, tilt, z] = p.d;
-  const m = p.m;
-  const vars = {
-    "--t": `${top}%`,
-    "--l": `${left}%`,
-    "--w": `${width}%`,
-    "--tilt": `${tilt}deg`,
-    "--mt": m ? `${(m[0] / MOBILE_H) * 100}%` : "0",
-    "--ml": m ? `${m[1]}%` : "0",
-    "--mw": m ? `${m[2]}%` : "0",
-    "--mtilt": m ? `${m[3]}deg` : "0deg",
-    zIndex: z || (m ? m[4] : 1),
-  } as React.CSSProperties;
-
-  const visibility = [m ? "block" : "hidden", width > 0 ? "md:block" : "md:hidden"].join(" ");
-
   return (
     <Draggable
-      className={`piece absolute top-(--mt) left-(--ml) w-(--mw) md:top-(--t) md:left-(--l) md:w-(--w) ${visibility} piece-${p.frame}`}
-      style={vars}
+      className={`piece absolute top-(--mt) left-(--ml) w-(--mw) md:top-(--t) md:left-(--l) md:w-(--w) ${p.phone ? "block" : "hidden md:block"} piece-${p.frame}`}
+      style={spotVars(p.desk, p.phone)}
     >
       <div
         className={p.frame === "stamp" ? "stamp" : p.frame === "torn" ? "torn-wrap" : ""}
-        style={p.frame === "torn" ? ({ clipPath: tornPath(index * 7 + 3) } as React.CSSProperties) : undefined}
+        style={p.frame === "torn" ? { clipPath: ragged[index % 2] } : undefined}
       >
         <Image
           src={p.src}
@@ -175,28 +172,15 @@ function PieceView({ piece: p, index }: { piece: Piece; index: number }) {
   );
 }
 
-function ScrapView({ scrap, index }: { scrap: Scrap; index: number }) {
-  const [top, left, width, tilt, z] = scrap.d;
-  const m = scrap.m;
-  const vars = {
-    "--t": `${top}%`,
-    "--l": `${left}%`,
-    "--w": `${width}%`,
-    "--tilt": `${tilt}deg`,
-    "--mt": m ? `${(m[0] / MOBILE_H) * 100}%` : "0",
-    "--ml": m ? `${m[1]}%` : "0",
-    "--mw": m ? `${m[2]}%` : "0",
-    "--mtilt": m ? `${m[3]}deg` : "0deg",
-    zIndex: z,
-  } as React.CSSProperties;
+function ScrapView({ scrap }: { scrap: Scrap }) {
   return (
     <Draggable
-      className={`piece absolute top-(--mt) left-(--ml) w-(--mw) md:top-(--t) md:left-(--l) md:w-(--w) ${m ? "block" : "hidden md:block"}`}
-      style={vars}
+      className={`piece absolute top-(--mt) left-(--ml) w-(--mw) md:top-(--t) md:left-(--l) md:w-(--w) ${scrap.phone ? "block" : "hidden md:block"}`}
+      style={spotVars(scrap.desk, scrap.phone)}
     >
       <div
         className={`scrap scrap-${scrap.kind}`}
-        style={{ aspectRatio: `1 / ${scrap.ratio}`, clipPath: scrap.kind === "ticket" ? undefined : tornPath(index * 13 + 5) }}
+        style={{ aspectRatio: `1 / ${scrap.ratio}`, clipPath: scrap.kind === "ticket" ? undefined : ragged[2] }}
         aria-hidden
       />
     </Draggable>

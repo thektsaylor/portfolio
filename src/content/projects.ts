@@ -15,8 +15,8 @@ export type Project = {
   galleryFit?: "cover" | "contain";
   // warm film filter, real photos only
   film?: boolean;
-  // screen recording in the phone frame. mp4 + webm fallback
-  video?: { mp4: string; webm: string; poster: string };
+  // screen recording in the phone frame
+  video?: { mp4: string; poster: string };
   highlights?: string[];
   // tall full-page screenshot for the browser frame
   // no client names on the page, keeps the site out of their brand searches
@@ -35,7 +35,6 @@ export const projects: Project[] = [
     image: "/projects/fiberglass-demo-poster.webp",
     video: {
       mp4: "/projects/fiberglass-demo.mp4",
-      webm: "/projects/fiberglass-demo.webm",
       poster: "/projects/fiberglass-demo-poster.webp",
     },
     links: [

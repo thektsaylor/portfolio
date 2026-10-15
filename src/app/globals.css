@@ -151,6 +151,32 @@ body::after {
   }
 }
 
+/* Fiberglass phone: bezel, screen (iPhone proportions), dynamic island */
+.phone {
+  position: relative;
+  border-radius: 2.6rem;
+  background: var(--color-ink);
+  padding: 3.5%;
+  box-shadow: 0 30px 60px -20px rgba(46, 34, 25, 0.55);
+}
+.phone-screen {
+  position: relative;
+  aspect-ratio: 540 / 1170;
+  overflow: hidden;
+  border-radius: 2.1rem;
+  background: var(--color-paper);
+}
+.island {
+  position: absolute;
+  top: 1.6%;
+  left: 50%;
+  height: 3.2%;
+  width: 30%;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: var(--color-ink);
+}
+
 /* Sticky nav: the frosted bar ends in a wave (one 300px period, tiled) instead of a
    straight edge, with a thin line traced along the same curve. */
 .nav-bar::before,
