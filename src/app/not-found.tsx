@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Squiggle } from "@/components/Decor";
 
 export const metadata: Metadata = {
@@ -26,12 +27,12 @@ export default function NotFound() {
         <p className="mx-auto mt-6 max-w-sm text-lg leading-relaxed text-muted">
           The page you&apos;re after doesn&apos;t exist, but the rest of the menu does.
         </p>
-        <a
+        <Link
           href="/"
           className="mt-10 inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-6 py-3 text-sm font-semibold text-paper transition hover:border-forest hover:bg-forest"
         >
           Back to the good stuff →
-        </a>
+        </Link>
       </div>
     </main>
   );
