@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// A drawn phone frame that loops a muted screen recording. It autoplays natively,
-// then pauses whenever it scrolls offscreen and resumes when it comes back. When the
-// browser blocks autoplay (iPhone Low Power Mode, data saver) or the visitor prefers
-// reduced motion, a play button appears instead.
+// A drawn phone frame that loops a muted screen recording. It plays while on screen,
+// and a pause button stays available the whole time (WCAG 2.2.2). If the visitor
+// pauses it, prefers reduced motion, or the browser blocks autoplay (iPhone Low Power
+// Mode), it waits for a tap on the play button instead.
 export function PhoneMockup({
   mp4,
   webm,
@@ -18,39 +18,32 @@ export function PhoneMockup({
   label: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [blocked, setBlocked] = useState(false);
-  // Once someone presses play, keep it playing on screen like the autoplay would.
-  const started = useRef(false);
+  const [playing, setPlaying] = useState(false);
+  // Hide the play button until the first autoplay attempt settles, so it doesn't flash.
+  const [settled, setSettled] = useState(false);
+  const wantsPlay = useRef(true);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
     // iOS checks the property, not just the attribute, before allowing muted autoplay.
     video.muted = true;
-    // Respect reduced motion: show the first frame and let people press play themselves.
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduceMotion) {
-      video.pause();
-      video.currentTime = 0;
-    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) wantsPlay.current = false;
     const io = new IntersectionObserver(([entry]) => {
       if (!entry.isIntersecting) return video.pause();
-      if (reduceMotion && !started.current) return setBlocked(true);
-      video.play().then(
-        () => setBlocked(false),
-        () => setBlocked(true),
-      );
+      if (!wantsPlay.current) return setSettled(true);
+      video.play().catch(() => {}).finally(() => setSettled(true));
     });
     io.observe(video);
     return () => io.disconnect();
   }, []);
 
-  function playNow() {
+  function toggle() {
     const video = videoRef.current;
     if (!video) return;
-    started.current = true;
-    video.muted = true;
-    video.play().then(() => setBlocked(false), () => {});
+    wantsPlay.current = video.paused;
+    if (video.paused) video.play().catch(() => {});
+    else video.pause();
   }
 
   return (
@@ -59,30 +52,44 @@ export function PhoneMockup({
         <video
           ref={videoRef}
           poster={poster}
-          autoPlay
           muted
           loop
           playsInline
           preload="metadata"
           aria-label={label}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src={mp4} type='video/mp4; codecs="avc1.640028"' />
-          <source src={webm} type='video/webm; codecs="vp9"' />
+          <source src={mp4} type="video/mp4" />
+          <source src={webm} type="video/webm" />
         </video>
-        {blocked && (
+        {playing ? (
           <button
             type="button"
-            onClick={playNow}
-            aria-label={`Play: ${label}`}
-            className="absolute inset-0 grid place-items-center bg-ink/10 transition hover:bg-ink/0"
+            onClick={toggle}
+            aria-label="Pause the demo"
+            className="absolute right-3 bottom-3 grid h-9 w-9 place-items-center rounded-full bg-paper/85 shadow ring-1 ring-ink/10 transition hover:bg-paper"
           >
-            <span className="grid h-14 w-14 place-items-center rounded-full bg-paper/90 shadow-lg ring-1 ring-ink/10">
-              <svg viewBox="0 0 24 24" className="ml-1 h-6 w-6 fill-ink" aria-hidden>
-                <path d="M7 4.5v15l12-7.5z" />
-              </svg>
-            </span>
+            <svg viewBox="0 0 24 24" className="h-4 w-4 fill-ink" aria-hidden>
+              <path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" />
+            </svg>
           </button>
+        ) : (
+          settled && (
+            <button
+              type="button"
+              onClick={toggle}
+              aria-label="Play the demo"
+              className="absolute inset-0 grid place-items-center bg-ink/10 transition hover:bg-ink/0"
+            >
+              <span className="grid h-14 w-14 place-items-center rounded-full bg-paper/90 shadow-lg ring-1 ring-ink/10">
+                <svg viewBox="0 0 24 24" className="ml-1 h-6 w-6 fill-ink" aria-hidden>
+                  <path d="M7 4.5v15l12-7.5z" />
+                </svg>
+              </span>
+            </button>
+          )
         )}
         {/* Dynamic Island */}
         <span

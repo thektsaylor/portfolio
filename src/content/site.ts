@@ -95,8 +95,8 @@ export const education = [
 // Polaroid collage in the About section. Three or four photos look best.
 // Swap these for personal shots (hobbies, pets, places, your desk) any time.
 export const collage = [
-  { src: "/projects/cathead-towanda.webp", alt: "Towanda biscuit stacked with fried green tomatoes", caption: "cathead" },
-  { src: "/projects/fiberglass-sheep.webp", alt: "Line-drawn sheep from the Fiberglass app loading screen", caption: "fiberglass" },
-  { src: "/projects/seo-ai-overviews.webp", alt: "AI Overview chart from an SEO report", caption: "seo reports" },
-  { src: "/projects/restroom-rentals-map.webp", alt: "Four-state service area map: Kansas, Missouri, Oklahoma, Arkansas", caption: "web design" },
+  { src: "/projects/cathead-towanda.webp", alt: "The Towanda biscuit, stacked with fried green tomatoes", caption: "cathead" },
+  { src: "/projects/fiberglass-sheep.webp", alt: "The scribbly sheep from the Fiberglass app's loading screen", caption: "fiberglass" },
+  { src: "/projects/seo-ai-overviews.webp", alt: "A chart from one of my monthly SEO reports", caption: "seo reports" },
+  { src: "/projects/restroom-rentals-map.webp", alt: "A service-area map covering Kansas, Missouri, Oklahoma, and Arkansas", caption: "web design" },
 ];

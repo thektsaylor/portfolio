@@ -22,7 +22,7 @@ export function Hero() {
           <div className="relative aspect-[3/4] overflow-hidden rounded-t-full bg-sand">
             <Image
               src={site.headshot}
-              alt={`Portrait of ${site.name}`}
+              alt={`${site.name}, the person behind this portfolio`}
               fill
               priority
               sizes="(min-width: 1024px) 19rem, 14rem"
