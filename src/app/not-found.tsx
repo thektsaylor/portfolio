@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Squiggle } from "@/components/Decor";
 
@@ -12,11 +13,12 @@ export default function NotFound() {
   return (
     <main className="flex min-h-screen items-center justify-center px-5 py-24 sm:px-8">
       <div className="max-w-xl text-center">
-        <img
+        <Image
           src="/odds/cathead.webp"
           alt=""
           width={400}
           height={372}
+          loading="eager"
           className="mx-auto w-36 -rotate-6 sm:w-44"
         />
         <p className="mt-10 text-xs tracking-[0.2em] text-muted uppercase">404</p>
