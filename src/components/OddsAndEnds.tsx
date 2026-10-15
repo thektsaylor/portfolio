@@ -45,7 +45,7 @@ const pieces: Piece[] = [
   // Print work
   { src: "/odds/fall-festival.webp", w: 387, h: 516, alt: "Fall birthday party poster with a watercolor pumpkin and hanging stars", frame: "plain", binder: true, d: [3, 3, 14, -4, 10], m: [4, 4, 44, -3, 10] },
   { src: "/odds/thanksgiving.webp", w: 377, h: 528, alt: "Red line-art Thanksgiving dinner invitation in an arched frame", frame: "stamp", d: [5, 16.5, 13, 3, 11], m: [10, 52, 43, 3, 11] },
-  { src: "/odds/knit-swatch.webp", w: 900, h: 605, alt: "Teal knitted swatch hanging from a wooden needle", frame: "knit", d: [10, 30.5, 18.5, -3, 14], m: [196, 8, 80, -3, 14] },
+  { src: "/odds/knit-swatch.webp", w: 600, h: 403, alt: "Teal knitted swatch hanging from a wooden needle", frame: "knit", d: [10, 30.5, 18.5, -3, 14], m: [196, 8, 80, -3, 14] },
   { src: "/odds/cookbook.webp", w: 1000, h: 591, alt: "Wraparound family cookbook cover with red line-drawn baking tools", frame: "plain", tape: "rose", d: [7, 52.5, 24, -2, 12], m: [322, 4, 90, -2, 12] },
   { src: "/odds/brand-board.webp", w: 344, h: 581, alt: "Brand board for a home inspection company: logo, palette, fonts, and mood board", frame: "plain", tape: "sage", d: [3, 83, 12, 4, 11], m: [250, 54, 38, 3, 11] },
   { src: "/odds/secrets.webp", w: 632, h: 316, alt: "Article header reading Women Who Smuggled Secrets over a knitted cipher chart", frame: "torn", tape: "cream", d: [52, 2, 21, -2, 12], m: [76, 6, 88, -2, 12] },
