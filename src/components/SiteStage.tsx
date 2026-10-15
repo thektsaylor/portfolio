@@ -10,25 +10,18 @@ export function SiteStage({ children }: { children: React.ReactNode }) {
     const el = ref.current;
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    let frame = 0;
-    const update = () => {
-      frame = 0;
-      const top = el.getBoundingClientRect().top;
-      const vh = window.innerHeight;
-      // 0 as the card's top enters the bottom of the screen, 1 once it reaches 30% from the top
-      const p = Math.max(0, Math.min(1, (vh - top) / (vh * 0.7)));
-      el.style.setProperty("--rise", (1 - (1 - p) * (1 - p)).toFixed(3));
-    };
+    // 0 when the card's top hits the bottom of the screen, 1 once it's 30% from the top
     const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(update);
+      const top = el.getBoundingClientRect().top;
+      const rise = Math.max(0, Math.min(1, (window.innerHeight - top) / (window.innerHeight * 0.7)));
+      el.style.setProperty("--rise", rise.toFixed(3));
     };
-    update();
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
-      if (frame) cancelAnimationFrame(frame);
     };
   }, []);
 
