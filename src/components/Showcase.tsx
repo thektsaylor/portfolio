@@ -27,7 +27,7 @@ export function Showcase({ project }: { project: Project }) {
         <Image
           key={active}
           src={active}
-          alt={current?.alt ?? `A first look at ${project.title}`}
+          alt={current?.alt ?? project.title}
           fill
           sizes="(min-width: 640px) 50vw, 100vw"
           className={`showcase-fade ${contain ? "object-contain p-3" : "object-cover"}`}
@@ -59,7 +59,7 @@ export function Showcase({ project }: { project: Project }) {
               <button
                 key={shot.src}
                 type="button"
-                aria-label={`Take a closer look: ${shot.alt}`}
+                aria-label={shot.alt}
                 aria-pressed={on}
                 onMouseEnter={() => {
                   setPicked(i);
