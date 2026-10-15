@@ -2,15 +2,14 @@ import Image from "next/image";
 import { Draggable } from "./Draggable";
 import { Masthead } from "./Masthead";
 
-// An open junk-journal spread: small print and logo work layered over ledger and
-// graph paper with pressed botanicals, a knitted swatch, washi tape, clips, and stamps.
-// Every piece can be picked up and moved with a mouse. Addresses and phone numbers
-// on the pieces are blurred.
+// junk journal spread: print + logo work over ledger and graph paper,
+// pressed flowers, knit swatch, washi, clips, stamps. all draggable.
+// addresses + phone numbers blurred
 
 type Frame = "plain" | "stamp" | "torn" | "sticker" | "botanical" | "knit";
 type Tape = "kraft" | "cream" | "sage" | "rose";
 
-// Loose paper glued down under the pieces: same placement fields, plus width / height.
+// paper glued under everything (same fields + width/height)
 type Scrap = {
   kind: "kraft" | "ticket";
   ratio: number;
@@ -85,7 +84,7 @@ const pieces: Piece[] = [
   { src: "/odds/bot/pansy.webp", w: 86, h: 87, alt: "", frame: "botanical", d: [12, 29.5, 2.2, 0, 25], m: [124, 92, 6, 0, 25] },
 ];
 
-// Ragged edges for torn paper, generated once so they match between renders.
+// torn edges, made once so they don't change between renders
 function tornPath(seed: number) {
   let s = seed;
   const rand = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
@@ -99,12 +98,12 @@ function tornPath(seed: number) {
 export function OddsAndEnds() {
   return (
     <section id="odds" className="mx-auto max-w-6xl px-5 pb-20 sm:px-8 sm:pb-28">
-      {/* The lookbook title overlaps the top edge of the spread like a magazine masthead */}
+      {/* title hangs over the top edge */}
       <div className="relative z-30 -mb-7 sm:-mb-9">
         <Masthead />
       </div>
       <div className="journal relative mx-auto aspect-[100/492] max-w-5xl overflow-hidden rounded-md shadow-[0_40px_70px_-35px_rgba(46,34,25,0.6)] md:aspect-[11/5]">
-        {/* Paper: ledger lines on the left page, graph paper on the right, a gutter between */}
+        {/* ledger left, graph right */}
         <div className="journal-ledger absolute inset-y-0 left-0 hidden w-1/2 md:block" aria-hidden />
         <div className="journal-graph absolute inset-y-0 right-0 hidden w-1/2 md:block" aria-hidden />
         <div className="journal-ledger absolute inset-0 md:hidden" aria-hidden />
@@ -204,7 +203,7 @@ function ScrapView({ scrap, index }: { scrap: Scrap; index: number }) {
   );
 }
 
-// A metal binder clip gripping the top edge
+// binder clip
 function BinderClip() {
   return (
     <svg viewBox="0 0 60 56" className="absolute -top-[9%] left-1/2 w-[34%] -translate-x-1/2" aria-hidden>

@@ -2,9 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// The image frame for a project. On first view the media wipes up into the frame
-// and settles from a slight zoom; after that it drifts gently as the page scrolls.
-// Visible by default; it's only hidden for the wipe once this script runs.
+// arch frame: wipes up + settles from a zoom the first time, then drifts on scroll
+// starts visible, only hidden once the script runs
 export function ArchMedia({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState<"idle" | "hidden" | "shown">("idle");
@@ -14,7 +13,7 @@ export function ArchMedia({ children, className = "" }: { children: React.ReactN
     if (!el) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) return;
-    // Only stage the wipe for frames that start below the fold.
+    // only wipe the ones below the fold
     if (el.getBoundingClientRect().top >= window.innerHeight) setPhase("hidden");
 
     let frame = 0;
@@ -52,8 +51,7 @@ export function ArchMedia({ children, className = "" }: { children: React.ReactN
 
   return (
     <div ref={ref} data-arch={phase} className={className}>
-      {/* The wipe clips this inner layer, not the observed frame: a fully clipped
-          target never reports as intersecting, so it would never reveal. */}
+      {/* clip the inner layer, not the observed one, or the observer never fires */}
       <div className="arch-clip absolute inset-0">
         <div className="arch-zoom absolute inset-0">
           <div className="arch-drift absolute inset-0">{children}</div>

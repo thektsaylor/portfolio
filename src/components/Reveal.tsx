@@ -4,9 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 type Phase = "idle" | "hidden" | "shown";
 
-// Fades and lifts its children into place the first time they scroll into view.
-// Content is visible by default and is only hidden once this script runs, so the
-// page still reads fine if JavaScript is blocked or slow to load.
+// fade + lift on first scroll-in. no JS = everything just shows
 export function Reveal({
   children,
   delay = 0,
@@ -22,7 +20,7 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    // Already on screen at load: leave it alone rather than flashing it out and back.
+    // already on screen? skip it, no flash
     if (el.getBoundingClientRect().top < window.innerHeight) return;
     setPhase("hidden");
     const io = new IntersectionObserver(

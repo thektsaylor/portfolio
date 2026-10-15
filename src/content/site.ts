@@ -1,4 +1,4 @@
-// Everything personal lives here. Edit this file to update your info site-wide.
+// personal info, used site-wide
 
 export const site = {
   name: "Kt Saylor",
@@ -7,16 +7,15 @@ export const site = {
   intro:
     "Machine learning and UX student at Arkansas State University, minoring in psychology and marketing. Working as a Marketing Operations Coordinator, turning search data into reports clients read. Before that, I spent years as a creative director and designer, including building the brands from the logo up.",
   location: "Northwest Arkansas",
-  // Short version for search results and link previews (about 150 characters).
+  // meta description, ~150 chars
   description:
     "Kt Saylor: UX designer and marketing operations coordinator in Northwest Arkansas. Data visualization, SEO reporting, and AI workflows.",
   jobTitle: "Marketing Operations Coordinator",
   employer: "SEO Counselors",
   graduation: "Fall 2027",
   headshot: "/headshot.webp",
-  // Drop your resume into /public as resume.pdf and this button just works.
   resume: "/resume.pdf",
-  // Leave email empty to hide it from the site.
+  // empty = hidden
   email: "",
   links: {
     linkedin: "https://www.linkedin.com/in/thektsaylor",
@@ -92,8 +91,7 @@ export const education = [
   },
 ];
 
-// Polaroid collage in the About section. Three or four photos look best.
-// Swap these for personal shots (hobbies, pets, places, your desk) any time.
+// About polaroids (3-4 max or it gets crowded)
 export const collage = [
   { src: "/projects/cathead-towanda.webp", alt: "The Towanda biscuit", caption: "cathead" },
   { src: "/projects/fiberglass-sheep.webp", alt: "Fiberglass sheep", caption: "fiberglass" },

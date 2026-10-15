@@ -1,6 +1,6 @@
 import { site } from "@/content/site";
 
-// Basic Person schema so search engines can connect this site to my other profiles.
+// links the site to my LinkedIn + GitHub for search
 export function PersonSchema() {
   const data = {
     "@context": "https://schema.org",
