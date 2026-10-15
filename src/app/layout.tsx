@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ConsoleHello } from "@/components/ConsoleHello";
 import { PersonSchema } from "@/components/PersonSchema";
@@ -49,6 +50,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Analytics />
         <ConsoleHello />
       </body>
+      <GoogleAnalytics gaId="G-6FS6FYP596" />
     </html>
   );
 }
