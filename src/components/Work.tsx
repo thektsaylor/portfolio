@@ -33,10 +33,16 @@ export function Work() {
           ))}
         </div>
       </SectionHead>
-      {/* right column drops down, magazine stagger */}
-      <div className="grid gap-x-16 gap-y-20 sm:grid-cols-2">
+      {/* each card spans two rows and the right column starts a row lower,
+          so cards sit beside the gap between two others, not next to one */}
+      <div className="grid gap-x-16 gap-y-20 sm:grid-cols-2 sm:gap-y-10">
         {shown.map((project, i) => (
-          <Reveal key={project.title} delay={i % 2 === 1 ? 150 : 0} className={i % 2 === 1 ? "sm:mt-32" : ""}>
+          <Reveal
+            key={project.title}
+            delay={i % 2 === 1 ? 150 : 0}
+            className="sm:col-start-(--col) sm:row-span-2 sm:row-start-(--row)"
+            style={{ "--col": (i % 2) + 1, "--row": i + 1 } as React.CSSProperties}
+          >
             <ProjectCard project={project} />
           </Reveal>
         ))}
