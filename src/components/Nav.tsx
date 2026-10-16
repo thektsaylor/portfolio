@@ -1,12 +1,5 @@
 import { site } from "@/content/site";
 
-const items = [
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Contact", href: "#contact" },
-];
-
 export function Nav() {
   return (
     <header className="nav-bar sticky top-0 z-50 pb-3">
@@ -16,15 +9,11 @@ export function Nav() {
           <span className="text-leaf">.</span>
         </a>
         <div className="flex items-center gap-6">
-          {items.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="hidden text-sm text-muted transition hover:text-ink sm:block"
-            >
-              {item.label}
-            </a>
-          ))}
+          <span className="hidden text-xs tracking-[0.2em] text-muted uppercase md:block">Design · Data</span>
+          <span className="hidden items-center gap-2 text-xs tracking-[0.2em] text-muted uppercase sm:flex">
+            <span className="h-1.5 w-1.5 rounded-full bg-leaf" aria-hidden />
+            Open to UX &amp; MarTech roles
+          </span>
           <a
             href={site.resume}
             download

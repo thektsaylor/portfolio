@@ -7,18 +7,14 @@ import { JumpButtons } from "./JumpButtons";
 export function Hero() {
   return (
     <section id="top" className="mx-auto max-w-6xl px-5 pt-10 pb-10 sm:px-8 sm:pb-8">
-      {/* Masthead meta row */}
-      <div className="flex flex-wrap justify-between gap-x-6 gap-y-1 text-xs tracking-[0.2em] text-muted uppercase">
-        <span>Portfolio / {new Date().getFullYear()}</span>
-        <span>Design · Data</span>
-        <span className="flex items-center gap-2">
-          <span className="h-1.5 w-1.5 rounded-full bg-leaf" aria-hidden />
-          Open to UX &amp; MarTech roles
-        </span>
-      </div>
+      {/* phones only: the nav is too narrow for this, so it sits above the portrait */}
+      <p className="flex items-center justify-center gap-2 text-xs tracking-[0.2em] text-muted uppercase sm:hidden">
+        <span className="h-1.5 w-1.5 rounded-full bg-leaf" aria-hidden />
+        Open to UX &amp; MarTech roles
+      </p>
 
       {/* phones: portrait on top. lg+: floats right, headline wraps the arch (.arch-wrap) */}
-      <div className="mt-12 sm:mt-20 lg:mt-24">
+      <div className="mt-6 sm:mt-10 lg:mt-12">
         <div className="arch-wrap mx-auto mb-10 w-full max-w-[11rem] sm:max-w-[14rem] lg:float-right lg:mb-0 lg:ml-4 lg:max-w-[19rem]">
           <div className="relative aspect-[3/4] overflow-hidden rounded-t-full bg-sand">
             <Image
