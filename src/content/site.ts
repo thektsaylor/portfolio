@@ -28,7 +28,7 @@ export const skills = [
   { group: "Design", items: ["Figma", "Sketch", "UX/UI", "Branding & logo design", "Adobe Creative Suite", "Procreate", "Canva", "CapCut"] },
   { group: "Data", items: ["Google Search Console", "Google Analytics", "Tableau", "Power BI", "KPI dashboards"] },
   { group: "AI", items: ["Machine learning", "Prompt engineering", "APIs & MCP", "Responsible AI"] },
-  { group: "Build", items: ["Python (beginner)", "HTML/CSS", "JavaScript", "Framer", "Webflow", "WordPress", "Squarespace", "Wix", "GitHub", "Claude Code", "System architecture"] },
+  { group: "Build", items: ["Python (beginner)", "HTML/CSS", "JavaScript", "Webflow", "WordPress", "Squarespace", "Wix", "GitHub", "Claude Code", "System architecture"] },
 ];
 
 export const nowItems = [
