@@ -4,7 +4,7 @@ import { Squiggle } from "./Decor";
 
 export function Hero() {
   return (
-    <section id="top" className="mx-auto max-w-6xl px-5 pt-10 pb-10 sm:px-8 sm:pb-32">
+    <section id="top" className="mx-auto max-w-6xl px-5 pt-10 pb-10 sm:px-8 sm:pb-14">
       {/* Masthead meta row */}
       <div className="flex flex-wrap justify-between gap-x-6 gap-y-1 text-xs tracking-[0.2em] text-muted uppercase">
         <span>Portfolio / {new Date().getFullYear()}</span>

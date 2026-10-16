@@ -17,7 +17,7 @@ export function Work() {
   const shown = active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
-    <section id="work" className="mx-auto max-w-6xl scroll-mt-20 px-5 pt-6 pb-20 sm:px-8 sm:pt-28 sm:pb-20">
+    <section id="work" className="mx-auto max-w-6xl scroll-mt-20 px-5 pt-6 pb-20 sm:px-8 sm:pt-16 sm:pb-20">
       <SectionHead title="See my work" tape="squiggle">
         <div className="flex flex-wrap gap-x-5 gap-y-2" role="group" aria-label="Filter projects">
           {filters.map((f) => (
@@ -42,7 +42,7 @@ export function Work() {
           in their original sequence */}
       <div className="flex flex-col gap-y-20 sm:flex-row sm:gap-x-16">
         {[0, 1].map((col) => (
-          <div key={col} className={`contents sm:flex sm:flex-1 sm:flex-col sm:gap-y-24 ${col ? "sm:pt-80" : ""}`}>
+          <div key={col} className={`contents sm:flex sm:flex-1 sm:flex-col sm:gap-y-24 ${col ? "sm:pt-40" : ""}`}>
             {shown.map((project, i) =>
               (active === "All" ? rightColumn.has(project.title) : i % 2 === 1) === Boolean(col) ? (
                 <Reveal
