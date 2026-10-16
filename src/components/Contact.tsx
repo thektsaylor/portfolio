@@ -37,7 +37,7 @@ export function Contact() {
                   href={`mailto:${site.email}`}
                   className="inline-flex items-center gap-3 py-3 font-display text-2xl font-semibold transition hover:text-leaf"
                 >
-                  Email <span aria-hidden>↗</span>
+                  Email <span className="arrow arrow-ne" aria-hidden>↗</span>
                 </a>
               </li>
             )}
@@ -49,7 +49,7 @@ export function Contact() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 py-3 font-display text-2xl font-semibold transition hover:text-leaf"
                 >
-                  {link.label} <span aria-hidden>↗</span>
+                  {link.label} <span className="arrow arrow-ne" aria-hidden>↗</span>
                 </a>
               </li>
             ))}

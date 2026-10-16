@@ -20,7 +20,7 @@ export function Nav() {
             download
             className="text-sm font-semibold underline decoration-leaf decoration-2 underline-offset-4 transition hover:text-forest"
           >
-            Resume ↓
+            Resume <span className="arrow arrow-s" aria-hidden>↓</span>
           </a>
         </div>
       </nav>
