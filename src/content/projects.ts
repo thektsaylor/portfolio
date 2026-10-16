@@ -28,7 +28,7 @@ export const projects: Project[] = [
   {
     title: "Fiberglass",
     category: "UX/UI",
-    year: "2026",
+    year: "2025",
     summary:
       "An app for a company that checks the fiber makeup of clothing. Scan a tag's barcode to get a breakdown of what a garment is really made of, plus a durability score, cost per wear, and a digital closet to keep track of it all.",
     tools: ["Figma", "Prototyping", "UX/UI design"],

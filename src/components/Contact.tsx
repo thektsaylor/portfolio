@@ -11,13 +11,13 @@ export function Contact() {
   return (
     <section id="contact" className="relative scroll-mt-20 bg-ink text-paper">
       <Wave className="absolute -top-[39px] left-0 h-10 w-full text-ink" />
-      <div className="mx-auto max-w-6xl px-5 pt-24 pb-8 sm:px-8 sm:pt-32 sm:pb-10">
-        <h2 className="font-display text-6xl leading-[0.9] font-extrabold tracking-tight sm:text-8xl">
+      <div className="mx-auto max-w-6xl px-5 pt-16 pb-8 sm:px-8 sm:pt-20 sm:pb-10">
+        <h2 className="font-display text-6xl leading-[0.9] font-extrabold tracking-tight sm:text-7xl">
           Let&apos;s make
           <br />
           something <span className="text-leaf">good.</span>
         </h2>
-        <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_2fr]">
+        <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_2fr]">
           <div>
             <p className="max-w-xs text-paper/70">
               UX &amp; MarTech roles, or coffee &amp; shop talk.
@@ -35,7 +35,7 @@ export function Contact() {
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="flex items-center justify-between py-5 font-display text-2xl font-semibold transition hover:text-leaf"
+                  className="inline-flex items-center gap-3 py-3 font-display text-2xl font-semibold transition hover:text-leaf"
                 >
                   Email <span aria-hidden>↗</span>
                 </a>
@@ -47,7 +47,7 @@ export function Contact() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between py-5 font-display text-2xl font-semibold transition hover:text-leaf"
+                  className="inline-flex items-center gap-3 py-3 font-display text-2xl font-semibold transition hover:text-leaf"
                 >
                   {link.label} <span aria-hidden>↗</span>
                 </a>
@@ -55,7 +55,7 @@ export function Contact() {
             ))}
           </ul>
         </div>
-        <footer className="mt-24 flex flex-col justify-between gap-2 text-xs tracking-[0.2em] text-paper/40 uppercase sm:flex-row">
+        <footer className="mt-12 flex flex-col justify-between gap-2 text-xs tracking-[0.2em] text-paper/40 uppercase sm:flex-row">
           <span>© {new Date().getFullYear()} {site.name}</span>
         </footer>
       </div>
