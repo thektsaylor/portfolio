@@ -110,7 +110,7 @@ function spotVars(desk: Spot, phone?: Spot) {
 
 export function OddsAndEnds() {
   return (
-    <section id="odds" className="scroll-mt-20 mx-auto max-w-6xl px-5 pb-20 sm:px-8 sm:pb-28">
+    <section id="odds" className="mx-auto max-w-6xl px-5 pb-20 sm:px-8 sm:pb-28">
       {/* title hangs over the top edge */}
       <div className="relative z-30 -mb-7 sm:-mb-9">
         <Masthead />

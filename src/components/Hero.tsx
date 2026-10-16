@@ -51,10 +51,10 @@ export function Hero() {
               Experience
             </a>
             <a
-              href="#odds"
+              href="#about"
               className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:border-forest hover:text-forest"
             >
-              Lookbook
+              About
             </a>
           </div>
         </div>
