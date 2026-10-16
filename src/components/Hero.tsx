@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { site } from "@/content/site";
 import { Squiggle } from "./Decor";
-import { IntroCard } from "./IntroCard";
+import { IntroCard } from "./IndexCard";
 import { JumpButtons } from "./JumpButtons";
 
 export function Hero() {

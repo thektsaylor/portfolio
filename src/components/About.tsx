@@ -1,5 +1,6 @@
 import { nowItems, site, skills } from "@/content/site";
 import { Collage } from "./Collage";
+import { IndexCard } from "./IndexCard";
 import { SectionHead } from "./SectionHead";
 
 export function About() {
@@ -25,12 +26,11 @@ export function About() {
           </div>
         </div>
         <div>
-          <p className="font-display text-3xl leading-snug font-semibold tracking-[-0.03em] sm:text-4xl">
-            I&apos;m interested in how intelligent systems get built, but also{" "}
-            <span className="text-forest">how people use them</span>. Bias, transparency, ethics, and
-            security are all important from the start, and knowing where automated logic still needs a
-            creative, human touch is what turns good design into great design.
-          </p>
+          <IndexCard label="What I care about" style={{ marginInline: 0, rotate: "1.2deg" }}>
+            I&apos;m interested in how people use intelligent systems, but bias, transparency, ethics, and
+            security are all important to me. Knowing where automated logic still needs a creative, human
+            touch is what turns good design into great design.
+          </IndexCard>
           <dl className="mt-14 border-t border-line">
             {skills.map((s) => (
               <div key={s.group} className="grid gap-2 border-b border-line py-4 sm:grid-cols-[10rem_1fr]">

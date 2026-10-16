@@ -1,5 +1,5 @@
 import { projects } from "@/content/projects";
-import { IntroCard } from "./IntroCard";
+import { IntroCard } from "./IndexCard";
 import { JumpButtons } from "./JumpButtons";
 import { ProjectCard } from "./ProjectCard";
 import { Reveal } from "./Reveal";
