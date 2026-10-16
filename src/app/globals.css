@@ -381,10 +381,10 @@ body::after {
   top: -0.26em;
   clip-path: polygon(0 0, 4% 15%, 0 30%, 4% 45%, 0 60%, 4% 75%, 0 90%, 2% 100%, 98% 100%, 100% 85%, 96% 70%, 100% 55%, 96% 40%, 100% 25%, 96% 10%, 100% 0);
 }
-/* green tape with a white squiggle running along it */
+/* green tape covered in tiny cream squiggles */
 .tape-squiggle {
-  --tape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 12'%3E%3Cpath d='M0 6 Q5 1 10 6 T20 6 T30 6 T40 6' fill='none' stroke='%23fbf7f0' stroke-width='2' stroke-opacity='.85'/%3E%3C/svg%3E")
-      left center / 0.6em 0.2em repeat-x,
+  --tape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 6'%3E%3Cpath d='M1 3 Q2.5 1 4 3 T7 3 T10 3' fill='none' stroke='%23fbf7f0' stroke-width='1.1' stroke-linecap='round' stroke-opacity='.9'/%3E%3C/svg%3E") 0 1px / 14px 7px,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 6'%3E%3Cpath d='M1 3 Q2.5 1 4 3 T7 3 T10 3' fill='none' stroke='%23fbf7f0' stroke-width='1.1' stroke-linecap='round' stroke-opacity='.9'/%3E%3C/svg%3E") 7px 5px / 14px 7px,
     rgb(111 191 115 / 0.6);
 }
 /* mustard tape with little cream polka dots */
