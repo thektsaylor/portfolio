@@ -18,7 +18,7 @@ export function Work() {
 
   return (
     <section id="work" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-20 sm:px-8 sm:pt-28 sm:pb-20">
-      <SectionHead title="Selected work">
+      <SectionHead title="See my work" tape="rgb(111 191 115 / 0.55)">
         <div className="flex flex-wrap gap-x-5 gap-y-2" role="group" aria-label="Filter projects">
           {filters.map((f) => (
             <button
@@ -28,7 +28,7 @@ export function Work() {
               aria-pressed={active === f}
               className={`text-sm transition ${
                 active === f
-                  ? "font-semibold text-ink underline decoration-leaf decoration-2 underline-offset-8"
+                  ? "squiggle-link font-semibold text-ink"
                   : "text-muted hover:text-ink"
               }`}
             >

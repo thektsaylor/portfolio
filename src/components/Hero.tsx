@@ -41,22 +41,20 @@ export function Hero() {
       </div>
 
       <div className="mt-16 grid gap-8 border-t border-line pt-8 sm:mt-20 lg:grid-cols-[1fr_2fr]">
-        <p className="text-xs tracking-[0.2em] text-muted uppercase">Introduction</p>
-        <div>
-          <p className="max-w-2xl text-lg leading-relaxed sm:text-xl">{site.intro}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
+        <div className="lg:col-start-2">
+          <p className="max-w-2xl leading-relaxed text-muted">{site.intro}</p>
+          <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="#work"
-              className="rounded-full bg-ink px-6 py-3 text-sm font-semibold text-paper transition hover:bg-forest"
+              href="#experience"
+              className="btn-offset leaf"
             >
-              See my work
+              Experience →
             </a>
             <a
-              href={site.resume}
-              download
-              className="rounded-full border border-ink px-6 py-3 text-sm font-semibold transition hover:border-forest hover:text-forest"
+              href="#about"
+              className="btn-offset"
             >
-              Download resume
+              About →
             </a>
           </div>
         </div>

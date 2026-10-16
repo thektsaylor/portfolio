@@ -66,7 +66,7 @@ export function ProjectCard({ project }: { project: Project }) {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-semibold underline decoration-leaf decoration-2 underline-offset-4 transition hover:text-forest"
+              className="squiggle-link text-sm font-semibold transition hover:text-forest"
             >
               {link.label} ↗
             </a>
