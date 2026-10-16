@@ -19,7 +19,7 @@ export function Showcase({ project }: { project: Project }) {
   return (
     <>
       <ArchMedia
-        className={`relative aspect-[4/5] overflow-hidden rounded-2xl ${contain ? "bg-[#fbf7f0]" : "bg-sand"} ${
+        className={`relative aspect-[4/5] ${contain ? "" : "overflow-hidden rounded-2xl bg-sand"} ${
           project.film ? "film" : ""
         }`}
       >
@@ -29,7 +29,10 @@ export function Showcase({ project }: { project: Project }) {
           alt={current?.alt ?? project.title}
           fill
           sizes="(min-width: 640px) 50vw, 100vw"
-          className={`showcase-fade ${contain ? "object-contain p-3" : "object-cover"}`}
+          className={`showcase-fade ${
+            // no backdrop for reports, just a drop shadow around the page like the Fiberglass phone
+            contain ? "object-contain p-8 drop-shadow-[0_22px_22px_rgba(46,34,25,0.4)]" : "object-cover"
+          }`}
         />
       </ArchMedia>
       {gallery.length > 0 && (
