@@ -33,7 +33,7 @@ export default function NotFound() {
           href="/"
           className="mt-10 inline-flex items-center gap-2 rounded-full border border-ink bg-ink px-6 py-3 text-sm font-semibold text-paper transition hover:border-forest hover:bg-forest"
         >
-          Back to the good stuff →
+          Back to the good stuff <span className="arrow arrow-e" aria-hidden>→</span>
         </Link>
       </div>
     </main>

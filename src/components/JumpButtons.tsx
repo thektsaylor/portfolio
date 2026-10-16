@@ -3,10 +3,10 @@ export function JumpButtons({ className = "" }: { className?: string }) {
   return (
     <div className={`flex flex-wrap gap-4 ${className}`}>
       <a href="#about" className="btn-offset">
-        About →
+        About <span className="arrow arrow-e" aria-hidden>→</span>
       </a>
       <a href="#experience" className="btn-offset leaf">
-        Experience →
+        Experience <span className="arrow arrow-e" aria-hidden>→</span>
       </a>
     </div>
   );

@@ -410,11 +410,53 @@ body::after {
   line-height: 26px;
   color: var(--color-ink);
   background:
-    linear-gradient(rgb(214 92 84 / 0.6), rgb(214 92 84 / 0.6)) 0 43px / 100% 1.5px no-repeat,
-    repeating-linear-gradient(to bottom, transparent 0 25px, rgb(96 150 205 / 0.4) 25px 26px) 0 44px / 100% 100% no-repeat,
+    linear-gradient(transparent, rgb(214 92 84 / 0.6) 30% 70%, transparent) 0 42.5px / 100% 2px no-repeat,
+    repeating-linear-gradient(
+        to bottom,
+        transparent 0 24.6px,
+        rgb(96 150 205 / 0.42) 25.1px 25.5px,
+        transparent 26px
+      )
+      0 44px / 100% 100% no-repeat,
     url("/odds/index-card.webp") center / cover;
   border-radius: 2px;
   box-shadow: 0 14px 24px -14px rgb(46 34 25 / 0.55), 0 1px 2px rgb(46 34 25 / 0.12);
   rotate: -1.5deg;
+  /* rasterize flat, then rotate, so the ruled lines stay straight instead of stair-stepping */
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
+
+/* link arrows: bolder, in green, and they nudge toward where they point on hover */
+.arrow {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 1.15em;
+  line-height: 1;
+  color: var(--color-forest);
+  transition: translate 200ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+#contact .arrow {
+  color: var(--color-leaf);
+}
+.btn-offset .arrow {
+  color: inherit;
+}
+a:hover .arrow-e,
+a:focus-visible .arrow-e {
+  translate: 4px 0;
+}
+a:hover .arrow-ne,
+a:focus-visible .arrow-ne {
+  translate: 3px -3px;
+}
+a:hover .arrow-s,
+a:focus-visible .arrow-s {
+  translate: 0 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .arrow {
+    transition: none;
+  }
+}
