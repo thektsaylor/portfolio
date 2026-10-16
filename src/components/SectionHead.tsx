@@ -14,7 +14,7 @@ export function SectionHead({
   return (
     <div className="mb-12 flex flex-col gap-6 border-b border-line pb-6 sm:flex-row sm:items-end sm:justify-between">
       <h2
-        className="washi-label self-start font-display text-5xl font-extrabold tracking-tight sm:text-6xl"
+        className="washi-label self-start font-display text-4xl font-extrabold tracking-tight sm:text-5xl"
         style={{ "--tape": tape, rotate: `${tilt}deg` } as React.CSSProperties}
       >
         {title}
