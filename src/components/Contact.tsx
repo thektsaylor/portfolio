@@ -25,7 +25,7 @@ export function Contact() {
             <a
               href={site.resume}
               download
-              className="mt-6 inline-block rounded-full bg-leaf px-6 py-3 text-sm font-semibold text-ink transition hover:bg-paper"
+              className="btn-offset leaf on-ink mt-6"
             >
               Download resume
             </a>

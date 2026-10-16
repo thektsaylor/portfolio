@@ -44,7 +44,7 @@ export function Experience() {
   return (
     <section id="experience" className="scroll-mt-20 bg-mushroom">
       <div className="mx-auto max-w-6xl px-5 pt-24 pb-32 sm:px-8 sm:pt-28 sm:pb-40">
-        <SectionHead title="Experience" />
+        <SectionHead title="Experience" tape="rgb(200 100 59 / 0.45)" />
         <div className="space-y-16">
           <Timeline label="Work" entries={experience} />
           <Timeline label="Education" entries={education} />

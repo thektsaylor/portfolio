@@ -5,7 +5,7 @@ import { SectionHead } from "./SectionHead";
 export function About() {
   return (
     <section id="about" className="mx-auto max-w-6xl scroll-mt-20 px-5 py-20 sm:px-8 sm:py-28">
-      <SectionHead title="About" />
+      <SectionHead title="About" tape="rgb(217 164 65 / 0.6)" tilt={1.2} />
       <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
         <div className="space-y-10 text-sm">
           <Collage />
