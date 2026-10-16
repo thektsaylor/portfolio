@@ -417,12 +417,4 @@ body::after {
   box-shadow: 0 14px 24px -14px rgb(46 34 25 / 0.55), 0 1px 2px rgb(46 34 25 / 0.12);
   rotate: -1.5deg;
 }
-.index-card-clip {
-  position: absolute;
-  top: -30px;
-  right: 44px;
-  width: 26px;
-  height: auto;
-  rotate: 7deg;
-  filter: drop-shadow(1px 3px 2px rgb(46 34 25 / 0.35));
-}
+

@@ -1,10 +1,12 @@
 import Image from "next/image";
 import { site } from "@/content/site";
 import { Squiggle } from "./Decor";
+import { IntroCard } from "./IntroCard";
+import { JumpButtons } from "./JumpButtons";
 
 export function Hero() {
   return (
-    <section id="top" className="mx-auto max-w-6xl px-5 pt-10 pb-10 sm:px-8 sm:pb-14">
+    <section id="top" className="mx-auto max-w-6xl px-5 pt-10 pb-10 sm:px-8 sm:pb-8">
       {/* Masthead meta row */}
       <div className="flex flex-wrap justify-between gap-x-6 gap-y-1 text-xs tracking-[0.2em] text-muted uppercase">
         <span>Portfolio / {new Date().getFullYear()}</span>
@@ -40,23 +42,10 @@ export function Hero() {
         <div className="clear-both" />
       </div>
 
-      <div className="mt-12 grid gap-8 sm:mt-16 lg:grid-cols-[1fr_2fr]">
-        <div className="lg:col-start-2">
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="#experience"
-              className="btn-offset leaf"
-            >
-              Experience →
-            </a>
-            <a
-              href="#about"
-              className="btn-offset"
-            >
-              About →
-            </a>
-          </div>
-        </div>
+      {/* phones only: intro card + jump buttons. desktop has these in the work section */}
+      <div className="mt-12 space-y-10 sm:hidden">
+        <IntroCard />
+        <JumpButtons />
       </div>
     </section>
   );
