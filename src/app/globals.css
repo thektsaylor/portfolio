@@ -398,3 +398,31 @@ body::after {
   --tape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .08' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .98 0 0 0 0 .95 0 0 0 0 .9 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
     rgb(200 100 59 / 0.6);
 }
+
+/* lined index card: card-stock texture, red header rule, blue lines every 26px */
+.index-card {
+  position: relative;
+  max-width: 30rem;
+  margin-inline: auto 0;
+  padding: 18px 26px 26px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13.5px;
+  line-height: 26px;
+  color: var(--color-ink);
+  background:
+    linear-gradient(rgb(214 92 84 / 0.6), rgb(214 92 84 / 0.6)) 0 43px / 100% 1.5px no-repeat,
+    repeating-linear-gradient(to bottom, transparent 0 25px, rgb(96 150 205 / 0.4) 25px 26px) 0 44px / 100% 100% no-repeat,
+    url("/odds/index-card.webp") center / cover;
+  border-radius: 2px;
+  box-shadow: 0 14px 24px -14px rgb(46 34 25 / 0.55), 0 1px 2px rgb(46 34 25 / 0.12);
+  rotate: -1.5deg;
+}
+.index-card-clip {
+  position: absolute;
+  top: -30px;
+  right: 44px;
+  width: 26px;
+  height: auto;
+  rotate: 7deg;
+  filter: drop-shadow(1px 3px 2px rgb(46 34 25 / 0.35));
+}

@@ -40,10 +40,9 @@ export function Hero() {
         <div className="clear-both" />
       </div>
 
-      <div className="mt-16 grid gap-8 border-t border-line pt-8 sm:mt-20 lg:grid-cols-[1fr_2fr]">
+      <div className="mt-12 grid gap-8 sm:mt-16 lg:grid-cols-[1fr_2fr]">
         <div className="lg:col-start-2">
-          <p className="max-w-2xl leading-relaxed text-muted">{site.intro}</p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-4">
             <a
               href="#experience"
               className="btn-offset leaf"
