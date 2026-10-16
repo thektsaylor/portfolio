@@ -11,7 +11,7 @@ export function Contact() {
   return (
     <section id="contact" className="relative scroll-mt-20 bg-ink text-paper">
       <Wave className="absolute -top-[39px] left-0 h-10 w-full text-ink" />
-      <div className="mx-auto max-w-6xl px-5 py-24 sm:px-8 sm:py-32">
+      <div className="mx-auto max-w-6xl px-5 pt-24 pb-8 sm:px-8 sm:pt-32 sm:pb-10">
         <h2 className="font-display text-6xl leading-[0.9] font-extrabold tracking-tight sm:text-8xl">
           Let&apos;s make
           <br />
