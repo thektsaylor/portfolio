@@ -373,3 +373,28 @@ body::after {
     transition: none;
   }
 }
+
+/* patterned tape for the section titles: zigzag cut ends + a pattern each */
+.washi-label::before {
+  width: 1.9em;
+  height: 0.5em;
+  top: -0.26em;
+  clip-path: polygon(0 0, 4% 15%, 0 30%, 4% 45%, 0 60%, 4% 75%, 0 90%, 2% 100%, 98% 100%, 100% 85%, 96% 70%, 100% 55%, 96% 40%, 100% 25%, 96% 10%, 100% 0);
+}
+/* green tape with a white squiggle running along it */
+.tape-squiggle {
+  --tape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 12'%3E%3Cpath d='M0 6 Q5 1 10 6 T20 6 T30 6 T40 6' fill='none' stroke='%23fbf7f0' stroke-width='2' stroke-opacity='.85'/%3E%3C/svg%3E")
+      left center / 0.6em 0.2em repeat-x,
+    rgb(111 191 115 / 0.6);
+}
+/* mustard tape with little cream polka dots */
+.tape-dots {
+  --tape: radial-gradient(circle, rgb(251 247 240 / 0.9) 0 1.6px, transparent 2.2px) 0 0 / 9px 9px,
+    radial-gradient(circle, rgb(251 247 240 / 0.9) 0 1.6px, transparent 2.2px) 4.5px 4.5px / 9px 9px,
+    rgb(217 164 65 / 0.65);
+}
+/* terracotta tape with a fibrous, rice-paper grain */
+.tape-fiber {
+  --tape: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='40'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9 .08' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .98 0 0 0 0 .95 0 0 0 0 .9 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E"),
+    rgb(200 100 59 / 0.6);
+}

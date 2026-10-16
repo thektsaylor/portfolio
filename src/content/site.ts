@@ -25,10 +25,10 @@ export const site = {
 };
 
 export const skills = [
-  { group: "Design", items: ["Figma", "UX/UI", "Branding & logo design", "Adobe Creative Suite", "Canva"] },
+  { group: "Design", items: ["Figma", "UX/UI", "Branding & logo design", "Adobe Creative Suite", "Procreate", "Canva"] },
   { group: "Data", items: ["Google Search Console", "Google Analytics", "Tableau", "Power BI", "KPI dashboards"] },
   { group: "AI", items: ["Machine learning", "Prompt engineering", "APIs & MCP", "Responsible AI"] },
-  { group: "Build", items: ["Python", "HTML/CSS", "JavaScript", "GitHub", "Claude Code"] },
+  { group: "Build", items: ["Python (beginner)", "HTML/CSS", "JavaScript", "GitHub", "Claude Code", "System architecture"] },
 ];
 
 export const nowItems = [

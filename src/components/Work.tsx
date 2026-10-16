@@ -18,7 +18,7 @@ export function Work() {
 
   return (
     <section id="work" className="mx-auto max-w-6xl scroll-mt-20 px-5 pt-6 pb-20 sm:px-8 sm:pt-28 sm:pb-20">
-      <SectionHead title="See my work" tape="rgb(111 191 115 / 0.55)">
+      <SectionHead title="See my work" tape="squiggle">
         <div className="flex flex-wrap gap-x-5 gap-y-2" role="group" aria-label="Filter projects">
           {filters.map((f) => (
             <button

@@ -41,10 +41,14 @@ function Timeline({ label, entries }: { label: string; entries: Entry[] }) {
 }
 
 export function Experience() {
+  // background fades in from the paper color above instead of a hard edge
   return (
-    <section id="experience" className="scroll-mt-20 bg-mushroom">
+    <section
+      id="experience"
+      className="scroll-mt-20 bg-[linear-gradient(to_bottom,var(--color-paper),var(--color-mushroom)_16rem)]"
+    >
       <div className="mx-auto max-w-6xl px-5 pt-24 pb-32 sm:px-8 sm:pt-28 sm:pb-40">
-        <SectionHead title="Experience" tape="rgb(200 100 59 / 0.45)" />
+        <SectionHead title="Experience" tape="fiber" />
         <div className="space-y-16">
           <Timeline label="Work" entries={experience} />
           <Timeline label="Education" entries={education} />
