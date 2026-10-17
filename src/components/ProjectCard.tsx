@@ -45,7 +45,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </span>
         <span>{project.year}</span>
       </div>
-      <h3 className="mt-4 font-display text-3xl font-extrabold tracking-[-0.035em]">{project.title}</h3>
+      <h3 className="mt-4 font-title text-3xl tracking-[-0.02em]">{project.title}</h3>
       <p className="mt-3 max-w-md leading-relaxed text-muted">{project.summary}</p>
       {project.highlights && (
         <ul className="mt-4 max-w-md space-y-2 text-sm leading-relaxed text-muted">

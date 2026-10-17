@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Gloock, Work_Sans, Young_Serif } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ConsoleHello } from "@/components/ConsoleHello";
@@ -7,13 +7,21 @@ import { PersonSchema } from "@/components/PersonSchema";
 import { site } from "@/content/site";
 import "./globals.css";
 
-const display = Inter_Tight({
+// hero, section titles, footer
+const display = Young_Serif({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "800"],
+  weight: "400",
 });
 
-const body = Inter({
+// project titles
+const title = Gloock({
+  variable: "--font-title",
+  subsets: ["latin"],
+  weight: "400",
+});
+
+const body = Work_Sans({
   variable: "--font-body",
   subsets: ["latin"],
 });
@@ -43,7 +51,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} antialiased`}>
+    <html lang="en" className={`${display.variable} ${title.variable} ${body.variable} antialiased`}>
       <body className="min-h-screen font-sans">
         <PersonSchema />
         {children}
