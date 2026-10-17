@@ -1,5 +1,5 @@
 import { site } from "@/content/site";
-import { Wave } from "./Decor";
+import { Squiggle, Wave } from "./Decor";
 
 export function Contact() {
   const links = [
@@ -15,7 +15,11 @@ export function Contact() {
         <h2 className="font-display text-6xl leading-[0.9] font-extrabold tracking-tight sm:text-7xl">
           Let&apos;s make
           <br />
-          something <span className="text-leaf">good.</span>
+          something{" "}
+          <span className="relative inline-block">
+            good.
+            <Squiggle className="absolute -bottom-2 left-0 h-3 w-[92%] text-leaf sm:-bottom-3 sm:h-4" />
+          </span>
         </h2>
         <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_2fr]">
           <div>

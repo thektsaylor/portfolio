@@ -27,9 +27,9 @@ export function Hero() {
             />
           </div>
         </div>
-        <h1 className="font-display text-6xl leading-[1.08] font-extrabold tracking-tight sm:text-8xl sm:leading-[0.9] text-center lg:pt-4 lg:text-right lg:text-[7.25rem]">
+        <h1 className="font-display text-5xl leading-[1.08] font-extrabold tracking-tight sm:text-8xl sm:leading-[0.9] text-center lg:pt-4 lg:text-right lg:text-[7.25rem]">
           Hi, I&apos;m {site.name.split(" ")[0]}. I&nbsp;make things{" "}
-          <span className="relative inline-block whitespace-nowrap text-forest">
+          <span className="relative inline-block whitespace-nowrap">
             look good
             <Squiggle className="absolute -bottom-2 left-0 h-3 w-full text-leaf sm:-bottom-3 sm:h-4" />
           </span>{" "}
