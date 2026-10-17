@@ -18,7 +18,7 @@ export function Nav() {
           <a
             href={site.resume}
             download
-            className="text-sm font-semibold underline decoration-leaf decoration-2 underline-offset-4 transition hover:text-forest"
+            className="squiggle-link text-sm font-semibold transition hover:text-forest"
           >
             Resume <span className="arrow arrow-s" aria-hidden>↓</span>
           </a>
