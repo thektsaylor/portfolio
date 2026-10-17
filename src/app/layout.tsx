@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Work_Sans, Young_Serif } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
+import { ClickStamps } from "@/components/ClickStamps";
 import { ConsoleHello } from "@/components/ConsoleHello";
 import { PersonSchema } from "@/components/PersonSchema";
 import { site } from "@/content/site";
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <Analytics />
         <ConsoleHello />
+        <ClickStamps />
       </body>
       <GoogleAnalytics gaId="G-6FS6FYP596" />
     </html>
