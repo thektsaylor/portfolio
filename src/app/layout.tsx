@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Gloock, Work_Sans, Young_Serif } from "next/font/google";
+import { Work_Sans, Young_Serif } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ConsoleHello } from "@/components/ConsoleHello";
@@ -7,16 +7,9 @@ import { PersonSchema } from "@/components/PersonSchema";
 import { site } from "@/content/site";
 import "./globals.css";
 
-// hero, section titles, footer
+// hero, section titles, project titles, footer
 const display = Young_Serif({
   variable: "--font-display",
-  subsets: ["latin"],
-  weight: "400",
-});
-
-// project titles
-const title = Gloock({
-  variable: "--font-title",
   subsets: ["latin"],
   weight: "400",
 });
@@ -51,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${display.variable} ${title.variable} ${body.variable} antialiased`}>
+    <html lang="en" className={`${display.variable} ${body.variable} antialiased`}>
       <body className="min-h-screen font-sans">
         <PersonSchema />
         {children}
