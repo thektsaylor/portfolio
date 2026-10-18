@@ -11,8 +11,7 @@ export function Nav() {
         {/* centered between the name and the right side */}
         <span className="hidden text-xs tracking-[0.2em] text-muted uppercase md:block">Design · Data</span>
         <div className="col-start-3 flex items-center gap-6 justify-self-end">
-          <span className="hidden items-center gap-2 text-xs tracking-[0.2em] text-muted uppercase sm:flex">
-            <span className="h-1.5 w-1.5 rounded-full bg-leaf" aria-hidden />
+          <span className="hidden text-xs tracking-[0.2em] text-muted uppercase sm:block">
             Open to UX &amp; MarTech roles
           </span>
           <a
