@@ -8,8 +8,7 @@ export function Hero() {
   return (
     <section id="top" className="mx-auto max-w-6xl px-5 pt-10 pb-10 sm:px-8 sm:pb-8">
       {/* phones only: the nav is too narrow for this, so it sits above the portrait */}
-      <p className="flex items-center justify-center gap-2 text-xs tracking-[0.2em] text-muted uppercase sm:hidden">
-        <span className="h-1.5 w-1.5 rounded-full bg-leaf" aria-hidden />
+      <p className="text-center text-xs tracking-[0.2em] text-muted uppercase sm:hidden">
         Open to UX &amp; MarTech roles
       </p>
 
