@@ -77,7 +77,7 @@ export const projects: Project[] = [
       "Built-in checks so the report can't invent a number",
       "Honest, wins-first cards for clients, with declines and next steps flagged for the client",
     ],
-    tools: ["Google Search Console", "GA4", "Search Atlas", "Data visualization", "Claude"],
+    tools: ["Google Search Console", "GA4", "Search Atlas", "Data visualization"],
     image: "/projects/seo-report-upholstery.webp",
     links: [],
     galleryFit: "contain",
