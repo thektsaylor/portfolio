@@ -1,0 +1,12 @@
+/* van cursor for the OZK page only. the nose of the van does the pointing (hotspot 1,27) */
+.ozk-page {
+  cursor: url("./van.png") 1 27, auto;
+  cursor: image-set(url("./van.png") 1x, url("./van@2x.png") 2x) 1 27, auto;
+}
+.ozk-page a,
+.ozk-page button,
+.ozk-page summary,
+.ozk-page [role="button"] {
+  cursor: url("./van.png") 1 27, pointer;
+  cursor: image-set(url("./van.png") 1x, url("./van@2x.png") 2x) 1 27, pointer;
+}
