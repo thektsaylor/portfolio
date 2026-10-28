@@ -33,6 +33,22 @@
           "value": "same-origin"
         }
       ]
+    },
+    {
+      "source": "/OZK",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/ozk",
+      "destination": "/OZK",
+      "permanent": false
     }
   ]
 }

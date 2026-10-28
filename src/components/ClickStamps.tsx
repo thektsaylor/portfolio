@@ -15,8 +15,8 @@ export function ClickStamps() {
 
     function onPointerDown(e: PointerEvent) {
       if (e.pointerType === "touch" || e.button !== 0) return;
-      // dragging a journal piece isn't a stamp
-      if ((e.target as Element).closest?.(".piece")) return;
+      // dragging a journal piece isn't a stamp, and pages can opt out with data-no-stamps
+      if ((e.target as Element).closest?.(".piece, [data-no-stamps]")) return;
       layer.style.height = `${document.documentElement.scrollHeight}px`;
       const stamp = document.createElement("img");
       stamp.src = "/cursor/stamp.png";
