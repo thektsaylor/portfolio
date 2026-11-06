@@ -79,7 +79,7 @@ export const projects: Project[] = [
     ],
     tools: ["Google Search Console", "GA4", "Search Atlas", "Data visualization"],
     image: "/projects/seo-report-upholstery.webp",
-    links: [],
+    links: [{ label: "View full sample", href: "/samples/seo-dashboard.html" }],
     galleryFit: "contain",
     gallery: [
       { src: "/projects/seo-ai-overviews.webp", alt: "AI Overview appearances chart", full: "/projects/seo-report-upholstery.webp" },
