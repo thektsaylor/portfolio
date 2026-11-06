@@ -99,7 +99,7 @@ export const projects: Project[] = [
     tools: ["Web design", "UX writing", "Local SEO", "Vercel"],
     image: "/projects/restroom-rentals-home.webp",
     site: { screenshot: "/projects/restroom-rentals-home.webp" },
-    links: [{ label: "Visit site", href: "https://luxiloorentals.com" }],
+    links: [{ label: "Visit site", href: "https://luxi-loo-rentals-dywrqbman-seo-pro-plan.vercel.app/" }],
   },
   {
     title: "Freight Logistics Company",
