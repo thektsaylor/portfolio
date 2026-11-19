@@ -29,7 +29,7 @@ export function Contact() {
             <a
               href={site.resume}
               download
-              className="btn-offset leaf on-ink mt-6"
+              className="btn-stamp on-ink mt-6"
             >
               Download resume
             </a>

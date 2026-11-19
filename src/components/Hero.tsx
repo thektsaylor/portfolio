@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { site } from "@/content/site";
 import { Squiggle } from "./Decor";
 import { IntroCard } from "./IndexCard";
+import { InstantPhoto } from "./InstantPhoto";
 import { JumpButtons } from "./JumpButtons";
 
 export function Hero() {
@@ -12,18 +12,13 @@ export function Hero() {
         Open to UX &amp; MarTech roles
       </p>
 
-      {/* phones: portrait on top. lg+: floats right, headline wraps the arch (.arch-wrap) */}
+      {/* phones: portrait on top. lg+: floats right as an instax print, headline wraps it (.arch-wrap) */}
       <div className="mt-6 sm:mt-10 lg:mt-12">
-        <div className="arch-wrap mx-auto mb-10 w-full max-w-[11rem] sm:max-w-[14rem] lg:float-right lg:mb-0 lg:ml-4 lg:max-w-[19rem]">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-t-full bg-sand">
-            <Image
-              src={site.headshot}
-              alt={site.name}
-              fill
-              priority
-              sizes="(min-width: 1024px) 19rem, 14rem"
-              className="object-cover"
-            />
+        <div className="arch-wrap mx-auto mb-10 w-full max-w-[11rem] sm:max-w-[13rem] lg:float-right lg:mb-0 lg:ml-6 lg:max-w-[16.5rem]">
+          <div className="rotate-[2.5deg]">
+            <InstantPhoto film="instax" src={site.headshot} alt={site.name} sizes="(min-width: 1024px) 15rem, 12rem" priority>
+              <span className="washi washi-sage" style={{ top: "-0.6rem", width: "38%" }} aria-hidden />
+            </InstantPhoto>
           </div>
         </div>
         <h1 className="font-display text-5xl leading-[1.08] font-extrabold tracking-tight sm:text-8xl sm:leading-[0.9] text-center lg:pt-4 lg:text-right lg:text-[7.25rem]">
