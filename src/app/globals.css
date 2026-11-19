@@ -28,7 +28,7 @@
 
 html {
   scroll-behavior: smooth;
-  /* crumpled paper is drawn at one size everywhere so the nav and hero line up */
+  /* crumpled paper size, and how far the hero sheet reaches up behind the nav */
   --paper-size: max(1800px, 100vw) auto;
   --nav-h: 72px;
 }
@@ -193,8 +193,9 @@ body::after {
   z-index: -1;
 }
 .nav-bar::before {
-  /* same crumpled sheet as the hero, lined up with it at the top of the page */
-  background: url("/paper/crumpled.webp") top center / var(--paper-size) var(--color-paper);
+  background: rgb(245 240 231 / 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'%3E%3Cpath d='M0 0H300V6C250 12 200 12 150 6C100 0 50 0 0 6Z'/%3E%3C/svg%3E");
   mask:
     linear-gradient(#000 0 0) top / 100% calc(100% - 12px) no-repeat,
