@@ -1,6 +1,10 @@
-import Image from "next/image";
+import { Permanent_Marker } from "next/font/google";
 import { collage } from "@/content/site";
+import { InstantPhoto } from "./InstantPhoto";
 import { Reveal } from "./Reveal";
+
+// sharpie-style handwriting for the captions
+const marker = Permanent_Marker({ weight: "400", subsets: ["latin"], display: "swap" });
 
 // polaroid spots, placed by hand: position, width, tilt
 const spots = [
@@ -23,20 +27,21 @@ export function Collage() {
           >
             <Reveal delay={i * 120}>
               <figure
-                className="relative rotate-(--tilt) bg-[#fffdf8] p-[6%] pb-[18%] shadow-[0_12px_30px_-12px_rgba(46,34,25,0.45)] transition duration-500 hover:scale-105 hover:rotate-0"
+                className="relative rotate-(--tilt) transition duration-500 hover:scale-105 hover:rotate-0"
                 style={{ "--tilt": `${spot.tilt}deg` } as React.CSSProperties}
               >
-                <div className="film relative aspect-square overflow-hidden">
-                  <Image src={photo.src} alt={photo.alt} fill sizes="12rem" className="object-cover object-top" />
-                </div>
-                <figcaption className="absolute inset-x-0 bottom-[5%] text-center text-[0.6rem] tracking-[0.2em] text-muted uppercase">
-                  {photo.caption}
-                </figcaption>
-                {/* tape */}
-                <span
-                  className="absolute -top-2 left-1/2 h-4 w-12 -translate-x-1/2 -rotate-3 bg-[#e3d3b9]/80"
-                  aria-hidden
-                />
+                <InstantPhoto film="polaroid" src={photo.src} alt={photo.alt} sizes="12rem" photoClassName="film object-top">
+                  <figcaption
+                    className={`${marker.className} absolute inset-x-0 bottom-[9.4%] flex h-[11.2%] -rotate-2 items-center justify-center text-[0.95rem] leading-none text-ink/85`}
+                  >
+                    {photo.caption}
+                  </figcaption>
+                  {/* tape */}
+                  <span
+                    className="absolute -top-2 left-1/2 h-4 w-12 -translate-x-1/2 -rotate-3 bg-[#e3d3b9]/80"
+                    aria-hidden
+                  />
+                </InstantPhoto>
               </figure>
             </Reveal>
           </div>

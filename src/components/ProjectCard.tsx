@@ -39,13 +39,10 @@ export function ProjectCard({ project }: { project: Project }) {
           )}
         </ArchMedia>
       )}
-      <div className="mt-5 flex items-baseline justify-between gap-4 border-b border-line pb-3 text-xs tracking-[0.2em] text-muted uppercase">
-        <span>
-          {project.category}
-        </span>
-        <span>{project.year}</span>
-      </div>
-      <h3 className="mt-4 font-display text-3xl tracking-[-0.02em]">{project.title}</h3>
+      <h3 className="mt-6 font-display text-3xl tracking-[-0.02em]">{project.title}</h3>
+      <p className="mt-1 text-sm text-muted">
+        {project.category} · {project.year}
+      </p>
       <p className="mt-3 max-w-md leading-relaxed text-muted">{project.summary}</p>
       {project.highlights && (
         <ul className="mt-4 max-w-md space-y-2 text-sm leading-relaxed text-muted">
