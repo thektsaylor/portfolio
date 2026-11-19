@@ -193,7 +193,7 @@ body::after {
   z-index: -1;
 }
 .nav-bar::before {
-  background: rgb(245 240 231 / 0.9);
+  background: rgb(245 240 231 / 0.8);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 12' preserveAspectRatio='none'%3E%3Cpath d='M0 0H300V6C250 12 200 12 150 6C100 0 50 0 0 6Z'/%3E%3C/svg%3E");
