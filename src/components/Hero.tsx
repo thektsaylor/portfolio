@@ -17,7 +17,7 @@ export function Hero() {
         <div className="arch-wrap mx-auto mb-10 w-full max-w-[11rem] sm:max-w-[13rem] lg:float-right lg:mb-0 lg:ml-6 lg:max-w-[16.5rem]">
           <div className="rotate-[2.5deg]">
             <InstantPhoto film="instax" src={site.headshot} alt={site.name} sizes="(min-width: 1024px) 15rem, 12rem" priority>
-              <span className="washi washi-sage" style={{ top: "-0.6rem", width: "38%" }} aria-hidden />
+              <span className="washi tape-fiber" style={{ top: "-0.6rem", width: "38%" }} aria-hidden />
             </InstantPhoto>
           </div>
         </div>

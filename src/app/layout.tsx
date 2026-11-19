@@ -53,7 +53,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ConsoleHello />
         <ClickStamps />
       </body>
-      <GoogleAnalytics gaId="G-6FS6FYP596" />
+      {/* production only, so Vercel previews and local builds don't count as visits */}
+      {process.env.VERCEL_ENV === "production" && <GoogleAnalytics gaId="G-6FS6FYP596" />}
     </html>
   );
 }
