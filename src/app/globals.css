@@ -497,3 +497,34 @@ summary,
     animation: none;
   }
 }
+
+/* hero sits on a sheet of crumpled paper torn off along the bottom.
+   the sheet is masked by the tear, then the white paper core + shadow is laid along it */
+.hero-paper {
+  position: relative;
+  isolation: isolate;
+}
+.hero-paper::before,
+.hero-paper::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: -3.5rem;
+  left: 50%;
+  width: 100vw;
+  translate: -50% 0;
+  pointer-events: none;
+}
+.hero-paper::before {
+  background: url("/paper/crumpled.webp") center / cover;
+  -webkit-mask:
+    linear-gradient(#000, #000) top / 100% calc(100% - 120px) no-repeat,
+    url("/paper/torn-mask.webp") bottom / 1200px 120px repeat-x;
+  mask:
+    linear-gradient(#000, #000) top / 100% calc(100% - 120px) no-repeat,
+    url("/paper/torn-mask.webp") bottom / 1200px 120px repeat-x;
+}
+.hero-paper::after {
+  background: url("/paper/torn-rim.webp") bottom / 1200px 120px repeat-x;
+}
