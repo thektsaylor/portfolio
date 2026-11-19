@@ -1,6 +1,10 @@
+import { Permanent_Marker } from "next/font/google";
 import { collage } from "@/content/site";
 import { InstantPhoto } from "./InstantPhoto";
 import { Reveal } from "./Reveal";
+
+// sharpie-style handwriting for the captions
+const marker = Permanent_Marker({ weight: "400", subsets: ["latin"], display: "swap" });
 
 // polaroid spots, placed by hand: position, width, tilt
 const spots = [
@@ -27,7 +31,9 @@ export function Collage() {
                 style={{ "--tilt": `${spot.tilt}deg` } as React.CSSProperties}
               >
                 <InstantPhoto film="polaroid" src={photo.src} alt={photo.alt} sizes="12rem" photoClassName="film object-top">
-                  <figcaption className="absolute inset-x-0 bottom-[7%] text-center text-[0.6rem] tracking-[0.2em] text-muted uppercase">
+                  <figcaption
+                    className={`${marker.className} absolute inset-x-0 bottom-[9.4%] flex h-[11.2%] -rotate-2 items-center justify-center text-[0.95rem] leading-none text-ink/85`}
+                  >
                     {photo.caption}
                   </figcaption>
                   {/* tape */}
