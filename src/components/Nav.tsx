@@ -20,7 +20,7 @@ export function Nav({ home = "#top" }: { home?: string }) {
             download
             className="squiggle-link text-sm font-semibold transition hover:text-forest"
           >
-            Resume <span className="arrow arrow-s" aria-hidden>↓</span>
+            Resume <span className="hand-stamp" aria-hidden />
           </a>
         </div>
       </nav>
