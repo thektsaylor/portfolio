@@ -1,4 +1,5 @@
 import { site } from "@/content/site";
+import { PointingHand } from "./PointingHand";
 
 // home: where the name links. the homepage scrolls to #top; other pages send it back to "/"
 export function Nav({ home = "#top" }: { home?: string }) {
@@ -20,7 +21,7 @@ export function Nav({ home = "#top" }: { home?: string }) {
             download
             className="squiggle-link text-sm font-semibold transition hover:text-forest"
           >
-            Resume <span className="arrow arrow-s" aria-hidden>↓</span>
+            Resume <PointingHand className="hand-stamp ml-1.5 inline-block h-[1.15em] w-auto align-[-0.3em]" />
           </a>
         </div>
       </nav>
