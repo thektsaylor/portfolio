@@ -16,7 +16,7 @@ const spots = [
 
 export function Collage() {
   return (
-    <div className="relative mx-auto aspect-[1/1.2] w-full max-w-sm">
+    <div className="relative mx-auto aspect-[1/1.36] w-full max-w-sm">
       {collage.slice(0, spots.length).map((photo, i) => {
         const spot = spots[i];
         return (
@@ -32,7 +32,7 @@ export function Collage() {
               >
                 <InstantPhoto film="polaroid" src={photo.src} alt={photo.alt} sizes="12rem" photoClassName="film object-top">
                   <figcaption
-                    className={`${marker.className} absolute inset-x-0 bottom-[9.4%] flex h-[11.2%] -rotate-2 items-center justify-center text-[0.95rem] leading-none text-ink/85`}
+                    className={`${marker.className} absolute inset-x-0 bottom-0 flex h-[19%] -rotate-2 items-center justify-center text-[0.95rem] leading-none text-ink/85`}
                   >
                     {photo.caption}
                   </figcaption>

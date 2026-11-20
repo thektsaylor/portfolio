@@ -5,8 +5,8 @@ import Image from "next/image";
 const films = {
   // instax mini: 54 x 86 mm card, 46 x 62 mm picture
   instax: { src: "/paper/instax-mini.webp", ratio: "54 / 86", window: ["7.407%", "8.14%", "7.407%", "19.767%"] },
-  // polaroid 600: 88 x 107 mm card, 79 x 79 mm picture
-  polaroid: { src: "/paper/polaroid.webp", ratio: "88 / 107", window: ["5.114%", "5.607%", "5.114%", "20.561%"] },
+  // polaroid: 88 x 110 mm card, even 5 mm border round a 78 mm square picture, tall 27 mm bottom for writing
+  polaroid: { src: "/paper/polaroid.webp", ratio: "88 / 110", window: ["5.682%", "4.545%", "5.682%", "24.545%"] },
 } as const;
 
 export function InstantPhoto({
