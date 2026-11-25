@@ -58,6 +58,11 @@
       "source": "/ozk",
       "destination": "/OZK",
       "permanent": false
+    },
+    {
+      "source": "/r/:company",
+      "destination": "/?utm_source=resume&utm_medium=pdf&utm_campaign=:company",
+      "permanent": false
     }
   ]
 }
