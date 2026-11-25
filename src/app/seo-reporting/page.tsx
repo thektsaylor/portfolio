@@ -33,7 +33,7 @@ const flow = [
   { step: "Google data", text: "Search Console, GA4 and Business Profile, pulled through MCP and API connections or monthly exports" },
   { step: "Live checks", text: "DataForSEO: Maps rankings, competitors, and the 12 AI answers" },
   { step: "One data file", text: "The month's numbers and sentences saved as JSON, so next month can compare" },
-  { step: "Build", text: "A script drops the data into the master template and draws every chart", key: true },
+  { step: "Build", text: "A script drops the data into the master template and draws every chart" },
   { step: "Ship + follow up", text: "The page deploys to Vercel, and the fixes it finds become tasks on the support board" },
 ];
 
@@ -72,7 +72,7 @@ function Note({ children }: { children: React.ReactNode }) {
 function Card({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="rounded-2xl border border-line bg-paper px-5 py-4">
-      <h3 className="font-display text-xl tracking-tight">{title}</h3>
+      <h3 className="font-display text-xl">{title}</h3>
       <div className="mt-2 text-[0.95rem] leading-relaxed text-muted">{children}</div>
     </div>
   );
@@ -100,13 +100,13 @@ const td = "border-b border-line px-2 py-2 align-top";
 
 export default function SeoReporting() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen [&_h1]:tracking-normal [&_h2]:tracking-normal [&_h3]:tracking-normal [&_.font-display]:tracking-normal">
       <Nav home="/" />
       <main className="mx-auto max-w-6xl px-5 pt-6 pb-24 sm:px-8 sm:pt-10">
         <header className="grid items-center gap-10 lg:grid-cols-[1fr_1.15fr]">
           <div>
             <p className="text-xs tracking-[0.2em] text-muted uppercase">Case study · Data · 2026</p>
-            <h1 className="mt-3 font-display text-4xl leading-[1.05] tracking-tight sm:text-6xl">
+            <h1 className="mt-3 font-display text-4xl leading-[1.15] sm:text-6xl">
               I built the monthly report a small SEO agency runs on
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
@@ -125,7 +125,7 @@ export default function SeoReporting() {
               {kpis.map((k) => (
                 <div key={k.label} className="rounded-xl bg-ink px-3 py-3 text-paper">
                   <p className="text-xs text-paper/60">{k.label}</p>
-                  <p className="font-display text-2xl tracking-tight sm:text-3xl">{k.value}</p>
+                  <p className="font-display text-2xl sm:text-3xl">{k.value}</p>
                   <p className="mt-1 inline-block rounded-full bg-leaf/25 px-2 text-xs font-semibold text-leaf">{k.change}</p>
                 </div>
               ))}
@@ -157,18 +157,12 @@ export default function SeoReporting() {
         </header>
 
         <section className="mt-24">
-          <SectionHead title="What I built" tape="dots" tilt={1}>
-            <p className="max-w-md text-muted">
-              A Claude skill and a master template that turn the month&apos;s data into a finished client page. The data
-              comes in through MCP and API connections, so Claude reads Google and DataForSEO directly.
-            </p>
-          </SectionHead>
           <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {flow.map((f, i) => (
-              <li key={f.step} className={`rounded-2xl border px-4 py-4 ${f.key ? "border-forest bg-forest text-paper" : "border-line bg-paper"}`}>
-                <p className={`text-xs ${f.key ? "text-paper/70" : "text-muted"}`}>Step {i + 1}</p>
+              <li key={f.step} className="rounded-2xl border border-line bg-paper px-4 py-4">
+                <p className="text-xs text-muted">Step {i + 1}</p>
                 <p className="font-display text-lg">{f.step}</p>
-                <p className={`mt-1 text-sm leading-relaxed ${f.key ? "text-paper/85" : "text-muted"}`}>{f.text}</p>
+                <p className="mt-1 text-sm leading-relaxed text-muted">{f.text}</p>
               </li>
             ))}
           </ol>
