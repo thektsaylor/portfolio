@@ -52,13 +52,6 @@ const brand = [
   ["Offers catering", "Correct, from the website"],
 ];
 
-const choices = [
-  ["Plain words over jargon", "Labels like \"times people saw your listing\" instead of \"impressions.\" If a bakery owner has to google a term, the report failed."],
-  ["Cut what confused people", "I removed a keyword map and a ranking heat map after clients said they didn't get them. They still live in our internal dashboard."],
-  ["Wins in the report, dips in the call", "Drops get explained by the account manager in conversation, with context, instead of a scary red number on the page."],
-  ["Keep the costs small", "Rankings are checked once a month and reused, AI checks are capped at 12 answers, and brand checks run quarterly, so a report runs about a dollar in data."],
-];
-
 const cites = [
   ["Apple Maps", "Old address, unclaimed", "High"],
   ["Yelp", "Wrong phone number", "Medium"],
@@ -163,23 +156,7 @@ export default function SeoReporting() {
           </Taped>
         </header>
 
-        <section className="mt-24 grid gap-10 md:grid-cols-[1fr_15rem]">
-          <div className="max-w-2xl text-[1.05rem] leading-relaxed">
-            <SectionHead title="The problem" tape="squiggle" />
-            <p>
-              Monthly reports are how a small agency proves its work, and they&apos;re easy to get wrong. Pulling the same
-              Google numbers by hand for every client eats hours, and the result is a wall of charts and jargon that a busy
-              owner skims or skips.
-            </p>
-            <p className="mt-4">
-              On top of that, a growing share of customers ask AI tools for recommendations instead of scrolling Google.
-              Nobody was checking whether those tools mentioned our clients, or whether what they said was even true.
-            </p>
-          </div>
-          <aside className="md:pt-28"><Note>the goal: a report a bakery owner reads in 3 minutes and actually understands</Note></aside>
-        </section>
-
-        <section className="mt-20">
+        <section className="mt-24">
           <SectionHead title="What I built" tape="dots" tilt={1}>
             <p className="max-w-md text-muted">
               A Claude skill and a master template that turn the month&apos;s data into a finished client page. The data
@@ -240,15 +217,6 @@ export default function SeoReporting() {
           </aside>
         </section>
 
-        <section className="mt-20">
-          <SectionHead title="Choices I made" tape="dots" tilt={1.2} />
-          <div className="grid gap-4 sm:grid-cols-2">
-            {choices.map(([t, p]) => (
-              <Card key={t} title={t}>{p}</Card>
-            ))}
-          </div>
-        </section>
-
         <section className="mt-20 grid gap-10 md:grid-cols-[1fr_15rem]">
           <div>
             <SectionHead title="Turning data into a plan" tape="fiber" tilt={-1} />
@@ -286,18 +254,9 @@ export default function SeoReporting() {
           <aside className="md:pt-28"><Note>nobody fixes a listing twice: decisions first, fixes second, new listings last</Note></aside>
         </section>
 
-        <section className="mt-20 max-w-2xl text-[1.05rem] leading-relaxed">
-          <SectionHead title="My part" tape="squiggle" />
-          <p>
-            I designed the report, wrote the skill that builds it, set up the data flow, and run it every month. I check
-            every AI-written sentence and every number before anything goes out, because a report clients trust is worth
-            more than one that&apos;s fast. The agency&apos;s account manager reviews each report before it goes to the client.
-          </p>
-          <p className="mt-4">Next up: better lead tracking, so the report can count real customers and not just clicks.</p>
-          <a href="/" className="squiggle-link mt-8 inline-block text-sm font-semibold transition hover:text-forest">
-            ← Back to the portfolio
-          </a>
-        </section>
+        <a href="/" className="squiggle-link mt-16 inline-block text-sm font-semibold transition hover:text-forest">
+          ← Back to the portfolio
+        </a>
       </main>
     </div>
   );
