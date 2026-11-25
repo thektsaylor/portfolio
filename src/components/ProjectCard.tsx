@@ -65,7 +65,7 @@ export function ProjectCard({ project }: { project: Project }) {
               rel="noopener noreferrer"
               className="squiggle-link text-sm font-semibold transition hover:text-forest"
             >
-              {link.label} <span className="arrow arrow-ne" aria-hidden>↗</span>
+              {link.label}
             </a>
           ))}
         </div>

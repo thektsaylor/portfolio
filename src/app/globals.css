@@ -369,6 +369,23 @@ body::after {
     repeat-x left bottom / 16px 5px;
 }
 
+/* the squiggle swims sideways on hover, like a little wave */
+@keyframes squiggle-wave {
+  to {
+    background-position-x: 16px;
+  }
+}
+.squiggle-link:hover,
+.squiggle-link:focus-visible {
+  animation: squiggle-wave 0.6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .squiggle-link:hover,
+  .squiggle-link:focus-visible {
+    animation: none;
+  }
+}
+
 /* section titles on a cream label held down with washi tape */
 .washi-label {
   position: relative;

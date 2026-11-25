@@ -3,14 +3,14 @@
 export const site = {
   name: "Kt Saylor",
   domain: "https://ktsaylor.com",
-  role: "Machine learning and UX student working in data visualization and MarTech",
+  role: "Machine learning and UX student working in marketing strategy, data visualization and MarTech",
   intro:
-    "UX and machine learning student, minoring in psychology and marketing. Working as a Marketing Operations Coordinator, turning search data into reports clients read. Before that, I spent years as a creative director and designer, including building the brands from the logo up.",
+    "UX and machine learning student, minoring in psychology and marketing. Working in marketing and strategy at an SEO agency, building the reports and systems that show clients how they turn up on Google and in AI answers. Before that, I spent years as a creative director and designer, including building the brands from the logo up.",
   location: "Northwest Arkansas",
   // meta description, ~150 chars
   description:
-    "Kt Saylor: UX designer and marketing operations coordinator in Northwest Arkansas. Data visualization, SEO reporting, and AI workflows.",
-  jobTitle: "Marketing Operations Coordinator",
+    "Kt Saylor: marketing strategist and UX designer in Northwest Arkansas. SEO and GEO, data visualization, reporting systems, and AI workflows.",
+  jobTitle: "Head of Client Strategy & Systems",
   employer: "SEO Counselors",
   graduation: "Fall 2027",
   headshot: "/headshot.webp",
@@ -26,14 +26,15 @@ export const site = {
 
 export const skills = [
   { group: "Design", items: ["Figma", "Sketch", "UX/UI", "Branding & logo design", "Adobe Creative Suite", "Procreate", "Canva", "CapCut"] },
-  { group: "Data", items: ["Google Search Console", "Google Analytics", "SQL basics", "Power BI", "KPI dashboards"] },
-  { group: "AI", items: ["Machine learning", "Prompt engineering", "APIs & MCP", "Responsible AI"] },
+  { group: "Marketing", items: ["SEO & GEO", "Local SEO", "Google Business Profile", "Citation audits", "Keyword research", "GoHighLevel", "ClickUp"] },
+  { group: "Data", items: ["Google Search Console", "Google Analytics", "DataForSEO", "SQL basics", "Power BI", "KPI dashboards"] },
+  { group: "AI", items: ["Machine learning", "Prompt engineering", "APIs & MCP", "Claude skills & workflows", "Responsible AI"] },
   { group: "Build", items: ["Python (beginner)", "HTML/CSS", "JavaScript", "Webflow", "WordPress", "Squarespace", "Wix", "GitHub", "Claude Code", "System architecture"] },
 ];
 
 export const nowItems = [
-  "Marketing Operations Coordinator at SEO Counselors",
-  "Building a custom MCP server to automate client reporting",
+  "Head of Client Strategy & Systems at SEO Counselors",
+  "Tracking what ChatGPT, Gemini, Perplexity and Claude say about local businesses",
   "B.S. in Digital Technology & Design at A-State, 4.0 GPA",
 ];
 
@@ -41,10 +42,10 @@ export const nowItems = [
 export const experience = [
   {
     years: "2026 – Now",
-    role: "Marketing Operations Coordinator",
+    role: "Head of Client Strategy & Systems",
     org: "SEO Counselors · Bentonville, AR",
     summary:
-      "Build monthly client performance reports from Search Console, Analytics, and GBP Insights data. Manage Google Business Profiles across client accounts, automate posting with GoHighLevel's API features, and check AI-generated reports for accuracy before they reach clients. Currently building a custom MCP server to replace a manual reporting workflow.",
+      "Started as Marketing Operations Coordinator and promoted in November 2026. Build each client's keyword and local search strategy, run the monthly report system I built (search, Maps, competitors, leads, and AI answers), own Google Business Profiles and citation audits for every client, and check every AI-written output before it reaches a client.",
   },
   {
     years: "2020 – 2025",

@@ -39,9 +39,9 @@ export function Contact() {
               <li>
                 <a
                   href={`mailto:${site.email}`}
-                  className="inline-flex items-center gap-3 py-3 font-display text-2xl font-semibold transition hover:text-leaf"
+                  className="squiggle-link inline-flex items-center gap-3 py-3 font-display text-2xl font-semibold transition hover:text-leaf"
                 >
-                  Email <span className="arrow arrow-ne" aria-hidden>↗</span>
+                  Email
                 </a>
               </li>
             )}
@@ -51,9 +51,9 @@ export function Contact() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 py-3 font-display text-2xl font-semibold transition hover:text-leaf"
+                  className="squiggle-link inline-flex items-center gap-3 py-3 font-display text-2xl font-semibold transition hover:text-leaf"
                 >
-                  {link.label} <span className="arrow arrow-ne" aria-hidden>↗</span>
+                  {link.label}
                 </a>
               </li>
             ))}
